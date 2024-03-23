@@ -406,6 +406,26 @@
                                             "type": "string",
                                             "example": ""
                                         },
+                                        "insurance": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "insurance_number": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "allergies": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "medical_conditions": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "medications": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
                                         "created_at": {
                                             "type": "string",
                                             "example": "2023-02-23T00:09:16.000000Z"
@@ -456,8 +476,7 @@
                         "application/json": {
                             "schema": {
                                 "required": [
-                                    "name",
-                                    "department_id"
+                                    "name"
                                 ],
                                 "properties": {
                                     "name": {
@@ -476,6 +495,31 @@
                                         "example": "12/03/2024"
                                     },
                                     "address": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Santo Domingo"
+                                    },
+                                    "insurance": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Senasa"
+                                    },
+                                    "insurance_number": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "0909121"
+                                    },
+                                    "allergies": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Ninguna"
+                                    },
+                                    "medical_conditions": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Santo Domingo"
+                                    },
+                                    "medications": {
                                         "type": "string",
                                         "format": "string",
                                         "example": "Santo Domingo"
@@ -559,6 +603,26 @@
                                             "type": "string",
                                             "example": ""
                                         },
+                                        "insurance": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "insurance_number": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "allergies": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "medical_conditions": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "medications": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
                                         "created_at": {
                                             "type": "string",
                                             "example": "2023-02-23T00:09:16.000000Z"
@@ -638,6 +702,31 @@
                                         "example": "12/03/2024"
                                     },
                                     "address": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Santo Domingo"
+                                    },
+                                    "insurance": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Senasa"
+                                    },
+                                    "insurance_number": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "0909121"
+                                    },
+                                    "allergies": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Ninguna"
+                                    },
+                                    "medical_conditions": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Santo Domingo"
+                                    },
+                                    "medications": {
                                         "type": "string",
                                         "format": "string",
                                         "example": "Santo Domingo"

@@ -24,6 +24,11 @@ class KidController extends Controller
      *              @OA\Property(property="gender", type="string", example=""),
      *              @OA\Property(property="born_date", type="string", example=""),
      *              @OA\Property(property="address", type="string", example=""),
+     *              @OA\Property(property="insurance", type="string", example=""),
+     *              @OA\Property(property="insurance_number", type="string", example=""),
+     *              @OA\Property(property="allergies", type="string", example=""),
+     *              @OA\Property(property="medical_conditions", type="string", example=""),
+     *              @OA\Property(property="medications", type="string", example=""),
      *              @OA\Property(property="created_at", type="string", example="2023-02-23T00:09:16.000000Z"),
      *              @OA\Property(property="updated_at", type="string", example="2023-02-23T12:33:45.000000Z")
      *         )
@@ -67,6 +72,11 @@ class KidController extends Controller
      *              @OA\Property(property="gender", type="string", example=""),
      *              @OA\Property(property="born_date", type="string", example=""),
      *              @OA\Property(property="address", type="string", example=""),
+     *              @OA\Property(property="insurance", type="string", example=""),
+     *              @OA\Property(property="insurance_number", type="string", example=""),
+     *              @OA\Property(property="allergies", type="string", example=""),
+     *              @OA\Property(property="medical_conditions", type="string", example=""),
+     *              @OA\Property(property="medications", type="string", example=""),
      *              @OA\Property(property="created_at", type="string", example="2023-02-23T00:09:16.000000Z"),
      *              @OA\Property(property="updated_at", type="string", example="2023-02-23T12:33:45.000000Z")
      *         )
@@ -101,11 +111,16 @@ class KidController extends Controller
      *      @OA\RequestBody(
      *         required=true,
      *         @OA\JsonContent(
-     *            required={"name","department_id"},
+     *            required={"name"},
      *            @OA\Property(property="name", type="string", format="string", example="Daniel"),
      *            @OA\Property(property="gender", type="string", format="string", example="M"),
      *            @OA\Property(property="born_date", type="string", format="string", example="12/03/2024"),
      *            @OA\Property(property="address", type="string", format="string", example="Santo Domingo"),
+     *            @OA\Property(property="insurance", type="string", format="string", example="Senasa"),
+     *            @OA\Property(property="insurance_number", type="string", format="string", example="0909121"),
+     *            @OA\Property(property="allergies", type="string", format="string", example="Ninguna"),
+     *            @OA\Property(property="medical_conditions", type="string", format="string", example="Santo Domingo"),
+     *            @OA\Property(property="medications", type="string", format="string", example="Santo Domingo"),
      *         ),
      *      ),
      *     @OA\Response(
@@ -147,6 +162,11 @@ class KidController extends Controller
      *            @OA\Property(property="gender", type="string", format="string", example="M"),
      *            @OA\Property(property="born_date", type="string", format="string", example="12/03/2024"),
      *            @OA\Property(property="address", type="string", format="string", example="Santo Domingo"),
+     *            @OA\Property(property="insurance", type="string", format="string", example="Senasa"),
+     *            @OA\Property(property="insurance_number", type="string", format="string", example="0909121"),
+     *            @OA\Property(property="allergies", type="string", format="string", example="Ninguna"),
+     *            @OA\Property(property="medical_conditions", type="string", format="string", example="Santo Domingo"),
+     *            @OA\Property(property="medications", type="string", format="string", example="Santo Domingo"),
      *         ),
      *      ),
      *     @OA\Response(
