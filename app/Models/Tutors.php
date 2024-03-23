@@ -15,8 +15,8 @@ class Tutors extends Model
         'id','kid_id','name','identification','parent','phone','address'
     ];
 
-    public function kid()
-    {
-    	return $this->belongsTo('App\Models\Kids', 'kid_id');
+    public function kids(){
+        return $this->belongsToMany(Kids::class)->withTimestamps();
     }
+
 }

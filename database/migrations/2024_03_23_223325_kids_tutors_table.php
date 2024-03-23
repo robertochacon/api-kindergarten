@@ -11,13 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tutors', function (Blueprint $table) {
+        Schema::create('kids_tutors', function (Blueprint $table) {
             $table->id();
-            $table->string("name")->nullable();
-            $table->string("identification")->nullable();
-            $table->string("parent")->nullable();
-            $table->string("phone")->nullable();
-            $table->string("address")->nullable();
+            $table->unsignedBigInteger('kid_id')->nullable();
+            $table->foreign('kid_id')->references('id')->on('kids');
             $table->timestamps();
         });
     }
@@ -27,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tutors');
+        Schema::dropIfExists('kids_tutors');
     }
 };

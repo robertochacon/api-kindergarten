@@ -15,4 +15,8 @@ class Kids extends Model
         'id','name','gender','born_date','address'
     ];
 
+    public function tutors(){
+        return $this->belongsToMany(Tutors::class)->withTimestamps();
+    }
+
 }
