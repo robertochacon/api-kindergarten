@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\KidController;
+use App\Http\Controllers\TutorsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -25,3 +26,10 @@ Route::get('/kids/{id}/', [KidController::class, 'watch']);
 Route::post('/kids/', [KidController::class, 'register']);
 Route::put('/kids/{id}/', [KidController::class, 'update']);
 Route::delete('/kids/{id}/', [KidController::class, 'delete']);
+
+//tutors
+Route::get('/tutors/', [TutorsController::class, 'index']);
+Route::get('/tutors/{id}/', [TutorsController::class, 'watch']);
+Route::post('/tutors/', [TutorsController::class, 'register']);
+Route::put('/tutors/{id}/', [TutorsController::class, 'update']);
+Route::delete('/tutors/{id}/', [TutorsController::class, 'delete']);

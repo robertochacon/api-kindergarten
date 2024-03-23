@@ -47,11 +47,11 @@ class KidController extends Controller
      /**
      * @OA\Get (
      *     path="/api/kids/{id}",
-     *     operationId="watch_type",
+     *     operationId="watch_kid",
      *     tags={"Kids"},
      *     security={{ "apiAuth": {} }},
-     *     summary="See type",
-     *     description="See type",
+     *     summary="See kid",
+     *     description="See kid",
      *    @OA\Parameter(
      *         in="path",
      *         name="id",
@@ -93,11 +93,11 @@ class KidController extends Controller
     /**
      * @OA\Post(
      *      path="/api/kids",
-     *      operationId="store_type",
+     *      operationId="store_kid",
      *      tags={"Kids"},
      *     security={{ "apiAuth": {} }},
-     *      summary="Store type",
-     *      description="Store type",
+     *      summary="Store kid",
+     *      description="Store kid",
      *      @OA\RequestBody(
      *         required=true,
      *         @OA\JsonContent(
@@ -128,11 +128,11 @@ class KidController extends Controller
     /**
      * @OA\Put(
      *     path="/api/kids/{id}",
-     *     operationId="update_type",
+     *     operationId="update_kid",
      *     tags={"Kids"},
      *     security={{ "apiAuth": {} }},
-     *     summary="Update type",
-     *     description="Update type",
+     *     summary="Update kid",
+     *     description="Update kid",
      *     @OA\Parameter(
      *         in="path",
      *         name="id",
@@ -172,11 +172,11 @@ class KidController extends Controller
     /**
      * @OA\Delete(
      *      path="/api/kids/{id}",
-     *      operationId="delete_type",
+     *      operationId="delete_kid",
      *      tags={"Kids"},
      *     security={{ "apiAuth": {} }},
-     *      summary="Delete type",
-     *      description="Delete type",
+     *      summary="Delete kid",
+     *      description="Delete kid",
      *    @OA\Parameter(
      *         in="path",
      *         name="id",
@@ -195,7 +195,7 @@ class KidController extends Controller
 
     public function delete($id){
         try{
-            $docuemnts = Kids::destroy($id);
+            Kids::destroy($id);
             return response()->json(["data"=>"ok"],200);
         }catch (Exception $e) {
             return response()->json(["data"=>"none"],200);
