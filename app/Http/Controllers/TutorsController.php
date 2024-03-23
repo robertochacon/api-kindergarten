@@ -40,7 +40,7 @@ class TutorsController extends Controller
      */
     public function index()
     {
-        $tutors = Tutors::paginate(10);
+        $tutors = Tutors::with('kids')->paginate(10);
         return response()->json(["data"=>$tutors],200);
     }
 
@@ -85,7 +85,7 @@ class TutorsController extends Controller
 
     public function watch($id){
         try{
-            $tutor = Tutors::with('kid')->find($id);
+            $tutor = Tutors::with('kids')->find($id);
             return response()->json(["data"=>$tutor],200);
         }catch (Exception $e) {
             return response()->json(["data"=>"none"],200);

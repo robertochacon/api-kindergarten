@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthorizedPersonsController;
 use App\Http\Controllers\KidController;
 use App\Http\Controllers\TutorsController;
 use Illuminate\Http\Request;
@@ -33,3 +34,10 @@ Route::get('/tutors/{id}/', [TutorsController::class, 'watch']);
 Route::post('/tutors/', [TutorsController::class, 'register']);
 Route::put('/tutors/{id}/', [TutorsController::class, 'update']);
 Route::delete('/tutors/{id}/', [TutorsController::class, 'delete']);
+
+//authorizations
+Route::get('/authorizations/', [AuthorizedPersonsController::class, 'index']);
+Route::get('/authorizations/{id}/', [AuthorizedPersonsController::class, 'watch']);
+Route::post('/authorizations/', [AuthorizedPersonsController::class, 'register']);
+Route::put('/authorizations/{id}/', [AuthorizedPersonsController::class, 'update']);
+Route::delete('/authorizations/{id}/', [AuthorizedPersonsController::class, 'delete']);

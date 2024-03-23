@@ -2,27 +2,29 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Kids;
+use App\Models\Authorizations;
 use Illuminate\Http\Request;
 
-class KidController extends Controller
+class AuthorizedPersonsController extends Controller
 {
+
     /**
      * @OA\Get (
-     *     path="/api/kids",
-     *      operationId="all_kids",
-     *     tags={"Kids"},
+     *     path="/api/authorizations",
+     *      operationId="all_authorization",
+     *     tags={"Authorizations"},
      *     security={{ "apiAuth": {} }},
-     *     summary="All kids",
-     *     description="All kids",
+     *     summary="All authorizations",
+     *     description="All authorizations",
      *     @OA\Response(
      *         response=200,
      *         description="OK",
      *         @OA\JsonContent(
      *              @OA\Property(property="id", type="number", example=1),
      *              @OA\Property(property="name", type="string", example=""),
-     *              @OA\Property(property="gender", type="string", example=""),
-     *              @OA\Property(property="born_date", type="string", example=""),
+     *              @OA\Property(property="identification", type="string", example=""),
+     *              @OA\Property(property="parent", type="string", example=""),
+     *              @OA\Property(property="phone", type="string", example=""),
      *              @OA\Property(property="address", type="string", example=""),
      *              @OA\Property(property="created_at", type="string", example="2023-02-23T00:09:16.000000Z"),
      *              @OA\Property(property="updated_at", type="string", example="2023-02-23T12:33:45.000000Z")
@@ -39,19 +41,19 @@ class KidController extends Controller
      */
     public function index()
     {
-        $kids = Kids::with('tutors')->paginate(10);
-        return response()->json(["data"=>$kids],200);
+        $authorizations = Authorizations::with('kids')->paginate(10);
+        return response()->json(["data"=>$authorizations],200);
     }
 
 
      /**
      * @OA\Get (
-     *     path="/api/kids/{id}",
-     *     operationId="watch_kid",
-     *     tags={"Kids"},
+     *     path="/api/authorizations/{id}",
+     *     operationId="watch_authorization",
+     *     tags={"Authorizations"},
      *     security={{ "apiAuth": {} }},
-     *     summary="See kid",
-     *     description="See kid",
+     *     summary="See authorization",
+     *     description="See authorization",
      *    @OA\Parameter(
      *         in="path",
      *         name="id",
@@ -64,8 +66,9 @@ class KidController extends Controller
      *         @OA\JsonContent(
      *              @OA\Property(property="id", type="number", example=1),
      *              @OA\Property(property="name", type="string", example=""),
-     *              @OA\Property(property="gender", type="string", example=""),
-     *              @OA\Property(property="born_date", type="string", example=""),
+     *              @OA\Property(property="identification", type="string", example=""),
+     *              @OA\Property(property="parent", type="string", example=""),
+     *              @OA\Property(property="phone", type="string", example=""),
      *              @OA\Property(property="address", type="string", example=""),
      *              @OA\Property(property="created_at", type="string", example="2023-02-23T00:09:16.000000Z"),
      *              @OA\Property(property="updated_at", type="string", example="2023-02-23T12:33:45.000000Z")
@@ -83,8 +86,8 @@ class KidController extends Controller
 
     public function watch($id){
         try{
-            $kids = Kids::with('tutors')->find($id);
-            return response()->json(["data"=>$kids],200);
+            $authorization = Authorizations::with('kids')->find($id);
+            return response()->json(["data"=>$authorization],200);
         }catch (Exception $e) {
             return response()->json(["data"=>"none"],200);
         }
@@ -92,20 +95,21 @@ class KidController extends Controller
 
     /**
      * @OA\Post(
-     *      path="/api/kids",
-     *      operationId="store_kid",
-     *      tags={"Kids"},
+     *      path="/api/authorizations",
+     *      operationId="store_authorization",
+     *      tags={"Authorizations"},
      *     security={{ "apiAuth": {} }},
-     *      summary="Store kid",
-     *      description="Store kid",
+     *      summary="Store authorization",
+     *      description="Store authorization",
      *      @OA\RequestBody(
      *         required=true,
      *         @OA\JsonContent(
-     *            required={"name","department_id"},
-     *            @OA\Property(property="name", type="string", format="string", example="Daniel"),
-     *            @OA\Property(property="gender", type="string", format="string", example="M"),
-     *            @OA\Property(property="born_date", type="string", format="string", example="12/03/2024"),
-     *            @OA\Property(property="address", type="string", format="string", example="Santo Domingo"),
+     *            required={"name"},
+     *            @OA\Property(property="name", type="string", format="string", example=""),
+     *            @OA\Property(property="identification", type="string", format="string", example=""),
+     *            @OA\Property(property="parent", type="string", format="string", example=""),
+     *            @OA\Property(property="phone", type="string", format="string", example=""),
+     *            @OA\Property(property="address", type="string", format="string", example=""),
      *         ),
      *      ),
      *     @OA\Response(
@@ -120,19 +124,19 @@ class KidController extends Controller
 
     public function register(Request $request)
     {
-        $kids = new Kids(request()->all());
-        $kids->save();
-        return response()->json(["data"=>$kids],200);
+        $authorization = new authorizations(request()->all());
+        $authorization->save();
+        return response()->json(["data"=>$authorization],200);
     }
 
     /**
      * @OA\Put(
-     *     path="/api/kids/{id}",
-     *     operationId="update_kid",
-     *     tags={"Kids"},
+     *     path="/api/authorizations/{id}",
+     *     operationId="update_authorization",
+     *     tags={"Authorizations"},
      *     security={{ "apiAuth": {} }},
-     *     summary="Update kid",
-     *     description="Update kid",
+     *     summary="Update authorization",
+     *     description="Update authorization",
      *     @OA\Parameter(
      *         in="path",
      *         name="id",
@@ -143,10 +147,11 @@ class KidController extends Controller
      *         required=true,
      *         @OA\JsonContent(
      *            required={"name"},
-     *            @OA\Property(property="name", type="string", format="string", example="Daniel"),
-     *            @OA\Property(property="gender", type="string", format="string", example="M"),
-     *            @OA\Property(property="born_date", type="string", format="string", example="12/03/2024"),
-     *            @OA\Property(property="address", type="string", format="string", example="Santo Domingo"),
+     *            @OA\Property(property="name", type="string", format="string", example=""),
+     *            @OA\Property(property="identification", type="string", format="string", example=""),
+     *            @OA\Property(property="parent", type="string", format="string", example=""),
+     *            @OA\Property(property="phone", type="string", format="string", example=""),
+     *            @OA\Property(property="address", type="string", format="string", example=""),
      *         ),
      *      ),
      *     @OA\Response(
@@ -161,8 +166,8 @@ class KidController extends Controller
 
     public function update(Request $request, $id){
         try{
-            $kids = Kids::where('id',$id)->first();
-            $kids->update($request->all());
+            $authorization = Authorizations::where('id',$id)->first();
+            $authorization->update($request->all());
             return response()->json(["data"=>"ok"],200);
         }catch (Exception $e) {
             return response()->json(["data"=>"none"],200);
@@ -171,12 +176,12 @@ class KidController extends Controller
 
     /**
      * @OA\Delete(
-     *      path="/api/kids/{id}",
-     *      operationId="delete_kid",
-     *      tags={"Kids"},
+     *      path="/api/authorizations/{id}",
+     *      operationId="delete_authorization",
+     *      tags={"Authorizations"},
      *     security={{ "apiAuth": {} }},
-     *      summary="Delete kid",
-     *      description="Delete kid",
+     *      summary="Delete authorization",
+     *      description="Delete authorization",
      *    @OA\Parameter(
      *         in="path",
      *         name="id",
@@ -195,10 +200,11 @@ class KidController extends Controller
 
     public function delete($id){
         try{
-            Kids::destroy($id);
+            Authorizations::destroy($id);
             return response()->json(["data"=>"ok"],200);
         }catch (Exception $e) {
             return response()->json(["data"=>"none"],200);
         }
     }
+
 }
