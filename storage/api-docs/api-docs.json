@@ -8,10 +8,10 @@
         "/api/authorizations": {
             "get": {
                 "tags": [
-                    "Authorizations"
+                    "Authorized persons"
                 ],
-                "summary": "All tutors",
-                "description": "All tutors",
+                "summary": "All authorizations",
+                "description": "All authorizations",
                 "operationId": "all_authorization",
                 "responses": {
                     "200": {
@@ -83,7 +83,7 @@
             },
             "post": {
                 "tags": [
-                    "Authorizations"
+                    "Authorized persons"
                 ],
                 "summary": "Store authorization",
                 "description": "Store authorization",
@@ -159,7 +159,7 @@
         "/api/authorizations/{id}": {
             "get": {
                 "tags": [
-                    "Authorizations"
+                    "Authorized persons"
                 ],
                 "summary": "See authorization",
                 "description": "See authorization",
@@ -244,7 +244,7 @@
             },
             "put": {
                 "tags": [
-                    "Authorizations"
+                    "Authorized persons"
                 ],
                 "summary": "Update authorization",
                 "description": "Update authorization",
@@ -328,7 +328,7 @@
             },
             "delete": {
                 "tags": [
-                    "Authorizations"
+                    "Authorized persons"
                 ],
                 "summary": "Delete authorization",
                 "description": "Delete authorization",

@@ -12,7 +12,7 @@ class AuthorizedPersonsController extends Controller
      * @OA\Get (
      *     path="/api/authorizations",
      *      operationId="all_authorization",
-     *     tags={"Authorizations"},
+     *     tags={"Authorized persons"},
      *     security={{ "apiAuth": {} }},
      *     summary="All authorizations",
      *     description="All authorizations",
@@ -50,7 +50,7 @@ class AuthorizedPersonsController extends Controller
      * @OA\Get (
      *     path="/api/authorizations/{id}",
      *     operationId="watch_authorization",
-     *     tags={"Authorizations"},
+     *     tags={"Authorized persons"},
      *     security={{ "apiAuth": {} }},
      *     summary="See authorization",
      *     description="See authorization",
@@ -97,7 +97,7 @@ class AuthorizedPersonsController extends Controller
      * @OA\Post(
      *      path="/api/authorizations",
      *      operationId="store_authorization",
-     *      tags={"Authorizations"},
+     *      tags={"Authorized persons"},
      *     security={{ "apiAuth": {} }},
      *      summary="Store authorization",
      *      description="Store authorization",
@@ -133,7 +133,7 @@ class AuthorizedPersonsController extends Controller
      * @OA\Put(
      *     path="/api/authorizations/{id}",
      *     operationId="update_authorization",
-     *     tags={"Authorizations"},
+     *     tags={"Authorized persons"},
      *     security={{ "apiAuth": {} }},
      *     summary="Update authorization",
      *     description="Update authorization",
@@ -178,7 +178,7 @@ class AuthorizedPersonsController extends Controller
      * @OA\Delete(
      *      path="/api/authorizations/{id}",
      *      operationId="delete_authorization",
-     *      tags={"Authorizations"},
+     *      tags={"Authorized persons"},
      *     security={{ "apiAuth": {} }},
      *      summary="Delete authorization",
      *      description="Delete authorization",
