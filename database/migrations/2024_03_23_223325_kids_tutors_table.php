@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('kids_tutors', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('kid_id')->nullable();
-            $table->foreign('kid_id')->references('id')->on('kids');
-            $table->unsignedBigInteger('tutor_id')->nullable();
-            $table->foreign('tutor_id')->references('id')->on('tutors');
+            $table->unsignedBigInteger('kids_id')->nullable();
+            $table->foreign('kids_id')->references('id')->on('kids');
+            $table->unsignedBigInteger('tutors_id')->nullable();
+            $table->foreign('tutors_id')->references('id')->on('tutors');
             $table->timestamps();
         });
     }

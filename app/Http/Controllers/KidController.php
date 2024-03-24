@@ -113,7 +113,7 @@ class KidController extends Controller
      *         @OA\JsonContent(
      *            required={"name"},
      *            @OA\Property(property="name", type="string", format="string", example="Daniel"),
-     *            @OA\Property(property="gender", type="string", format="string", example="M"),
+     *            @OA\Property(property="gender", type="string", format="string", example="m"),
      *            @OA\Property(property="born_date", type="string", format="string", example="12/03/2024"),
      *            @OA\Property(property="address", type="string", format="string", example="Santo Domingo"),
      *            @OA\Property(property="insurance", type="string", format="string", example="Senasa"),
