@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('kids', function (Blueprint $table) {
             $table->id();
             $table->string("name")->nullable();
-            $table->enum("gender",["m","f"])->default('m');
+            $table->enum("gender",["Masculino","Femenino"])->default("Masculino");
             $table->date("born_date")->nullable();
             $table->string("address")->nullable();
             $table->string("insurance")->nullable();
