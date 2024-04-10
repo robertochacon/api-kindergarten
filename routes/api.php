@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthorizedPersonsController;
 use App\Http\Controllers\KidController;
+use App\Http\Controllers\ParentsController;
 use App\Http\Controllers\TutorsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -41,3 +42,10 @@ Route::get('/authorizations/{id}/', [AuthorizedPersonsController::class, 'watch'
 Route::post('/authorizations/', [AuthorizedPersonsController::class, 'register']);
 Route::put('/authorizations/{id}/', [AuthorizedPersonsController::class, 'update']);
 Route::delete('/authorizations/{id}/', [AuthorizedPersonsController::class, 'delete']);
+
+//parents
+Route::get('/parents/', [ParentsController::class, 'index']);
+Route::get('/parents/{id}/', [ParentsController::class, 'watch']);
+Route::post('/parents/', [ParentsController::class, 'register']);
+Route::put('/parents/{id}/', [ParentsController::class, 'update']);
+Route::delete('/parents/{id}/', [ParentsController::class, 'delete']);

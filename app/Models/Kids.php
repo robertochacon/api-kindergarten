@@ -9,7 +9,7 @@ class Kids extends Model
 {
     use HasFactory;
 
-    protected $table = 'tutors';
+    protected $table = 'kids';
 
     protected $fillable = [
         'id','name','gender','born_date','address','insurance','insurance_number','allergies','medical_conditions','medications'

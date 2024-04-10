@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Tutors;
+use App\Models\Parents;
 use Illuminate\Http\Request;
 
-class TutorsController extends Controller
+class ParentsController extends Controller
 {
-        /**
+    /**
      * @OA\Get (
-     *     path="/api/tutors",
-     *      operationId="all_tutor",
-     *     tags={"Tutors"},
+     *     path="/api/parents",
+     *      operationId="all_parents",
+     *     tags={"Parents"},
      *     security={{ "apiAuth": {} }},
-     *     summary="All tutors",
-     *     description="All tutors",
+     *     summary="All parents",
+     *     description="All parents",
      *     @OA\Response(
      *         response=200,
      *         description="OK",
@@ -40,19 +40,19 @@ class TutorsController extends Controller
      */
     public function index()
     {
-        $tutors = Tutors::with('kids')->paginate(10);
+        $tutors = Parents::with('kids')->paginate(10);
         return response()->json(["data"=>$tutors],200);
     }
 
 
      /**
      * @OA\Get (
-     *     path="/api/tutors/{id}",
-     *     operationId="watch_tutor",
-     *     tags={"Tutors"},
+     *     path="/api/parents/{id}",
+     *     operationId="watch_parents",
+     *     tags={"Parents"},
      *     security={{ "apiAuth": {} }},
-     *     summary="See tutor",
-     *     description="See tutor",
+     *     summary="See parent",
+     *     description="See parent",
      *    @OA\Parameter(
      *         in="path",
      *         name="id",
@@ -85,7 +85,7 @@ class TutorsController extends Controller
 
     public function watch($id){
         try{
-            $tutor = Tutors::with('kids')->find($id);
+            $tutor = Parents::with('kids')->find($id);
             return response()->json(["data"=>$tutor],200);
         }catch (Exception $e) {
             return response()->json(["data"=>"none"],200);
@@ -94,12 +94,12 @@ class TutorsController extends Controller
 
     /**
      * @OA\Post(
-     *      path="/api/tutors",
-     *      operationId="store_tutor",
-     *      tags={"Tutors"},
+     *      path="/api/parents",
+     *      operationId="store_parents",
+     *      tags={"Parents"},
      *     security={{ "apiAuth": {} }},
-     *      summary="Store tutor",
-     *      description="Store tutor",
+     *      summary="Store parent",
+     *      description="Store parent",
      *      @OA\RequestBody(
      *         required=true,
      *         @OA\JsonContent(
@@ -124,19 +124,19 @@ class TutorsController extends Controller
 
     public function register(Request $request)
     {
-        $tutor = new Tutors(request()->all());
+        $tutor = new Parents(request()->all());
         $tutor->save();
         return response()->json(["data"=>$tutor],200);
     }
 
     /**
      * @OA\Put(
-     *     path="/api/tutors/{id}",
-     *     operationId="update_tutor",
-     *     tags={"Tutors"},
+     *     path="/api/parents/{id}",
+     *     operationId="update_parents",
+     *     tags={"Parents"},
      *     security={{ "apiAuth": {} }},
-     *     summary="Update tutor",
-     *     description="Update tutor",
+     *     summary="Update parent",
+     *     description="Update parent",
      *     @OA\Parameter(
      *         in="path",
      *         name="id",
@@ -167,7 +167,7 @@ class TutorsController extends Controller
 
     public function update(Request $request, $id){
         try{
-            $tutor = Tutors::where('id',$id)->first();
+            $tutor = Parents::where('id',$id)->first();
             $tutor->update($request->all());
             return response()->json(["data"=>"ok"],200);
         }catch (Exception $e) {
@@ -177,12 +177,12 @@ class TutorsController extends Controller
 
     /**
      * @OA\Delete(
-     *      path="/api/tutors/{id}",
-     *      operationId="delete_tutor",
-     *      tags={"Tutors"},
+     *      path="/api/parents/{id}",
+     *      operationId="delete_parents",
+     *      tags={"Parents"},
      *     security={{ "apiAuth": {} }},
-     *      summary="Delete tutor",
-     *      description="Delete tutor",
+     *      summary="Delete parent",
+     *      description="Delete parent",
      *    @OA\Parameter(
      *         in="path",
      *         name="id",
@@ -201,7 +201,7 @@ class TutorsController extends Controller
 
     public function delete($id){
         try{
-            Tutors::destroy($id);
+            Parents::destroy($id);
             return response()->json(["data"=>"ok"],200);
         }catch (Exception $e) {
             return response()->json(["data"=>"none"],200);
