@@ -394,6 +394,10 @@
                                             "type": "string",
                                             "example": ""
                                         },
+                                        "lastname": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
                                         "gender": {
                                             "type": "string",
                                             "example": ""
@@ -483,6 +487,11 @@
                                         "type": "string",
                                         "format": "string",
                                         "example": "Daniel"
+                                    },
+                                    "lastname": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Chacon"
                                     },
                                     "gender": {
                                         "type": "string",
@@ -591,6 +600,10 @@
                                             "type": "string",
                                             "example": ""
                                         },
+                                        "lastname": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
                                         "gender": {
                                             "type": "string",
                                             "example": ""
@@ -690,6 +703,11 @@
                                         "type": "string",
                                         "format": "string",
                                         "example": "Daniel"
+                                    },
+                                    "lastname": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Chacon"
                                     },
                                     "gender": {
                                         "type": "string",
@@ -832,6 +850,10 @@
                                             "type": "string",
                                             "example": ""
                                         },
+                                        "lastname": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
                                         "identification": {
                                             "type": "string",
                                             "example": ""
@@ -905,6 +927,11 @@
                                         "type": "string",
                                         "format": "string",
                                         "example": ""
+                                    },
+                                    "lastname": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Chacon"
                                     },
                                     "identification": {
                                         "type": "string",
@@ -998,6 +1025,10 @@
                                             "type": "string",
                                             "example": ""
                                         },
+                                        "lastname": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
                                         "identification": {
                                             "type": "string",
                                             "example": ""
@@ -1081,6 +1112,11 @@
                                         "type": "string",
                                         "format": "string",
                                         "example": ""
+                                    },
+                                    "lastname": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Chacon"
                                     },
                                     "identification": {
                                         "type": "string",
@@ -1208,6 +1244,10 @@
                                             "type": "string",
                                             "example": ""
                                         },
+                                        "lastname": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
                                         "identification": {
                                             "type": "string",
                                             "example": ""
@@ -1281,6 +1321,11 @@
                                         "type": "string",
                                         "format": "string",
                                         "example": ""
+                                    },
+                                    "lastname": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Chacon"
                                     },
                                     "identification": {
                                         "type": "string",
@@ -1374,6 +1419,10 @@
                                             "type": "string",
                                             "example": ""
                                         },
+                                        "lastname": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
                                         "identification": {
                                             "type": "string",
                                             "example": ""
@@ -1457,6 +1506,11 @@
                                         "type": "string",
                                         "format": "string",
                                         "example": ""
+                                    },
+                                    "lastname": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Chacon"
                                     },
                                     "identification": {
                                         "type": "string",

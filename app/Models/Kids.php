@@ -12,7 +12,7 @@ class Kids extends Model
     protected $table = 'kids';
 
     protected $fillable = [
-        'id','name','gender','born_date','address','insurance','insurance_number','allergies','medical_conditions','medications'
+        'id','name','lastname','gender','born_date','address','insurance','insurance_number','allergies','medical_conditions','medications'
     ];
 
     public function tutors(){
