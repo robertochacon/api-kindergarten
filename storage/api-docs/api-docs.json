@@ -100,27 +100,32 @@
                                     "name": {
                                         "type": "string",
                                         "format": "string",
-                                        "example": ""
+                                        "example": "Marcos"
+                                    },
+                                    "last_name": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Garcia"
                                     },
                                     "identification": {
                                         "type": "string",
                                         "format": "string",
-                                        "example": ""
+                                        "example": "10101010101"
                                     },
                                     "parent": {
                                         "type": "string",
                                         "format": "string",
-                                        "example": ""
+                                        "example": "Tio"
                                     },
                                     "phone": {
                                         "type": "string",
                                         "format": "string",
-                                        "example": ""
+                                        "example": "8094533344"
                                     },
                                     "address": {
                                         "type": "string",
                                         "format": "string",
-                                        "example": ""
+                                        "example": "Here"
                                     }
                                 },
                                 "type": "object"
@@ -271,27 +276,32 @@
                                     "name": {
                                         "type": "string",
                                         "format": "string",
-                                        "example": ""
+                                        "example": "Marcos"
+                                    },
+                                    "last_name": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Garcia"
                                     },
                                     "identification": {
                                         "type": "string",
                                         "format": "string",
-                                        "example": ""
+                                        "example": "10101010101"
                                     },
                                     "parent": {
                                         "type": "string",
                                         "format": "string",
-                                        "example": ""
+                                        "example": "Tio"
                                     },
                                     "phone": {
                                         "type": "string",
                                         "format": "string",
-                                        "example": ""
+                                        "example": "8094533344"
                                     },
                                     "address": {
                                         "type": "string",
                                         "format": "string",
-                                        "example": ""
+                                        "example": "Here"
                                     }
                                 },
                                 "type": "object"
@@ -394,7 +404,7 @@
                                             "type": "string",
                                             "example": ""
                                         },
-                                        "lastname": {
+                                        "last_name": {
                                             "type": "string",
                                             "example": ""
                                         },
@@ -483,12 +493,17 @@
                                     "name"
                                 ],
                                 "properties": {
+                                    "authorization_id": {
+                                        "type": "integer",
+                                        "format": "integer",
+                                        "example": ""
+                                    },
                                     "name": {
                                         "type": "string",
                                         "format": "string",
                                         "example": "Daniel"
                                     },
-                                    "lastname": {
+                                    "last_name": {
                                         "type": "string",
                                         "format": "string",
                                         "example": "Chacon"
@@ -600,7 +615,7 @@
                                             "type": "string",
                                             "example": ""
                                         },
-                                        "lastname": {
+                                        "last_name": {
                                             "type": "string",
                                             "example": ""
                                         },
@@ -704,7 +719,7 @@
                                         "format": "string",
                                         "example": "Daniel"
                                     },
-                                    "lastname": {
+                                    "last_name": {
                                         "type": "string",
                                         "format": "string",
                                         "example": "Chacon"
@@ -850,7 +865,7 @@
                                             "type": "string",
                                             "example": ""
                                         },
-                                        "lastname": {
+                                        "last_name": {
                                             "type": "string",
                                             "example": ""
                                         },
@@ -928,7 +943,7 @@
                                         "format": "string",
                                         "example": ""
                                     },
-                                    "lastname": {
+                                    "last_name": {
                                         "type": "string",
                                         "format": "string",
                                         "example": "Chacon"
@@ -1025,7 +1040,7 @@
                                             "type": "string",
                                             "example": ""
                                         },
-                                        "lastname": {
+                                        "last_name": {
                                             "type": "string",
                                             "example": ""
                                         },
@@ -1113,7 +1128,7 @@
                                         "format": "string",
                                         "example": ""
                                     },
-                                    "lastname": {
+                                    "last_name": {
                                         "type": "string",
                                         "format": "string",
                                         "example": "Chacon"
@@ -1244,7 +1259,7 @@
                                             "type": "string",
                                             "example": ""
                                         },
-                                        "lastname": {
+                                        "last_name": {
                                             "type": "string",
                                             "example": ""
                                         },
@@ -1322,7 +1337,7 @@
                                         "format": "string",
                                         "example": ""
                                     },
-                                    "lastname": {
+                                    "last_name": {
                                         "type": "string",
                                         "format": "string",
                                         "example": "Chacon"
@@ -1419,7 +1434,7 @@
                                             "type": "string",
                                             "example": ""
                                         },
-                                        "lastname": {
+                                        "last_name": {
                                             "type": "string",
                                             "example": ""
                                         },
@@ -1507,7 +1522,7 @@
                                         "format": "string",
                                         "example": ""
                                     },
-                                    "lastname": {
+                                    "last_name": {
                                         "type": "string",
                                         "format": "string",
                                         "example": "Chacon"

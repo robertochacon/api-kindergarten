@@ -12,7 +12,7 @@ class Authorizations extends Model
     protected $table = 'authorizations';
 
     protected $fillable = [
-        'id','kid_id','name','lastname','identification','parent','phone','address'
+        'id','kid_id','name','last_name','identification','parent','phone','address'
     ];
 
     public function kids(){

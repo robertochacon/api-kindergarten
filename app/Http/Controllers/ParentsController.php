@@ -21,7 +21,7 @@ class ParentsController extends Controller
      *         @OA\JsonContent(
      *              @OA\Property(property="id", type="number", example=1),
      *              @OA\Property(property="name", type="string", example=""),
-     *              @OA\Property(property="lastname", type="string", example=""),
+     *              @OA\Property(property="last_name", type="string", example=""),
      *              @OA\Property(property="identification", type="string", example=""),
      *              @OA\Property(property="parent", type="string", example=""),
      *              @OA\Property(property="phone", type="string", example=""),
@@ -66,7 +66,7 @@ class ParentsController extends Controller
      *         @OA\JsonContent(
      *              @OA\Property(property="id", type="number", example=1),
      *              @OA\Property(property="name", type="string", example=""),
-     *              @OA\Property(property="lastname", type="string", example=""),
+     *              @OA\Property(property="last_name", type="string", example=""),
      *              @OA\Property(property="identification", type="string", example=""),
      *              @OA\Property(property="parent", type="string", example=""),
      *              @OA\Property(property="phone", type="string", example=""),
@@ -107,7 +107,7 @@ class ParentsController extends Controller
      *         @OA\JsonContent(
      *            required={"name"},
      *            @OA\Property(property="name", type="string", format="string", example=""),
-     *            @OA\Property(property="lastname", type="string", format="string", example="Chacon"),
+     *            @OA\Property(property="last_name", type="string", format="string", example="Chacon"),
      *            @OA\Property(property="identification", type="string", format="string", example=""),
      *            @OA\Property(property="parent", type="string", format="string", example=""),
      *            @OA\Property(property="phone", type="string", format="string", example=""),
@@ -151,7 +151,7 @@ class ParentsController extends Controller
      *         @OA\JsonContent(
      *            required={"name"},
      *            @OA\Property(property="name", type="string", format="string", example=""),
-     *            @OA\Property(property="lastname", type="string", format="string", example="Chacon"),
+     *            @OA\Property(property="last_name", type="string", format="string", example="Chacon"),
      *            @OA\Property(property="identification", type="string", format="string", example=""),
      *            @OA\Property(property="parent", type="string", format="string", example=""),
      *            @OA\Property(property="phone", type="string", format="string", example=""),
