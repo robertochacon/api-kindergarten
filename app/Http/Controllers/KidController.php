@@ -45,7 +45,7 @@ class KidController extends Controller
      */
     public function index()
     {
-        $kids = Kids::with('tutors')->paginate(10);
+        $kids = Kids::with('tutors')->with('parents')->with('authorizations')->paginate(10);
         return response()->json(["data"=>$kids],200);
     }
 
@@ -95,7 +95,7 @@ class KidController extends Controller
 
     public function watch($id){
         try{
-            $kids = Kids::with('tutors')->find($id);
+            $kids = Kids::with('tutors')->with('parents')->with('authorizations')->find($id);
             return response()->json(["data"=>$kids],200);
         }catch (Exception $e) {
             return response()->json(["data"=>"none"],200);

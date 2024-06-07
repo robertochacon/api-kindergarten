@@ -16,15 +16,15 @@ class Kids extends Model
     ];
 
     public function tutors(){
-        return $this->belongsToMany(Tutors::class)->withTimestamps();
+        return $this->belongsToMany(Tutors::class, 'kids_tutors', 'kid_id', 'tutor_id')->withTimestamps();
     }
 
     public function parents(){
-        return $this->belongsToMany(Parents::class)->withTimestamps();
+        return $this->belongsToMany(Parents::class, 'kids_parents', 'kid_id', 'parent_id')->withTimestamps();
     }
 
     public function authorizations(){
-        return $this->belongsToMany(Authorizations::class)->withTimestamps();
+        return $this->belongsToMany(Authorizations::class, 'kids_authorizations', 'kid_id', 'authorization_id')->withTimestamps();
     }
 
 }

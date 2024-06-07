@@ -97,6 +97,11 @@
                                     "name"
                                 ],
                                 "properties": {
+                                    "kid_id": {
+                                        "type": "integer",
+                                        "format": "integer",
+                                        "example": "1"
+                                    },
                                     "name": {
                                         "type": "string",
                                         "format": "string",
@@ -210,6 +215,11 @@
                                             "type": "string",
                                             "example": ""
                                         },
+                                        "kid_id": {
+                                            "type": "integer",
+                                            "format": "integer",
+                                            "example": "1"
+                                        },
                                         "created_at": {
                                             "type": "string",
                                             "example": "2023-02-23T00:09:16.000000Z"
@@ -273,6 +283,11 @@
                                     "name"
                                 ],
                                 "properties": {
+                                    "kid_id": {
+                                        "type": "integer",
+                                        "format": "integer",
+                                        "example": "1"
+                                    },
                                     "name": {
                                         "type": "string",
                                         "format": "string",

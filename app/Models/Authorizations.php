@@ -12,10 +12,10 @@ class Authorizations extends Model
     protected $table = 'authorizations';
 
     protected $fillable = [
-        'id','kid_id','name','last_name','identification','parent','phone','address'
+        'id','name','last_name','identification','parent','phone','address'
     ];
 
     public function kids(){
-        return $this->belongsToMany(Kids::class)->withTimestamps();
+        return $this->belongsToMany(Kids::class, 'kids_authorizations', 'authorization_id', 'kid_id')->withTimestamps();
     }
 }
