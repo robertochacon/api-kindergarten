@@ -1636,6 +1636,11 @@
                                             "type": "string",
                                             "example": ""
                                         },
+                                        "military": {
+                                            "type": "boolean",
+                                            "format": "boolean",
+                                            "example": ""
+                                        },
                                         "created_at": {
                                             "type": "string",
                                             "example": "2023-02-23T00:09:16.000000Z"
@@ -1825,6 +1830,11 @@
                                         "address": {
                                             "type": "string",
                                             "example": ""
+                                        },
+                                        "military": {
+                                            "type": "boolean",
+                                            "format": "boolean",
+                                            "example": "true"
                                         },
                                         "created_at": {
                                             "type": "string",

@@ -27,6 +27,7 @@ class TutorsController extends Controller
      *              @OA\Property(property="phone", type="string", example=""),
      *              @OA\Property(property="residence_phone", type="string", format="string", example=""),
      *              @OA\Property(property="address", type="string", example=""),
+     *              @OA\Property(property="military", type="boolean", format="boolean", example=""),
      *              @OA\Property(property="created_at", type="string", example="2023-02-23T00:09:16.000000Z"),
      *              @OA\Property(property="updated_at", type="string", example="2023-02-23T12:33:45.000000Z")
      *         )
@@ -55,7 +56,7 @@ class TutorsController extends Controller
      *     security={{ "apiAuth": {} }},
      *     summary="See tutor",
      *     description="See tutor",
-     *    @OA\Parameter(
+     *     @OA\Parameter(
      *         in="path",
      *         name="id",
      *         required=true,
@@ -73,6 +74,7 @@ class TutorsController extends Controller
      *              @OA\Property(property="phone", type="string", example=""),
      *              @OA\Property(property="residence_phone", type="string", format="string", example=""),
      *              @OA\Property(property="address", type="string", example=""),
+     *              @OA\Property(property="military", type="boolean", format="boolean", example="true"),
      *              @OA\Property(property="created_at", type="string", example="2023-02-23T00:09:16.000000Z"),
      *              @OA\Property(property="updated_at", type="string", example="2023-02-23T12:33:45.000000Z")
      *         )
