@@ -25,10 +25,8 @@ class AttendanceController extends Controller
      *         description="OK",
      *         @OA\JsonContent(
      *              @OA\Property(property="kid_id", type="number", example=1),
-     *              @OA\Property(property="tutor_id", type="number", example=1),
-     *              @OA\Property(property="name_kid", type="string", example=""),
-     *              @OA\Property(property="name_tutor", type="string", example=""),
-     *              @OA\Property(property="identification", type="string", example=""),
+     *              @OA\Property(property="user_id", type="number", example=1),
+     *              @OA\Property(property="attendance", type="boolean", example=true),
      *              @OA\Property(property="created_at", type="string", example="2023-02-23T00:09:16.000000Z"),
      *              @OA\Property(property="updated_at", type="string", example="2023-02-23T12:33:45.000000Z")
      *         )
@@ -68,10 +66,8 @@ class AttendanceController extends Controller
      *         description="OK",
      *         @OA\JsonContent(
      *              @OA\Property(property="kid_id", type="number", example=1),
-     *              @OA\Property(property="tutor_id", type="number", example=1),
-     *              @OA\Property(property="name_kid", type="string", example=""),
-     *              @OA\Property(property="name_tutor", type="string", example=""),
-     *              @OA\Property(property="identification", type="string", example=""),
+     *              @OA\Property(property="user_id", type="number", example=1),
+     *              @OA\Property(property="attendance", type="boolean", example=true),
      *              @OA\Property(property="created_at", type="string", example="2023-02-23T00:09:16.000000Z"),
      *              @OA\Property(property="updated_at", type="string", example="2023-02-23T12:33:45.000000Z")
      *         )
@@ -108,7 +104,8 @@ class AttendanceController extends Controller
      *         @OA\JsonContent(
      *            required={"name"},
      *              @OA\Property(property="kid_id", type="number", example=1),
-     *              @OA\Property(property="tutor_id", type="number", example=1),
+     *              @OA\Property(property="user_id", type="number", example=1),
+     *              @OA\Property(property="attendance", type="boolean", example=true),
      *         ),
      *      ),
      *     @OA\Response(
@@ -152,7 +149,8 @@ class AttendanceController extends Controller
      *         @OA\JsonContent(
      *            required={"name"},
      *              @OA\Property(property="kid_id", type="number", example=1),
-     *              @OA\Property(property="tutor_id", type="number", example=1),
+     *              @OA\Property(property="user_id", type="number", example=1),
+     *              @OA\Property(property="attendance", type="boolean", example=true),
      *         ),
      *      ),
      *     @OA\Response(

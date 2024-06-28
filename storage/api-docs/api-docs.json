@@ -24,21 +24,13 @@
                                             "type": "number",
                                             "example": 1
                                         },
-                                        "tutor_id": {
+                                        "user_id": {
                                             "type": "number",
                                             "example": 1
                                         },
-                                        "name_kid": {
-                                            "type": "string",
-                                            "example": ""
-                                        },
-                                        "name_tutor": {
-                                            "type": "string",
-                                            "example": ""
-                                        },
-                                        "identification": {
-                                            "type": "string",
-                                            "example": ""
+                                        "attendance": {
+                                            "type": "boolean",
+                                            "example": true
                                         },
                                         "created_at": {
                                             "type": "string",
@@ -97,9 +89,13 @@
                                         "type": "number",
                                         "example": 1
                                     },
-                                    "tutor_id": {
+                                    "user_id": {
                                         "type": "number",
                                         "example": 1
+                                    },
+                                    "attendance": {
+                                        "type": "boolean",
+                                        "example": true
                                     }
                                 },
                                 "type": "object"
@@ -164,21 +160,13 @@
                                             "type": "number",
                                             "example": 1
                                         },
-                                        "tutor_id": {
+                                        "user_id": {
                                             "type": "number",
                                             "example": 1
                                         },
-                                        "name_kid": {
-                                            "type": "string",
-                                            "example": ""
-                                        },
-                                        "name_tutor": {
-                                            "type": "string",
-                                            "example": ""
-                                        },
-                                        "identification": {
-                                            "type": "string",
-                                            "example": ""
+                                        "attendance": {
+                                            "type": "boolean",
+                                            "example": true
                                         },
                                         "created_at": {
                                             "type": "string",
@@ -247,9 +235,13 @@
                                         "type": "number",
                                         "example": 1
                                     },
-                                    "tutor_id": {
+                                    "user_id": {
                                         "type": "number",
                                         "example": 1
+                                    },
+                                    "attendance": {
+                                        "type": "boolean",
+                                        "example": true
                                     }
                                 },
                                 "type": "object"
