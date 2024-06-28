@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Authorizations;
+use App\Models\Attendance;
 use App\Models\Kids;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -10,17 +10,16 @@ use Illuminate\Validation\ValidationException;
 use Exception;
 use Illuminate\Support\Facades\DB;
 
-class AuthorizedPersonsController extends Controller
+class AttendanceController extends Controller
 {
-
     /**
      * @OA\Get (
-     *     path="/api/authorizations",
-     *      operationId="all_authorization",
-     *     tags={"Authorized persons"},
+     *     path="/api/attendances",
+     *      operationId="all_attendances",
+     *     tags={"Attendances of kids"},
      *     security={{ "apiAuth": {} }},
-     *     summary="All authorizations",
-     *     description="All authorizations",
+     *     summary="All attendances",
+     *     description="All attendances",
      *     @OA\Response(
      *         response=200,
      *         description="OK",
@@ -45,19 +44,19 @@ class AuthorizedPersonsController extends Controller
      */
     public function index()
     {
-        $authorizations = Authorizations::with('kid')->with('tutor')->paginate(10);
-        return response()->json(["data"=>$authorizations],200);
+        $attendances = Attendance::with('kid')->with('user')->paginate(10);
+        return response()->json(["data"=>$attendances],200);
     }
 
 
      /**
      * @OA\Get (
-     *     path="/api/authorizations/{id}",
-     *     operationId="watch_authorization",
-     *     tags={"Authorized persons"},
+     *     path="/api/attendances/{id}",
+     *     operationId="watch_attendance",
+     *     tags={"Attendances of kids"},
      *     security={{ "apiAuth": {} }},
-     *     summary="See authorization",
-     *     description="See authorization",
+     *     summary="See attendance",
+     *     description="See attendance",
      *    @OA\Parameter(
      *         in="path",
      *         name="id",
@@ -89,8 +88,8 @@ class AuthorizedPersonsController extends Controller
 
     public function watch($id){
         try{
-            $authorization = Authorizations::with('kid')->with('tutor')->find($id);
-            return response()->json(["data"=>$authorization],200);
+            $attendance = Attendance::with('kid')->with('user')->find($id);
+            return response()->json(["data"=>$attendance],200);
         }catch (Exception $e) {
             return response()->json(["data"=>"none"],200);
         }
@@ -98,12 +97,12 @@ class AuthorizedPersonsController extends Controller
 
     /**
      * @OA\Post(
-     *      path="/api/authorizations",
-     *      operationId="store_authorization",
-     *      tags={"Authorized persons"},
+     *      path="/api/attendances",
+     *      operationId="store_attendance",
+     *      tags={"Attendances of kids"},
      *     security={{ "apiAuth": {} }},
-     *      summary="Store authorization",
-     *      description="Store authorization",
+     *      summary="Store attendance",
+     *      description="Store attendance",
      *      @OA\RequestBody(
      *         required=true,
      *         @OA\JsonContent(
@@ -125,9 +124,9 @@ class AuthorizedPersonsController extends Controller
     public function register(Request $request)
     {
         try {
-            $authorization = new Authorizations($request->all());
-            $authorization->save();
-            return response()->json(["data" => $authorization], 200);
+            $attendance = new Attendance($request->all());
+            $attendance->save();
+            return response()->json(["data" => $attendance], 200);
 
         } catch (Exception $e) {
             return response()->json(["data"=>"Problemas tecnicos"],500);
@@ -136,12 +135,12 @@ class AuthorizedPersonsController extends Controller
 
     /**
      * @OA\Put(
-     *     path="/api/authorizations/{id}",
-     *     operationId="update_authorization",
-     *     tags={"Authorized persons"},
+     *     path="/api/attendances/{id}",
+     *     operationId="update_attendance",
+     *     tags={"Attendances of kids"},
      *     security={{ "apiAuth": {} }},
-     *     summary="Update authorization",
-     *     description="Update authorization",
+     *     summary="Update attendance",
+     *     description="Update attendance",
      *     @OA\Parameter(
      *         in="path",
      *         name="id",
@@ -168,8 +167,8 @@ class AuthorizedPersonsController extends Controller
 
     public function update(Request $request, $id){
         try{
-            $authorization = Authorizations::where('id',$id)->first();
-            $authorization->update($request->all());
+            $attendance = Attendance::where('id',$id)->first();
+            $attendance->update($request->all());
             return response()->json(["data"=>"ok"],200);
         }catch (Exception $e) {
             return response()->json(["data"=>"Problemas tecnicos"],500);
@@ -178,12 +177,12 @@ class AuthorizedPersonsController extends Controller
 
     /**
      * @OA\Delete(
-     *      path="/api/authorizations/{id}",
-     *      operationId="delete_authorization",
-     *      tags={"Authorized persons"},
+     *      path="/api/attendances/{id}",
+     *      operationId="delete_attendance",
+     *      tags={"Attendances of kids"},
      *     security={{ "apiAuth": {} }},
-     *      summary="Delete authorization",
-     *      description="Delete authorization",
+     *      summary="Delete attendance",
+     *      description="Delete attendance",
      *    @OA\Parameter(
      *         in="path",
      *         name="id",
@@ -202,7 +201,7 @@ class AuthorizedPersonsController extends Controller
 
     public function delete($id){
         try{
-            Authorizations::destroy($id);
+            Attendance::destroy($id);
             return response()->json(["data"=>"ok"],200);
         }catch (Exception $e) {
             return response()->json(["data"=>"Problemas tecnicos"],500);

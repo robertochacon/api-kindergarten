@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\AuthorizedPersonsController;
 use App\Http\Controllers\KidController;
 use App\Http\Controllers\ParentsController;
@@ -42,6 +43,13 @@ Route::get('/authorizations/{id}/', [AuthorizedPersonsController::class, 'watch'
 Route::post('/authorizations/', [AuthorizedPersonsController::class, 'register']);
 Route::put('/authorizations/{id}/', [AuthorizedPersonsController::class, 'update']);
 Route::delete('/authorizations/{id}/', [AuthorizedPersonsController::class, 'delete']);
+
+//attendances
+Route::get('/attendances/', [AttendanceController::class, 'index']);
+Route::get('/attendances/{id}/', [AttendanceController::class, 'watch']);
+Route::post('/attendances/', [AttendanceController::class, 'register']);
+Route::put('/attendances/{id}/', [AttendanceController::class, 'update']);
+Route::delete('/attendances/{id}/', [AttendanceController::class, 'delete']);
 
 //parents
 Route::get('/parents/', [ParentsController::class, 'index']);
