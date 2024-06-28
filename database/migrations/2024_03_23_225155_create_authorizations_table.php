@@ -14,7 +14,9 @@ return new class extends Migration
         Schema::create('authorizations', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('kid_id')->nullable();
+            $table->foreign('kid_id')->references('id')->on('kids')->onDelete('cascade');
             $table->unsignedBigInteger('tutor_id')->nullable();
+            $table->foreign('tutor_id')->references('id')->on('tutors')->onDelete('cascade');
             $table->timestamps();
         });
     }

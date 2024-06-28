@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Kids extends Model
 {
@@ -23,8 +24,8 @@ class Kids extends Model
         return $this->belongsToMany(Parents::class, 'kids_parents', 'kid_id', 'parent_id')->withTimestamps();
     }
 
-    public function authorizations(){
-        return $this->hasMany(Authorizations::class, 'tutor_id', 'kid_id')->withTimestamps();
+    public function authorizations(): HasMany{
+        return $this->hasMany(Authorizations::class, 'kid_id', 'id')->withTimestamps();
     }
 
 }
