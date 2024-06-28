@@ -16,7 +16,7 @@ class Tutors extends Model
     ];
 
     public function kids(){
-        return $this->belongsToMany(Kids::class)->withTimestamps();
+        return $this->belongsToMany(Kids::class, 'kids_tutors', 'tutor_id', 'kid_id')->withTimestamps();
     }
 
 }

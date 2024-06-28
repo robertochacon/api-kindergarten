@@ -217,7 +217,6 @@
                                         },
                                         "kid_id": {
                                             "type": "integer",
-                                            "format": "integer",
                                             "example": "1"
                                         },
                                         "created_at": {
@@ -435,6 +434,10 @@
                                             "type": "string",
                                             "example": ""
                                         },
+                                        "classroom": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
                                         "insurance": {
                                             "type": "string",
                                             "example": ""
@@ -508,11 +511,6 @@
                                     "name"
                                 ],
                                 "properties": {
-                                    "authorization_id": {
-                                        "type": "integer",
-                                        "format": "integer",
-                                        "example": ""
-                                    },
                                     "name": {
                                         "type": "string",
                                         "format": "string",
@@ -538,6 +536,11 @@
                                         "format": "string",
                                         "example": "Santo Domingo"
                                     },
+                                    "classroom": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "2do año"
+                                    },
                                     "insurance": {
                                         "type": "string",
                                         "format": "string",
@@ -562,6 +565,21 @@
                                         "type": "string",
                                         "format": "string",
                                         "example": "Santo Domingo"
+                                    },
+                                    "tutor_id": {
+                                        "type": "number",
+                                        "format": "number",
+                                        "example": "1"
+                                    },
+                                    "parent_id": {
+                                        "type": "number",
+                                        "format": "number",
+                                        "example": "1"
+                                    },
+                                    "authorization_id": {
+                                        "type": "number",
+                                        "format": "number",
+                                        "example": "1"
                                     }
                                 },
                                 "type": "object"
@@ -643,6 +661,10 @@
                                             "example": ""
                                         },
                                         "address": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "classroom": {
                                             "type": "string",
                                             "example": ""
                                         },
@@ -753,6 +775,11 @@
                                         "type": "string",
                                         "format": "string",
                                         "example": "Santo Domingo"
+                                    },
+                                    "classroom": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "2do año"
                                     },
                                     "insurance": {
                                         "type": "string",
@@ -956,37 +983,42 @@
                                     "name": {
                                         "type": "string",
                                         "format": "string",
-                                        "example": ""
+                                        "example": "Juan"
                                     },
                                     "last_name": {
                                         "type": "string",
                                         "format": "string",
-                                        "example": "Chacon"
+                                        "example": "Peralta"
                                     },
                                     "identification": {
                                         "type": "string",
                                         "format": "string",
-                                        "example": ""
+                                        "example": "40224522776"
                                     },
                                     "parent": {
                                         "type": "string",
                                         "format": "string",
-                                        "example": ""
+                                        "example": "Primo"
                                     },
                                     "phone": {
                                         "type": "string",
                                         "format": "string",
-                                        "example": ""
+                                        "example": "8099877765"
                                     },
                                     "address": {
                                         "type": "string",
                                         "format": "string",
-                                        "example": ""
+                                        "example": "Santo Domingo"
                                     },
                                     "military": {
                                         "type": "boolean",
                                         "format": "boolean",
                                         "example": "true"
+                                    },
+                                    "kid_id": {
+                                        "type": "number",
+                                        "format": "number",
+                                        "example": "1"
                                     }
                                 },
                                 "type": "object"
@@ -1141,37 +1173,42 @@
                                     "name": {
                                         "type": "string",
                                         "format": "string",
-                                        "example": ""
+                                        "example": "Juan"
                                     },
                                     "last_name": {
                                         "type": "string",
                                         "format": "string",
-                                        "example": "Chacon"
+                                        "example": "Peralta"
                                     },
                                     "identification": {
                                         "type": "string",
                                         "format": "string",
-                                        "example": ""
+                                        "example": "40224522776"
                                     },
                                     "parent": {
                                         "type": "string",
                                         "format": "string",
-                                        "example": ""
+                                        "example": "Primo"
                                     },
                                     "phone": {
                                         "type": "string",
                                         "format": "string",
-                                        "example": ""
+                                        "example": "8099877765"
                                     },
                                     "address": {
                                         "type": "string",
                                         "format": "string",
-                                        "example": ""
+                                        "example": "Santo Domingo"
                                     },
                                     "military": {
                                         "type": "boolean",
                                         "format": "boolean",
                                         "example": "true"
+                                    },
+                                    "kid_id": {
+                                        "type": "number",
+                                        "format": "number",
+                                        "example": "1"
                                     }
                                 },
                                 "type": "object"
@@ -1381,6 +1418,11 @@
                                         "type": "boolean",
                                         "format": "boolean",
                                         "example": "true"
+                                    },
+                                    "kid_id": {
+                                        "type": "number",
+                                        "format": "number",
+                                        "example": "1"
                                     }
                                 },
                                 "type": "object"
@@ -1566,6 +1608,11 @@
                                         "type": "boolean",
                                         "format": "boolean",
                                         "example": "true"
+                                    },
+                                    "kid_id": {
+                                        "type": "number",
+                                        "format": "number",
+                                        "example": "1"
                                     }
                                 },
                                 "type": "object"

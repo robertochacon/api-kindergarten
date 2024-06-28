@@ -41,8 +41,8 @@ class ParentsController extends Controller
      */
     public function index()
     {
-        $tutors = Parents::with('kids')->paginate(10);
-        return response()->json(["data"=>$tutors],200);
+        $patents = Parents::with('kids')->paginate(10);
+        return response()->json(["data"=>$patents],200);
     }
 
 
@@ -87,8 +87,8 @@ class ParentsController extends Controller
 
     public function watch($id){
         try{
-            $tutor = Parents::with('kids')->find($id);
-            return response()->json(["data"=>$tutor],200);
+            $parent = Parents::with('kids')->find($id);
+            return response()->json(["data"=>$parent],200);
         }catch (Exception $e) {
             return response()->json(["data"=>"none"],200);
         }
@@ -106,13 +106,14 @@ class ParentsController extends Controller
      *         required=true,
      *         @OA\JsonContent(
      *            required={"name"},
-     *            @OA\Property(property="name", type="string", format="string", example=""),
-     *            @OA\Property(property="last_name", type="string", format="string", example="Chacon"),
-     *            @OA\Property(property="identification", type="string", format="string", example=""),
-     *            @OA\Property(property="parent", type="string", format="string", example=""),
-     *            @OA\Property(property="phone", type="string", format="string", example=""),
-     *            @OA\Property(property="address", type="string", format="string", example=""),
+     *            @OA\Property(property="name", type="string", format="string", example="Juan"),
+     *            @OA\Property(property="last_name", type="string", format="string", example="Peralta"),
+     *            @OA\Property(property="identification", type="string", format="string", example="40224522776"),
+     *            @OA\Property(property="parent", type="string", format="string", example="Primo"),
+     *            @OA\Property(property="phone", type="string", format="string", example="8099877765"),
+     *            @OA\Property(property="address", type="string", format="string", example="Santo Domingo"),
      *            @OA\Property(property="military", type="boolean", format="boolean", example="true"),
+     *            @OA\Property(property="kid_id", type="number", format="number", example="1"),
      *         ),
      *      ),
      *     @OA\Response(
@@ -127,9 +128,12 @@ class ParentsController extends Controller
 
     public function register(Request $request)
     {
-        $tutor = new Parents(request()->all());
-        $tutor->save();
-        return response()->json(["data"=>$tutor],200);
+        $parent = new Parents(request()->all());
+        $parent->save();
+        if (isset($request->kid_id)) {
+            $parent->kids()->attach(['kid_id' => $request->kid_id]);
+        }
+        return response()->json(["data"=>$parent],200);
     }
 
     /**
@@ -150,13 +154,14 @@ class ParentsController extends Controller
      *         required=true,
      *         @OA\JsonContent(
      *            required={"name"},
-     *            @OA\Property(property="name", type="string", format="string", example=""),
-     *            @OA\Property(property="last_name", type="string", format="string", example="Chacon"),
-     *            @OA\Property(property="identification", type="string", format="string", example=""),
-     *            @OA\Property(property="parent", type="string", format="string", example=""),
-     *            @OA\Property(property="phone", type="string", format="string", example=""),
-     *            @OA\Property(property="address", type="string", format="string", example=""),
+     *            @OA\Property(property="name", type="string", format="string", example="Juan"),
+     *            @OA\Property(property="last_name", type="string", format="string", example="Peralta"),
+     *            @OA\Property(property="identification", type="string", format="string", example="40224522776"),
+     *            @OA\Property(property="parent", type="string", format="string", example="Primo"),
+     *            @OA\Property(property="phone", type="string", format="string", example="8099877765"),
+     *            @OA\Property(property="address", type="string", format="string", example="Santo Domingo"),
      *            @OA\Property(property="military", type="boolean", format="boolean", example="true"),
+     *            @OA\Property(property="kid_id", type="number", format="number", example="1"),
      *         ),
      *      ),
      *     @OA\Response(
@@ -171,8 +176,11 @@ class ParentsController extends Controller
 
     public function update(Request $request, $id){
         try{
-            $tutor = Parents::where('id',$id)->first();
-            $tutor->update($request->all());
+            $parent = Parents::where('id',$id)->first();
+            $parent->update($request->all());
+            if (isset($request->kid_id)) {
+                $parent->kids()->attach(['kid_id' => $request->kid_id]);
+            }
             return response()->json(["data"=>"ok"],200);
         }catch (Exception $e) {
             return response()->json(["data"=>"none"],200);

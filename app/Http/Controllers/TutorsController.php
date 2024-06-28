@@ -113,6 +113,7 @@ class TutorsController extends Controller
      *            @OA\Property(property="phone", type="string", format="string", example=""),
      *            @OA\Property(property="address", type="string", format="string", example=""),
      *            @OA\Property(property="military", type="boolean", format="boolean", example="true"),
+     *            @OA\Property(property="kid_id", type="number", format="number", example="1"),
      *         ),
      *      ),
      *     @OA\Response(
@@ -129,6 +130,9 @@ class TutorsController extends Controller
     {
         $tutor = new Tutors(request()->all());
         $tutor->save();
+        if (isset($request->kid_id)) {
+            $tutor->kids()->attach(['kid_id' => $request->kid_id]);
+        }
         return response()->json(["data"=>$tutor],200);
     }
 
@@ -157,6 +161,7 @@ class TutorsController extends Controller
      *            @OA\Property(property="phone", type="string", format="string", example=""),
      *            @OA\Property(property="address", type="string", format="string", example=""),
      *            @OA\Property(property="military", type="boolean", format="boolean", example="true"),
+     *            @OA\Property(property="kid_id", type="number", format="number", example="1"),
      *         ),
      *      ),
      *     @OA\Response(
@@ -173,6 +178,9 @@ class TutorsController extends Controller
         try{
             $tutor = Tutors::where('id',$id)->first();
             $tutor->update($request->all());
+            if (isset($request->kid_id)) {
+                $tutor->kids()->attach(['kid_id' => $request->kid_id]);
+            }
             return response()->json(["data"=>"ok"],200);
         }catch (Exception $e) {
             return response()->json(["data"=>"none"],200);
