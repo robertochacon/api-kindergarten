@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string("identification")->nullable();
             $table->string("parent")->nullable();
             $table->string("phone")->nullable();
+            $table->string("residence_phone")->nullable();
             $table->string("address")->nullable();
             $table->boolean("military")->default(true);
             $table->timestamps();

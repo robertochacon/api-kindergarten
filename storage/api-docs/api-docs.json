@@ -1173,6 +1173,11 @@
                                             "type": "string",
                                             "example": ""
                                         },
+                                        "residence_phone": {
+                                            "type": "string",
+                                            "format": "string",
+                                            "example": ""
+                                        },
                                         "address": {
                                             "type": "string",
                                             "example": ""
@@ -1254,6 +1259,11 @@
                                         "type": "string",
                                         "format": "string",
                                         "example": "8099877765"
+                                    },
+                                    "residence_phone": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "8099886700"
                                     },
                                     "address": {
                                         "type": "string",
@@ -1353,6 +1363,11 @@
                                             "type": "string",
                                             "example": ""
                                         },
+                                        "residence_phone": {
+                                            "type": "string",
+                                            "format": "string",
+                                            "example": ""
+                                        },
                                         "address": {
                                             "type": "string",
                                             "example": ""
@@ -1444,6 +1459,11 @@
                                         "type": "string",
                                         "format": "string",
                                         "example": "8099877765"
+                                    },
+                                    "residence_phone": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "8099886700"
                                     },
                                     "address": {
                                         "type": "string",
@@ -1577,6 +1597,11 @@
                                             "type": "string",
                                             "example": ""
                                         },
+                                        "residence_phone": {
+                                            "type": "string",
+                                            "format": "string",
+                                            "example": ""
+                                        },
                                         "address": {
                                             "type": "string",
                                             "example": ""
@@ -1642,7 +1667,7 @@
                                     "last_name": {
                                         "type": "string",
                                         "format": "string",
-                                        "example": "Chacon"
+                                        "example": ""
                                     },
                                     "identification": {
                                         "type": "string",
@@ -1655,6 +1680,11 @@
                                         "example": ""
                                     },
                                     "phone": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": ""
+                                    },
+                                    "residence_phone": {
                                         "type": "string",
                                         "format": "string",
                                         "example": ""
@@ -1757,6 +1787,11 @@
                                             "type": "string",
                                             "example": ""
                                         },
+                                        "residence_phone": {
+                                            "type": "string",
+                                            "format": "string",
+                                            "example": ""
+                                        },
                                         "address": {
                                             "type": "string",
                                             "example": ""
@@ -1832,7 +1867,7 @@
                                     "last_name": {
                                         "type": "string",
                                         "format": "string",
-                                        "example": "Chacon"
+                                        "example": ""
                                     },
                                     "identification": {
                                         "type": "string",
@@ -1845,6 +1880,11 @@
                                         "example": ""
                                     },
                                     "phone": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": ""
+                                    },
+                                    "residence_phone": {
                                         "type": "string",
                                         "format": "string",
                                         "example": ""

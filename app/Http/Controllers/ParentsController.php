@@ -25,6 +25,7 @@ class ParentsController extends Controller
      *              @OA\Property(property="identification", type="string", example=""),
      *              @OA\Property(property="parent", type="string", example=""),
      *              @OA\Property(property="phone", type="string", example=""),
+     *              @OA\Property(property="residence_phone", type="string", format="string", example=""),
      *              @OA\Property(property="address", type="string", example=""),
      *              @OA\Property(property="created_at", type="string", example="2023-02-23T00:09:16.000000Z"),
      *              @OA\Property(property="updated_at", type="string", example="2023-02-23T12:33:45.000000Z")
@@ -70,6 +71,7 @@ class ParentsController extends Controller
      *              @OA\Property(property="identification", type="string", example=""),
      *              @OA\Property(property="parent", type="string", example=""),
      *              @OA\Property(property="phone", type="string", example=""),
+     *              @OA\Property(property="residence_phone", type="string", format="string", example=""),
      *              @OA\Property(property="address", type="string", example=""),
      *              @OA\Property(property="created_at", type="string", example="2023-02-23T00:09:16.000000Z"),
      *              @OA\Property(property="updated_at", type="string", example="2023-02-23T12:33:45.000000Z")
@@ -111,6 +113,7 @@ class ParentsController extends Controller
      *            @OA\Property(property="identification", type="string", format="string", example="40224522776"),
      *            @OA\Property(property="parent", type="string", format="string", example="Primo"),
      *            @OA\Property(property="phone", type="string", format="string", example="8099877765"),
+     *            @OA\Property(property="residence_phone", type="string", format="string", example="8099886700"),
      *            @OA\Property(property="address", type="string", format="string", example="Santo Domingo"),
      *            @OA\Property(property="military", type="boolean", format="boolean", example="true"),
      *            @OA\Property(property="kid_id", type="number", format="number", example="1"),
@@ -159,6 +162,7 @@ class ParentsController extends Controller
      *            @OA\Property(property="identification", type="string", format="string", example="40224522776"),
      *            @OA\Property(property="parent", type="string", format="string", example="Primo"),
      *            @OA\Property(property="phone", type="string", format="string", example="8099877765"),
+     *            @OA\Property(property="residence_phone", type="string", format="string", example="8099886700"),
      *            @OA\Property(property="address", type="string", format="string", example="Santo Domingo"),
      *            @OA\Property(property="military", type="boolean", format="boolean", example="true"),
      *            @OA\Property(property="kid_id", type="number", format="number", example="1"),

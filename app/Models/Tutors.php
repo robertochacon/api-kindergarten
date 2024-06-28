@@ -12,7 +12,7 @@ class Tutors extends Model
     protected $table = 'tutors';
 
     protected $fillable = [
-        'id','name','last_name','identification','parent','phone','address','military'
+        'id','name','last_name','identification','parent','phone','residence_phone','address','military'
     ];
 
     public function kids(){
