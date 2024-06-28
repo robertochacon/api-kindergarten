@@ -12,7 +12,7 @@ class Parents extends Model
     protected $table = 'parents';
 
     protected $fillable = [
-        'id','name','last_name','identification','parent','phone','residence_phone','address','military'
+        'id','name','last_name','identification','parent','phone','residence_phone','address','military','institution'
     ];
 
     public function kids(){

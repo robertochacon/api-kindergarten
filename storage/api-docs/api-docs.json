@@ -1182,6 +1182,16 @@
                                             "type": "string",
                                             "example": ""
                                         },
+                                        "military": {
+                                            "type": "boolean",
+                                            "format": "boolean",
+                                            "example": ""
+                                        },
+                                        "institution": {
+                                            "type": "string",
+                                            "format": "string",
+                                            "example": ""
+                                        },
                                         "created_at": {
                                             "type": "string",
                                             "example": "2023-02-23T00:09:16.000000Z"
@@ -1274,6 +1284,11 @@
                                         "type": "boolean",
                                         "format": "boolean",
                                         "example": "true"
+                                    },
+                                    "institution": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "ARD"
                                     },
                                     "kid_id": {
                                         "type": "number",
@@ -1370,6 +1385,16 @@
                                         },
                                         "address": {
                                             "type": "string",
+                                            "example": ""
+                                        },
+                                        "military": {
+                                            "type": "boolean",
+                                            "format": "boolean",
+                                            "example": "true"
+                                        },
+                                        "institution": {
+                                            "type": "string",
+                                            "format": "string",
                                             "example": ""
                                         },
                                         "created_at": {
@@ -1474,6 +1499,11 @@
                                         "type": "boolean",
                                         "format": "boolean",
                                         "example": "true"
+                                    },
+                                    "institution": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "ARD"
                                     },
                                     "kid_id": {
                                         "type": "number",
