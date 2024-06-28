@@ -769,7 +769,7 @@
                                     "last_name": {
                                         "type": "string",
                                         "format": "string",
-                                        "example": "Chacon"
+                                        "example": "Valdez"
                                     },
                                     "gender": {
                                         "type": "string",
@@ -815,21 +815,6 @@
                                         "type": "string",
                                         "format": "string",
                                         "example": "Santo Domingo"
-                                    },
-                                    "tutor_id": {
-                                        "type": "number",
-                                        "format": "number",
-                                        "example": "1"
-                                    },
-                                    "parent_id": {
-                                        "type": "number",
-                                        "format": "number",
-                                        "example": "1"
-                                    },
-                                    "authorization_id": {
-                                        "type": "number",
-                                        "format": "number",
-                                        "example": "1"
                                     }
                                 },
                                 "type": "object"
@@ -1055,6 +1040,16 @@
                                         "type": "string",
                                         "format": "string",
                                         "example": "Santo Domingo"
+                                    },
+                                    "tutor_id": {
+                                        "type": "number",
+                                        "format": "number",
+                                        "example": "1"
+                                    },
+                                    "parent_id": {
+                                        "type": "number",
+                                        "format": "number",
+                                        "example": "1"
                                     }
                                 },
                                 "type": "object"
@@ -1697,27 +1692,27 @@
                                     "name": {
                                         "type": "string",
                                         "format": "string",
-                                        "example": ""
+                                        "example": "Juan"
                                     },
                                     "last_name": {
                                         "type": "string",
                                         "format": "string",
-                                        "example": ""
+                                        "example": "Santos"
                                     },
                                     "identification": {
                                         "type": "string",
                                         "format": "string",
-                                        "example": ""
+                                        "example": "00123492349"
                                     },
                                     "parent": {
                                         "type": "string",
                                         "format": "string",
-                                        "example": ""
+                                        "example": "Tio"
                                     },
                                     "phone": {
                                         "type": "string",
                                         "format": "string",
-                                        "example": ""
+                                        "example": "8293242233"
                                     },
                                     "residence_phone": {
                                         "type": "string",
@@ -1727,7 +1722,7 @@
                                     "address": {
                                         "type": "string",
                                         "format": "string",
-                                        "example": ""
+                                        "example": "Santo Domingo"
                                     },
                                     "military": {
                                         "type": "boolean",

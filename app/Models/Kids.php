@@ -24,7 +24,7 @@ class Kids extends Model
     }
 
     public function authorizations(){
-        return $this->belongsToMany(Authorizations::class, 'kids_authorizations', 'kid_id', 'authorization_id')->withTimestamps();
+        return $this->hasMany(Authorizations::class, 'tutor_id', 'kid_id')->withTimestamps();
     }
 
 }

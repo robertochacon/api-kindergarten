@@ -109,7 +109,7 @@ class KidController extends Controller
      *      path="/api/kids",
      *      operationId="store_kid",
      *      tags={"Kids"},
-     *     security={{ "apiAuth": {} }},
+     *      security={{ "apiAuth": {} }},
      *      summary="Store kid",
      *      description="Store kid",
      *      @OA\RequestBody(
@@ -117,7 +117,7 @@ class KidController extends Controller
      *         @OA\JsonContent(
      *            required={"name"},
      *            @OA\Property(property="name", type="string", format="string", example="Daniel"),
-     *            @OA\Property(property="last_name", type="string", format="string", example="Chacon"),
+     *            @OA\Property(property="last_name", type="string", format="string", example="Valdez"),
      *            @OA\Property(property="gender", type="string", format="string", example="Masculino"),
      *            @OA\Property(property="born_date", type="string", format="string", example="12/03/2024"),
      *            @OA\Property(property="address", type="string", format="string", example="Santo Domingo"),
@@ -127,9 +127,6 @@ class KidController extends Controller
      *            @OA\Property(property="allergies", type="string", format="string", example="Ninguna"),
      *            @OA\Property(property="medical_conditions", type="string", format="string", example="Santo Domingo"),
      *            @OA\Property(property="medications", type="string", format="string", example="Santo Domingo"),
-     *            @OA\Property(property="tutor_id", type="number", format="number", example="1"),
-     *            @OA\Property(property="parent_id", type="number", format="number", example="1"),
-     *            @OA\Property(property="authorization_id", type="number", format="number", example="1"),
      *         ),
      *      ),
      *     @OA\Response(
@@ -146,15 +143,12 @@ class KidController extends Controller
     {
         $kids = new Kids(request()->all());
         $kids->save();
-        if (isset($request->tutor_id)) {
-            $kids->tutors()->attach(['tutor_id' => $request->tutor_id]);
-        }
-        if (isset($request->parent_id)) {
-            $kids->parents()->attach(['parent_id' => $request->parent_id]);
-        }
-        if (isset($request->authorization_id)) {
-            $kids->authorizations()->attach(['authorization_id' => $request->authorization_id]);
-        }
+        // if (isset($request->tutor_id)) {
+        //     $kids->tutors()->attach(['tutor_id' => $request->tutor_id]);
+        // }
+        // if (isset($request->parent_id)) {
+        //     $kids->parents()->attach(['parent_id' => $request->parent_id]);
+        // }
         return response()->json(["data"=>$kids],200);
     }
 
@@ -187,6 +181,8 @@ class KidController extends Controller
      *            @OA\Property(property="allergies", type="string", format="string", example="Ninguna"),
      *            @OA\Property(property="medical_conditions", type="string", format="string", example="Santo Domingo"),
      *            @OA\Property(property="medications", type="string", format="string", example="Santo Domingo"),
+     *            @OA\Property(property="tutor_id", type="number", format="number", example="1"),
+     *            @OA\Property(property="parent_id", type="number", format="number", example="1"),
      *         ),
      *      ),
      *     @OA\Response(
@@ -208,9 +204,6 @@ class KidController extends Controller
             }
             if (isset($request->parent_id)) {
                 $kids->parents()->attach(['parent_id' => $request->parent_id]);
-            }
-            if (isset($request->authorization_id)) {
-                $kids->authorizations()->attach(['authorization_id' => $request->authorization_id]);
             }
             return response()->json(["data"=>"ok"],200);
         }catch (Exception $e) {
