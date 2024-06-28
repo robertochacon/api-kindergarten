@@ -12,10 +12,14 @@ class Authorizations extends Model
     protected $table = 'authorizations';
 
     protected $fillable = [
-        'id','name','last_name','identification','parent','phone','address'
+        'id','kid_id','tutor_id'
     ];
 
-    public function kids(){
-        return $this->belongsToMany(Kids::class, 'kids_authorizations', 'authorization_id', 'kid_id')->withTimestamps();
+    public function tutor(){
+        return $this->hasMany(Tutors::class, 'id', 'tutor_id');
+    }
+
+    public function kid(){
+        return $this->hasMany(Kids::class, 'id', 'kid_id',);
     }
 }

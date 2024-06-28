@@ -13,12 +13,8 @@ return new class extends Migration
     {
         Schema::create('authorizations', function (Blueprint $table) {
             $table->id();
-            $table->string("name")->nullable();
-            $table->string("last_name")->nullable();
-            $table->string("identification")->nullable();
-            $table->string("parent")->nullable();
-            $table->string("phone")->nullable();
-            $table->string("address")->nullable();
+            $table->unsignedBigInteger('kid_id')->nullable();
+            $table->unsignedBigInteger('tutor_id')->nullable();
             $table->timestamps();
         });
     }

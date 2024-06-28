@@ -20,27 +20,23 @@
                             "application/json": {
                                 "schema": {
                                     "properties": {
-                                        "id": {
+                                        "kid_id": {
                                             "type": "number",
                                             "example": 1
                                         },
-                                        "name": {
+                                        "tutor_id": {
+                                            "type": "number",
+                                            "example": 1
+                                        },
+                                        "name_kid": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "name_tutor": {
                                             "type": "string",
                                             "example": ""
                                         },
                                         "identification": {
-                                            "type": "string",
-                                            "example": ""
-                                        },
-                                        "parent": {
-                                            "type": "string",
-                                            "example": ""
-                                        },
-                                        "phone": {
-                                            "type": "string",
-                                            "example": ""
-                                        },
-                                        "address": {
                                             "type": "string",
                                             "example": ""
                                         },
@@ -98,39 +94,12 @@
                                 ],
                                 "properties": {
                                     "kid_id": {
-                                        "type": "integer",
-                                        "format": "integer",
-                                        "example": "1"
+                                        "type": "number",
+                                        "example": 1
                                     },
-                                    "name": {
-                                        "type": "string",
-                                        "format": "string",
-                                        "example": "Marcos"
-                                    },
-                                    "last_name": {
-                                        "type": "string",
-                                        "format": "string",
-                                        "example": "Garcia"
-                                    },
-                                    "identification": {
-                                        "type": "string",
-                                        "format": "string",
-                                        "example": "10101010101"
-                                    },
-                                    "parent": {
-                                        "type": "string",
-                                        "format": "string",
-                                        "example": "Tio"
-                                    },
-                                    "phone": {
-                                        "type": "string",
-                                        "format": "string",
-                                        "example": "8094533344"
-                                    },
-                                    "address": {
-                                        "type": "string",
-                                        "format": "string",
-                                        "example": "Here"
+                                    "tutor_id": {
+                                        "type": "number",
+                                        "example": 1
                                     }
                                 },
                                 "type": "object"
@@ -191,33 +160,25 @@
                             "application/json": {
                                 "schema": {
                                     "properties": {
-                                        "id": {
+                                        "kid_id": {
                                             "type": "number",
                                             "example": 1
                                         },
-                                        "name": {
+                                        "tutor_id": {
+                                            "type": "number",
+                                            "example": 1
+                                        },
+                                        "name_kid": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "name_tutor": {
                                             "type": "string",
                                             "example": ""
                                         },
                                         "identification": {
                                             "type": "string",
                                             "example": ""
-                                        },
-                                        "parent": {
-                                            "type": "string",
-                                            "example": ""
-                                        },
-                                        "phone": {
-                                            "type": "string",
-                                            "example": ""
-                                        },
-                                        "address": {
-                                            "type": "string",
-                                            "example": ""
-                                        },
-                                        "kid_id": {
-                                            "type": "integer",
-                                            "example": "1"
                                         },
                                         "created_at": {
                                             "type": "string",
@@ -283,39 +244,12 @@
                                 ],
                                 "properties": {
                                     "kid_id": {
-                                        "type": "integer",
-                                        "format": "integer",
-                                        "example": "1"
+                                        "type": "number",
+                                        "example": 1
                                     },
-                                    "name": {
-                                        "type": "string",
-                                        "format": "string",
-                                        "example": "Marcos"
-                                    },
-                                    "last_name": {
-                                        "type": "string",
-                                        "format": "string",
-                                        "example": "Garcia"
-                                    },
-                                    "identification": {
-                                        "type": "string",
-                                        "format": "string",
-                                        "example": "10101010101"
-                                    },
-                                    "parent": {
-                                        "type": "string",
-                                        "format": "string",
-                                        "example": "Tio"
-                                    },
-                                    "phone": {
-                                        "type": "string",
-                                        "format": "string",
-                                        "example": "8094533344"
-                                    },
-                                    "address": {
-                                        "type": "string",
-                                        "format": "string",
-                                        "example": "Here"
+                                    "tutor_id": {
+                                        "type": "number",
+                                        "example": 1
                                     }
                                 },
                                 "type": "object"
