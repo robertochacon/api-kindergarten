@@ -24,7 +24,7 @@ jobs:
         port: ${{ secrets.PORT }}
         script: |
           cd /public_html/api-kindergarten
-          git pull origin master
+          git pull origin dev
           php artisan migrate:fresh --seed
           php artisan l5-swagger:generate
           php artisan optimize
