@@ -684,6 +684,22 @@
                                             "type": "string",
                                             "example": ""
                                         },
+                                        "region": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "province": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "municipality": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "sector": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
                                         "classroom": {
                                             "type": "string",
                                             "example": ""
@@ -785,6 +801,22 @@
                                         "type": "string",
                                         "format": "string",
                                         "example": "Santo Domingo"
+                                    },
+                                    "region": {
+                                        "type": "string",
+                                        "example": "Ozama"
+                                    },
+                                    "province": {
+                                        "type": "string",
+                                        "example": "Distrito Nacional"
+                                    },
+                                    "municipality": {
+                                        "type": "string",
+                                        "example": "Santo Domingo de Guzmán"
+                                    },
+                                    "sector": {
+                                        "type": "string",
+                                        "example": "Gazcue"
                                     },
                                     "classroom": {
                                         "type": "string",
@@ -899,6 +931,22 @@
                                             "type": "string",
                                             "example": ""
                                         },
+                                        "region": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "province": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "municipality": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "sector": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
                                         "classroom": {
                                             "type": "string",
                                             "example": ""
@@ -1010,6 +1058,22 @@
                                         "type": "string",
                                         "format": "string",
                                         "example": "Santo Domingo"
+                                    },
+                                    "region": {
+                                        "type": "string",
+                                        "example": "Ozama"
+                                    },
+                                    "province": {
+                                        "type": "string",
+                                        "example": "Distrito Nacional"
+                                    },
+                                    "municipality": {
+                                        "type": "string",
+                                        "example": "Santo Domingo de Guzmán"
+                                    },
+                                    "sector": {
+                                        "type": "string",
+                                        "example": "Gazcue"
                                     },
                                     "classroom": {
                                         "type": "string",

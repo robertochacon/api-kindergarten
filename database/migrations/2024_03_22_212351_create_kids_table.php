@@ -18,6 +18,10 @@ return new class extends Migration
             $table->enum("gender",["Masculino","Femenino"])->default("Masculino");
             $table->date("born_date")->nullable();
             $table->string("address")->nullable();
+            $table->string("region")->nullable();
+            $table->string("province")->nullable();
+            $table->string("municipality")->nullable();
+            $table->string("sector")->nullable();
             $table->string("classroom")->nullable();
             $table->string("insurance")->nullable();
             $table->string("insurance_number")->nullable();
