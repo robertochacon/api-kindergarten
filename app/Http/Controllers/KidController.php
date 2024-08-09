@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Kids;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class KidController extends Controller
 {
@@ -43,7 +44,7 @@ class KidController extends Controller
      *          response=404,
      *          description="NOT FOUND",
      *          @OA\JsonContent(
-     *              @OA\Property(property="message", type="string", example="No query results for model [App\\Models\\Cliente] #id"),
+     *              @OA\Property(property="message", type="string", example=""),
      *          )
      *      )
      * )
@@ -54,6 +55,47 @@ class KidController extends Controller
         return response()->json(["data"=>$kids],200);
     }
 
+    /**
+     * @OA\Get (
+     *     path="/api/kids/totales",
+     *      operationId="all_kids_total",
+     *     tags={"Kids"},
+     *     security={{ "apiAuth": {} }},
+     *     summary="All total of kids",
+     *     description="All total of kids",
+     *     @OA\Response(
+     *         response=200,
+     *         description="OK",
+     *         @OA\JsonContent(
+     *              @OA\Property(property="total_kids_gender", type="string", example=""),
+     *              @OA\Property(property="total_kids_province", type="string", example=""),
+     *              @OA\Property(property="total_kids_sector", type="string", example=""),
+     *              @OA\Property(property="total_kids_classroom", type="string", example=""),
+     *         )
+     *     ),
+     *      @OA\Response(
+     *          response=404,
+     *          description="NOT FOUND",
+     *          @OA\JsonContent(
+     *              @OA\Property(property="message", type="string", example=""),
+     *          )
+     *      )
+     * )
+     */
+    public function totales()
+    {
+        $totales = [];
+
+        $totales["total_kids_gender"] = Kids::select('gender', DB::raw('count(*) as total'))->groupBy('gender')->get();
+
+        $totales["total_kids_province"] = Kids::select('province', DB::raw('count(*) as total'))->groupBy('province')->get();
+
+        $totales["total_kids_sector"] = Kids::select('sector', DB::raw('count(*) as total'))->groupBy('sector')->get();
+
+        $totales["total_kids_classroom"] = Kids::select('classroom', DB::raw('count(*) as total'))->groupBy('classroom')->get();
+
+        return response()->json(["data"=>$totales],200);
+    }
 
      /**
      * @OA\Get (
@@ -97,7 +139,7 @@ class KidController extends Controller
      *          response=404,
      *          description="NOT FOUND",
      *          @OA\JsonContent(
-     *              @OA\Property(property="message", type="string", example="No query results for model [App\\Models\\Cliente] #id"),
+     *              @OA\Property(property="message", type="string", example=""),
      *          )
      *      )
      * )

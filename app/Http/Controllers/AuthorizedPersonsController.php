@@ -38,7 +38,7 @@ class AuthorizedPersonsController extends Controller
      *          response=404,
      *          description="NOT FOUND",
      *          @OA\JsonContent(
-     *              @OA\Property(property="message", type="string", example="No query results for model [App\\Models\\Cliente] #id"),
+     *              @OA\Property(property="message", type="string", example=""),
      *          )
      *      )
      * )
@@ -81,7 +81,7 @@ class AuthorizedPersonsController extends Controller
      *          response=404,
      *          description="NOT FOUND",
      *          @OA\JsonContent(
-     *              @OA\Property(property="message", type="string", example="No query results for model [App\\Models\\Cliente] #id"),
+     *              @OA\Property(property="message", type="string", example=""),
      *          )
      *      )
      * )

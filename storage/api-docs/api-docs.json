@@ -54,7 +54,7 @@
                                     "properties": {
                                         "message": {
                                             "type": "string",
-                                            "example": "No query results for model [App\\\\Models\\\\Cliente] #id"
+                                            "example": ""
                                         }
                                     },
                                     "type": "object"
@@ -190,7 +190,7 @@
                                     "properties": {
                                         "message": {
                                             "type": "string",
-                                            "example": "No query results for model [App\\\\Models\\\\Cliente] #id"
+                                            "example": ""
                                         }
                                     },
                                     "type": "object"
@@ -378,7 +378,7 @@
                                     "properties": {
                                         "message": {
                                             "type": "string",
-                                            "example": "No query results for model [App\\\\Models\\\\Cliente] #id"
+                                            "example": ""
                                         }
                                     },
                                     "type": "object"
@@ -518,7 +518,7 @@
                                     "properties": {
                                         "message": {
                                             "type": "string",
-                                            "example": "No query results for model [App\\\\Models\\\\Cliente] #id"
+                                            "example": ""
                                         }
                                     },
                                     "type": "object"
@@ -867,6 +867,67 @@
                                         },
                                         "data": {
                                             "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/kids/totales": {
+            "get": {
+                "tags": [
+                    "Kids"
+                ],
+                "summary": "All total of kids",
+                "description": "All total of kids",
+                "operationId": "all_kids_total",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "total_kids_gender": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "total_kids_province": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "total_kids_sector": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "total_kids_classroom": {
+                                            "type": "string",
+                                            "example": ""
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "NOT FOUND",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "No query results for model [App\\\\Models\\\\Cliente] #id"
                                         }
                                     },
                                     "type": "object"
@@ -1273,7 +1334,7 @@
                                     "properties": {
                                         "message": {
                                             "type": "string",
-                                            "example": "No query results for model [App\\\\Models\\\\Cliente] #id"
+                                            "example": ""
                                         }
                                     },
                                     "type": "object"
@@ -1478,7 +1539,7 @@
                                     "properties": {
                                         "message": {
                                             "type": "string",
-                                            "example": "No query results for model [App\\\\Models\\\\Cliente] #id"
+                                            "example": ""
                                         }
                                     },
                                     "type": "object"
@@ -1722,7 +1783,7 @@
                                     "properties": {
                                         "message": {
                                             "type": "string",
-                                            "example": "No query results for model [App\\\\Models\\\\Cliente] #id"
+                                            "example": ""
                                         }
                                     },
                                     "type": "object"
@@ -1917,7 +1978,7 @@
                                     "properties": {
                                         "message": {
                                             "type": "string",
-                                            "example": "No query results for model [App\\\\Models\\\\Cliente] #id"
+                                            "example": ""
                                         }
                                     },
                                     "type": "object"
