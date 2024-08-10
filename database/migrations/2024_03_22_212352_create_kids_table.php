@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('kids', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('applicant_id')->nullable();
+            $table->foreign('applicant_id')->references('id')->on('applicants');
+            $table->unsignedBigInteger('concubine_id')->nullable();
+            $table->foreign('concubine_id')->references('id')->on('concubines');
             $table->string("name")->nullable();
             $table->string("last_name")->nullable();
             $table->enum("gender",["Masculino","Femenino"])->default("Masculino");

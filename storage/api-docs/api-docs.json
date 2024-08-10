@@ -5,6 +5,567 @@
         "version": "1.0.0"
     },
     "paths": {
+        "/api/applicants": {
+            "get": {
+                "tags": [
+                    "Applicants"
+                ],
+                "summary": "All applicants",
+                "description": "All applicants",
+                "operationId": "all_applicants",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "number",
+                                            "example": 1
+                                        },
+                                        "name": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "last_name": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "type_identification": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "identification": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "parent": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "marital_status": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "phone": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "residence_phone": {
+                                            "type": "string",
+                                            "format": "string",
+                                            "example": ""
+                                        },
+                                        "address": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "military": {
+                                            "type": "boolean",
+                                            "format": "boolean",
+                                            "example": ""
+                                        },
+                                        "institution": {
+                                            "type": "string",
+                                            "format": "string",
+                                            "example": ""
+                                        },
+                                        "email": {
+                                            "type": "string",
+                                            "format": "string",
+                                            "example": ""
+                                        },
+                                        "work_reference": {
+                                            "type": "string",
+                                            "format": "string",
+                                            "example": ""
+                                        },
+                                        "personal_reference_1": {
+                                            "type": "number",
+                                            "format": "number",
+                                            "example": ""
+                                        },
+                                        "personal_reference_2": {
+                                            "type": "number",
+                                            "format": "number",
+                                            "example": ""
+                                        },
+                                        "created_at": {
+                                            "type": "string",
+                                            "example": "2023-02-23T00:09:16.000000Z"
+                                        },
+                                        "updated_at": {
+                                            "type": "string",
+                                            "example": "2023-02-23T12:33:45.000000Z"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "NOT FOUND",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": ""
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Applicants"
+                ],
+                "summary": "Store applicant",
+                "description": "Store applicant",
+                "operationId": "store_applicants",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Juan"
+                                    },
+                                    "last_name": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Peralta"
+                                    },
+                                    "type_identification": {
+                                        "type": "string",
+                                        "example": "Cedula"
+                                    },
+                                    "identification": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "40224522776"
+                                    },
+                                    "parent": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Primo"
+                                    },
+                                    "marital_status": {
+                                        "type": "string",
+                                        "example": "Soltero"
+                                    },
+                                    "phone": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "8099877765"
+                                    },
+                                    "residence_phone": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "8099886700"
+                                    },
+                                    "address": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Santo Domingo"
+                                    },
+                                    "military": {
+                                        "type": "boolean",
+                                        "format": "boolean",
+                                        "example": "true"
+                                    },
+                                    "institution": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "ARD"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "juan@gmail.com"
+                                    },
+                                    "work_reference": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Ramon Acosta - 8092344234"
+                                    },
+                                    "personal_reference_1": {
+                                        "type": "number",
+                                        "format": "number",
+                                        "example": "Pedro Reyez - 8292344255"
+                                    },
+                                    "personal_reference_2": {
+                                        "type": "number",
+                                        "format": "number",
+                                        "example": "Carlos Sanchez - 8092311231"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": ""
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/applicants/{id}": {
+            "get": {
+                "tags": [
+                    "Applicants"
+                ],
+                "summary": "See applicant",
+                "description": "See applicant",
+                "operationId": "watch_applicants",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "number",
+                                            "example": 1
+                                        },
+                                        "name": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "last_name": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "type_identification": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "identification": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "parent": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "marital_status": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "phone": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "residence_phone": {
+                                            "type": "string",
+                                            "format": "string",
+                                            "example": ""
+                                        },
+                                        "address": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "military": {
+                                            "type": "boolean",
+                                            "format": "boolean",
+                                            "example": "true"
+                                        },
+                                        "institution": {
+                                            "type": "string",
+                                            "format": "string",
+                                            "example": ""
+                                        },
+                                        "email": {
+                                            "type": "string",
+                                            "format": "string",
+                                            "example": ""
+                                        },
+                                        "work_reference": {
+                                            "type": "string",
+                                            "format": "string",
+                                            "example": ""
+                                        },
+                                        "personal_reference_1": {
+                                            "type": "number",
+                                            "format": "number",
+                                            "example": ""
+                                        },
+                                        "personal_reference_2": {
+                                            "type": "number",
+                                            "format": "number",
+                                            "example": ""
+                                        },
+                                        "created_at": {
+                                            "type": "string",
+                                            "example": "2023-02-23T00:09:16.000000Z"
+                                        },
+                                        "updated_at": {
+                                            "type": "string",
+                                            "example": "2023-02-23T12:33:45.000000Z"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "NOT FOUND",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": ""
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Applicants"
+                ],
+                "summary": "Update applicant",
+                "description": "Update applicant",
+                "operationId": "update_applicants",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Juan"
+                                    },
+                                    "last_name": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Peralta"
+                                    },
+                                    "type_identification": {
+                                        "type": "string",
+                                        "example": "Cedula"
+                                    },
+                                    "identification": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "40224522776"
+                                    },
+                                    "parent": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Primo"
+                                    },
+                                    "marital_status": {
+                                        "type": "string",
+                                        "example": "Soltero"
+                                    },
+                                    "phone": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "8099877765"
+                                    },
+                                    "residence_phone": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "8099886700"
+                                    },
+                                    "address": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Santo Domingo"
+                                    },
+                                    "military": {
+                                        "type": "boolean",
+                                        "format": "boolean",
+                                        "example": "true"
+                                    },
+                                    "institution": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "ARD"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "juan@gmail.com"
+                                    },
+                                    "kid_id": {
+                                        "type": "number",
+                                        "format": "number",
+                                        "example": "1"
+                                    },
+                                    "work_reference": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Ramon Acosta - 8092344234"
+                                    },
+                                    "personal_reference_1": {
+                                        "type": "number",
+                                        "format": "number",
+                                        "example": "Pedro Reyez - 8292344255"
+                                    },
+                                    "personal_reference_2": {
+                                        "type": "number",
+                                        "format": "number",
+                                        "example": "Carlos Sanchez - 8092311231"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": ""
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Applicants"
+                ],
+                "summary": "Delete applicant",
+                "description": "Delete applicant",
+                "operationId": "delete_applicants",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": ""
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
         "/api/attendances": {
             "get": {
                 "tags": [
@@ -645,6 +1206,567 @@
                 ]
             }
         },
+        "/api/concubines": {
+            "get": {
+                "tags": [
+                    "Concubines"
+                ],
+                "summary": "All concubines",
+                "description": "All concubines",
+                "operationId": "all_concubines",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "number",
+                                            "example": 1
+                                        },
+                                        "name": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "last_name": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "type_identification": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "identification": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "parent": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "marital_status": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "phone": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "residence_phone": {
+                                            "type": "string",
+                                            "format": "string",
+                                            "example": ""
+                                        },
+                                        "address": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "military": {
+                                            "type": "boolean",
+                                            "format": "boolean",
+                                            "example": ""
+                                        },
+                                        "institution": {
+                                            "type": "string",
+                                            "format": "string",
+                                            "example": ""
+                                        },
+                                        "email": {
+                                            "type": "string",
+                                            "format": "string",
+                                            "example": ""
+                                        },
+                                        "work_reference": {
+                                            "type": "string",
+                                            "format": "string",
+                                            "example": ""
+                                        },
+                                        "personal_reference_1": {
+                                            "type": "number",
+                                            "format": "number",
+                                            "example": ""
+                                        },
+                                        "personal_reference_2": {
+                                            "type": "number",
+                                            "format": "number",
+                                            "example": ""
+                                        },
+                                        "created_at": {
+                                            "type": "string",
+                                            "example": "2023-02-23T00:09:16.000000Z"
+                                        },
+                                        "updated_at": {
+                                            "type": "string",
+                                            "example": "2023-02-23T12:33:45.000000Z"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "NOT FOUND",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": ""
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Concubines"
+                ],
+                "summary": "Store concubine",
+                "description": "Store concubine",
+                "operationId": "store_concubines",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Juan"
+                                    },
+                                    "last_name": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Peralta"
+                                    },
+                                    "type_identification": {
+                                        "type": "string",
+                                        "example": "Cedula"
+                                    },
+                                    "identification": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "40224522776"
+                                    },
+                                    "parent": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Primo"
+                                    },
+                                    "marital_status": {
+                                        "type": "string",
+                                        "example": "Soltero"
+                                    },
+                                    "phone": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "8099877765"
+                                    },
+                                    "residence_phone": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "8099886700"
+                                    },
+                                    "address": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Santo Domingo"
+                                    },
+                                    "military": {
+                                        "type": "boolean",
+                                        "format": "boolean",
+                                        "example": "true"
+                                    },
+                                    "institution": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "ARD"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "juan@gmail.com"
+                                    },
+                                    "work_reference": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Ramon Acosta - 8092344234"
+                                    },
+                                    "personal_reference_1": {
+                                        "type": "number",
+                                        "format": "number",
+                                        "example": "Pedro Reyez - 8292344255"
+                                    },
+                                    "personal_reference_2": {
+                                        "type": "number",
+                                        "format": "number",
+                                        "example": "Carlos Sanchez - 8092311231"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": ""
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/concubines/{id}": {
+            "get": {
+                "tags": [
+                    "Concubines"
+                ],
+                "summary": "See concubine",
+                "description": "See concubine",
+                "operationId": "watch_concubines",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "number",
+                                            "example": 1
+                                        },
+                                        "name": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "last_name": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "type_identification": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "identification": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "parent": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "marital_status": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "phone": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "residence_phone": {
+                                            "type": "string",
+                                            "format": "string",
+                                            "example": ""
+                                        },
+                                        "address": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "military": {
+                                            "type": "boolean",
+                                            "format": "boolean",
+                                            "example": "true"
+                                        },
+                                        "institution": {
+                                            "type": "string",
+                                            "format": "string",
+                                            "example": ""
+                                        },
+                                        "email": {
+                                            "type": "string",
+                                            "format": "string",
+                                            "example": ""
+                                        },
+                                        "work_reference": {
+                                            "type": "string",
+                                            "format": "string",
+                                            "example": ""
+                                        },
+                                        "personal_reference_1": {
+                                            "type": "number",
+                                            "format": "number",
+                                            "example": ""
+                                        },
+                                        "personal_reference_2": {
+                                            "type": "number",
+                                            "format": "number",
+                                            "example": ""
+                                        },
+                                        "created_at": {
+                                            "type": "string",
+                                            "example": "2023-02-23T00:09:16.000000Z"
+                                        },
+                                        "updated_at": {
+                                            "type": "string",
+                                            "example": "2023-02-23T12:33:45.000000Z"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "NOT FOUND",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": ""
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Concubines"
+                ],
+                "summary": "Update concubine",
+                "description": "Update concubine",
+                "operationId": "update_concubines",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Juan"
+                                    },
+                                    "last_name": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Peralta"
+                                    },
+                                    "type_identification": {
+                                        "type": "string",
+                                        "example": "Cedula"
+                                    },
+                                    "identification": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "40224522776"
+                                    },
+                                    "parent": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Primo"
+                                    },
+                                    "marital_status": {
+                                        "type": "string",
+                                        "example": "Soltero"
+                                    },
+                                    "phone": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "8099877765"
+                                    },
+                                    "residence_phone": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "8099886700"
+                                    },
+                                    "address": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Santo Domingo"
+                                    },
+                                    "military": {
+                                        "type": "boolean",
+                                        "format": "boolean",
+                                        "example": "true"
+                                    },
+                                    "institution": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "ARD"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "juan@gmail.com"
+                                    },
+                                    "kid_id": {
+                                        "type": "number",
+                                        "format": "number",
+                                        "example": "1"
+                                    },
+                                    "work_reference": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Ramon Acosta - 8092344234"
+                                    },
+                                    "personal_reference_1": {
+                                        "type": "number",
+                                        "format": "number",
+                                        "example": "Pedro Reyez - 8292344255"
+                                    },
+                                    "personal_reference_2": {
+                                        "type": "number",
+                                        "format": "number",
+                                        "example": "Carlos Sanchez - 8092311231"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": ""
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Concubines"
+                ],
+                "summary": "Delete concubine",
+                "description": "Delete concubine",
+                "operationId": "delete_concubines",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": ""
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
         "/api/kids": {
             "get": {
                 "tags": [
@@ -1203,7 +2325,7 @@
                                         "format": "number",
                                         "example": "1"
                                     },
-                                    "parent_id": {
+                                    "applicant_id": {
                                         "type": "number",
                                         "format": "number",
                                         "example": "1"
@@ -1248,460 +2370,6 @@
                 "summary": "Delete kid",
                 "description": "Delete kid",
                 "operationId": "delete_kid",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Success",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "status": {
-                                            "type": "integer",
-                                            "example": ""
-                                        },
-                                        "data": {
-                                            "type": "object"
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "apiAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/parents": {
-            "get": {
-                "tags": [
-                    "Parents"
-                ],
-                "summary": "All parents",
-                "description": "All parents",
-                "operationId": "all_parents",
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "id": {
-                                            "type": "number",
-                                            "example": 1
-                                        },
-                                        "name": {
-                                            "type": "string",
-                                            "example": ""
-                                        },
-                                        "last_name": {
-                                            "type": "string",
-                                            "example": ""
-                                        },
-                                        "identification": {
-                                            "type": "string",
-                                            "example": ""
-                                        },
-                                        "parent": {
-                                            "type": "string",
-                                            "example": ""
-                                        },
-                                        "phone": {
-                                            "type": "string",
-                                            "example": ""
-                                        },
-                                        "residence_phone": {
-                                            "type": "string",
-                                            "format": "string",
-                                            "example": ""
-                                        },
-                                        "address": {
-                                            "type": "string",
-                                            "example": ""
-                                        },
-                                        "military": {
-                                            "type": "boolean",
-                                            "format": "boolean",
-                                            "example": ""
-                                        },
-                                        "institution": {
-                                            "type": "string",
-                                            "format": "string",
-                                            "example": ""
-                                        },
-                                        "created_at": {
-                                            "type": "string",
-                                            "example": "2023-02-23T00:09:16.000000Z"
-                                        },
-                                        "updated_at": {
-                                            "type": "string",
-                                            "example": "2023-02-23T12:33:45.000000Z"
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
-                    },
-                    "404": {
-                        "description": "NOT FOUND",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "message": {
-                                            "type": "string",
-                                            "example": ""
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "apiAuth": []
-                    }
-                ]
-            },
-            "post": {
-                "tags": [
-                    "Parents"
-                ],
-                "summary": "Store parent",
-                "description": "Store parent",
-                "operationId": "store_parents",
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "required": [
-                                    "name"
-                                ],
-                                "properties": {
-                                    "name": {
-                                        "type": "string",
-                                        "format": "string",
-                                        "example": "Juan"
-                                    },
-                                    "last_name": {
-                                        "type": "string",
-                                        "format": "string",
-                                        "example": "Peralta"
-                                    },
-                                    "identification": {
-                                        "type": "string",
-                                        "format": "string",
-                                        "example": "40224522776"
-                                    },
-                                    "parent": {
-                                        "type": "string",
-                                        "format": "string",
-                                        "example": "Primo"
-                                    },
-                                    "phone": {
-                                        "type": "string",
-                                        "format": "string",
-                                        "example": "8099877765"
-                                    },
-                                    "residence_phone": {
-                                        "type": "string",
-                                        "format": "string",
-                                        "example": "8099886700"
-                                    },
-                                    "address": {
-                                        "type": "string",
-                                        "format": "string",
-                                        "example": "Santo Domingo"
-                                    },
-                                    "military": {
-                                        "type": "boolean",
-                                        "format": "boolean",
-                                        "example": "true"
-                                    },
-                                    "institution": {
-                                        "type": "string",
-                                        "format": "string",
-                                        "example": "ARD"
-                                    },
-                                    "kid_id": {
-                                        "type": "number",
-                                        "format": "number",
-                                        "example": "1"
-                                    }
-                                },
-                                "type": "object"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Success",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "status": {
-                                            "type": "integer",
-                                            "example": ""
-                                        },
-                                        "data": {
-                                            "type": "object"
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "apiAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/parents/{id}": {
-            "get": {
-                "tags": [
-                    "Parents"
-                ],
-                "summary": "See parent",
-                "description": "See parent",
-                "operationId": "watch_parents",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "id": {
-                                            "type": "number",
-                                            "example": 1
-                                        },
-                                        "name": {
-                                            "type": "string",
-                                            "example": ""
-                                        },
-                                        "last_name": {
-                                            "type": "string",
-                                            "example": ""
-                                        },
-                                        "identification": {
-                                            "type": "string",
-                                            "example": ""
-                                        },
-                                        "parent": {
-                                            "type": "string",
-                                            "example": ""
-                                        },
-                                        "phone": {
-                                            "type": "string",
-                                            "example": ""
-                                        },
-                                        "residence_phone": {
-                                            "type": "string",
-                                            "format": "string",
-                                            "example": ""
-                                        },
-                                        "address": {
-                                            "type": "string",
-                                            "example": ""
-                                        },
-                                        "military": {
-                                            "type": "boolean",
-                                            "format": "boolean",
-                                            "example": "true"
-                                        },
-                                        "institution": {
-                                            "type": "string",
-                                            "format": "string",
-                                            "example": ""
-                                        },
-                                        "created_at": {
-                                            "type": "string",
-                                            "example": "2023-02-23T00:09:16.000000Z"
-                                        },
-                                        "updated_at": {
-                                            "type": "string",
-                                            "example": "2023-02-23T12:33:45.000000Z"
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
-                    },
-                    "404": {
-                        "description": "NOT FOUND",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "message": {
-                                            "type": "string",
-                                            "example": ""
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "apiAuth": []
-                    }
-                ]
-            },
-            "put": {
-                "tags": [
-                    "Parents"
-                ],
-                "summary": "Update parent",
-                "description": "Update parent",
-                "operationId": "update_parents",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "required": [
-                                    "name"
-                                ],
-                                "properties": {
-                                    "name": {
-                                        "type": "string",
-                                        "format": "string",
-                                        "example": "Juan"
-                                    },
-                                    "last_name": {
-                                        "type": "string",
-                                        "format": "string",
-                                        "example": "Peralta"
-                                    },
-                                    "identification": {
-                                        "type": "string",
-                                        "format": "string",
-                                        "example": "40224522776"
-                                    },
-                                    "parent": {
-                                        "type": "string",
-                                        "format": "string",
-                                        "example": "Primo"
-                                    },
-                                    "phone": {
-                                        "type": "string",
-                                        "format": "string",
-                                        "example": "8099877765"
-                                    },
-                                    "residence_phone": {
-                                        "type": "string",
-                                        "format": "string",
-                                        "example": "8099886700"
-                                    },
-                                    "address": {
-                                        "type": "string",
-                                        "format": "string",
-                                        "example": "Santo Domingo"
-                                    },
-                                    "military": {
-                                        "type": "boolean",
-                                        "format": "boolean",
-                                        "example": "true"
-                                    },
-                                    "institution": {
-                                        "type": "string",
-                                        "format": "string",
-                                        "example": "ARD"
-                                    },
-                                    "kid_id": {
-                                        "type": "number",
-                                        "format": "number",
-                                        "example": "1"
-                                    }
-                                },
-                                "type": "object"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Success",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "status": {
-                                            "type": "integer",
-                                            "example": ""
-                                        },
-                                        "data": {
-                                            "type": "object"
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "apiAuth": []
-                    }
-                ]
-            },
-            "delete": {
-                "tags": [
-                    "Parents"
-                ],
-                "summary": "Delete parent",
-                "description": "Delete parent",
-                "operationId": "delete_parents",
                 "parameters": [
                     {
                         "name": "id",

@@ -20,8 +20,8 @@ class Kids extends Model
         return $this->belongsToMany(Tutors::class, 'kids_tutors', 'kid_id', 'tutor_id')->withTimestamps();
     }
 
-    public function parents(){
-        return $this->belongsToMany(Parents::class, 'kids_parents', 'kid_id', 'parent_id')->withTimestamps();
+    public function applicants(){
+        return $this->belongsToMany(Applicants::class, 'kids_applicants', 'kid_id', 'applicant_id')->withTimestamps();
     }
 
     public function authorizations(): HasMany{

@@ -2,19 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Parents;
+use App\Models\Applicants;
+use Exception;
 use Illuminate\Http\Request;
 
-class ParentsController extends Controller
+class ApplicantsController extends Controller
 {
     /**
      * @OA\Get (
-     *     path="/api/parents",
-     *      operationId="all_parents",
-     *     tags={"Parents"},
+     *     path="/api/applicants",
+     *      operationId="all_applicants",
+     *     tags={"Applicants"},
      *     security={{ "apiAuth": {} }},
-     *     summary="All parents",
-     *     description="All parents",
+     *     summary="All applicants",
+     *     description="All applicants",
      *     @OA\Response(
      *         response=200,
      *         description="OK",
@@ -22,13 +23,19 @@ class ParentsController extends Controller
      *              @OA\Property(property="id", type="number", example=1),
      *              @OA\Property(property="name", type="string", example=""),
      *              @OA\Property(property="last_name", type="string", example=""),
+     *              @OA\Property(property="type_identification", type="string", example=""),
      *              @OA\Property(property="identification", type="string", example=""),
      *              @OA\Property(property="parent", type="string", example=""),
+     *              @OA\Property(property="marital_status", type="string", example=""),
      *              @OA\Property(property="phone", type="string", example=""),
      *              @OA\Property(property="residence_phone", type="string", format="string", example=""),
      *              @OA\Property(property="address", type="string", example=""),
      *              @OA\Property(property="military", type="boolean", format="boolean", example=""),
      *              @OA\Property(property="institution", type="string", format="string", example=""),
+     *              @OA\Property(property="email", type="string", format="string", example=""),
+     *              @OA\Property(property="work_reference", type="string", format="string", example=""),
+     *              @OA\Property(property="personal_reference_1", type="number", format="number", example=""),
+     *              @OA\Property(property="personal_reference_2", type="number", format="number", example=""),
      *              @OA\Property(property="created_at", type="string", example="2023-02-23T00:09:16.000000Z"),
      *              @OA\Property(property="updated_at", type="string", example="2023-02-23T12:33:45.000000Z")
      *         )
@@ -44,19 +51,19 @@ class ParentsController extends Controller
      */
     public function index()
     {
-        $patents = Parents::with('kids')->paginate(10);
+        $patents = Applicants::with('kids')->paginate(10);
         return response()->json(["data"=>$patents],200);
     }
 
 
      /**
      * @OA\Get (
-     *     path="/api/parents/{id}",
-     *     operationId="watch_parents",
-     *     tags={"Parents"},
+     *     path="/api/applicants/{id}",
+     *     operationId="watch_applicants",
+     *     tags={"Applicants"},
      *     security={{ "apiAuth": {} }},
-     *     summary="See parent",
-     *     description="See parent",
+     *     summary="See applicant",
+     *     description="See applicant",
      *    @OA\Parameter(
      *         in="path",
      *         name="id",
@@ -70,13 +77,19 @@ class ParentsController extends Controller
      *              @OA\Property(property="id", type="number", example=1),
      *              @OA\Property(property="name", type="string", example=""),
      *              @OA\Property(property="last_name", type="string", example=""),
+     *              @OA\Property(property="type_identification", type="string", example=""),
      *              @OA\Property(property="identification", type="string", example=""),
      *              @OA\Property(property="parent", type="string", example=""),
+     *              @OA\Property(property="marital_status", type="string", example=""),
      *              @OA\Property(property="phone", type="string", example=""),
      *              @OA\Property(property="residence_phone", type="string", format="string", example=""),
      *              @OA\Property(property="address", type="string", example=""),
      *              @OA\Property(property="military", type="boolean", format="boolean", example="true"),
      *              @OA\Property(property="institution", type="string", format="string", example=""),
+     *              @OA\Property(property="email", type="string", format="string", example=""),
+     *              @OA\Property(property="work_reference", type="string", format="string", example=""),
+     *              @OA\Property(property="personal_reference_1", type="number", format="number", example=""),
+     *              @OA\Property(property="personal_reference_2", type="number", format="number", example=""),
      *              @OA\Property(property="created_at", type="string", example="2023-02-23T00:09:16.000000Z"),
      *              @OA\Property(property="updated_at", type="string", example="2023-02-23T12:33:45.000000Z")
      *         )
@@ -93,8 +106,8 @@ class ParentsController extends Controller
 
     public function watch($id){
         try{
-            $parent = Parents::with('kids')->find($id);
-            return response()->json(["data"=>$parent],200);
+            $applicant = Applicants::with('kids')->find($id);
+            return response()->json(["data"=>$applicant],200);
         }catch (Exception $e) {
             return response()->json(["data"=>"none"],200);
         }
@@ -102,26 +115,31 @@ class ParentsController extends Controller
 
     /**
      * @OA\Post(
-     *      path="/api/parents",
-     *      operationId="store_parents",
-     *      tags={"Parents"},
+     *      path="/api/applicants",
+     *      operationId="store_applicants",
+     *      tags={"Applicants"},
      *      security={{ "apiAuth": {} }},
-     *      summary="Store parent",
-     *      description="Store parent",
+     *      summary="Store applicant",
+     *      description="Store applicant",
      *      @OA\RequestBody(
      *         required=true,
      *         @OA\JsonContent(
      *            required={"name"},
      *            @OA\Property(property="name", type="string", format="string", example="Juan"),
      *            @OA\Property(property="last_name", type="string", format="string", example="Peralta"),
+     *            @OA\Property(property="type_identification", type="string", example="Cedula"),
      *            @OA\Property(property="identification", type="string", format="string", example="40224522776"),
      *            @OA\Property(property="parent", type="string", format="string", example="Primo"),
+     *            @OA\Property(property="marital_status", type="string", example="Soltero"),
      *            @OA\Property(property="phone", type="string", format="string", example="8099877765"),
      *            @OA\Property(property="residence_phone", type="string", format="string", example="8099886700"),
      *            @OA\Property(property="address", type="string", format="string", example="Santo Domingo"),
      *            @OA\Property(property="military", type="boolean", format="boolean", example="true"),
      *            @OA\Property(property="institution", type="string", format="string", example="ARD"),
-     *            @OA\Property(property="kid_id", type="number", format="number", example="1"),
+     *            @OA\Property(property="email", type="string", format="string", example="juan@gmail.com"),
+     *            @OA\Property(property="work_reference", type="string", format="string", example="Ramon Acosta - 8092344234"),
+     *            @OA\Property(property="personal_reference_1", type="number", format="number", example="Pedro Reyez - 8292344255"),
+     *            @OA\Property(property="personal_reference_2", type="number", format="number", example="Carlos Sanchez - 8092311231"),
      *         ),
      *      ),
      *     @OA\Response(
@@ -136,22 +154,22 @@ class ParentsController extends Controller
 
     public function register(Request $request)
     {
-        $parent = new Parents(request()->all());
-        $parent->save();
+        $applicant = new Applicants(request()->all());
+        $applicant->save();
         if (isset($request->kid_id)) {
-            $parent->kids()->attach(['kid_id' => $request->kid_id]);
+            $applicant->kids()->attach(['kid_id' => $request->kid_id]);
         }
-        return response()->json(["data"=>$parent],200);
+        return response()->json(["data"=>$applicant],200);
     }
 
     /**
      * @OA\Put(
-     *     path="/api/parents/{id}",
-     *     operationId="update_parents",
-     *     tags={"Parents"},
+     *     path="/api/applicants/{id}",
+     *     operationId="update_applicants",
+     *     tags={"Applicants"},
      *     security={{ "apiAuth": {} }},
-     *     summary="Update parent",
-     *     description="Update parent",
+     *     summary="Update applicant",
+     *     description="Update applicant",
      *     @OA\Parameter(
      *         in="path",
      *         name="id",
@@ -164,14 +182,20 @@ class ParentsController extends Controller
      *            required={"name"},
      *            @OA\Property(property="name", type="string", format="string", example="Juan"),
      *            @OA\Property(property="last_name", type="string", format="string", example="Peralta"),
+     *            @OA\Property(property="type_identification", type="string", example="Cedula"),
      *            @OA\Property(property="identification", type="string", format="string", example="40224522776"),
      *            @OA\Property(property="parent", type="string", format="string", example="Primo"),
+     *            @OA\Property(property="marital_status", type="string", example="Soltero"),
      *            @OA\Property(property="phone", type="string", format="string", example="8099877765"),
      *            @OA\Property(property="residence_phone", type="string", format="string", example="8099886700"),
      *            @OA\Property(property="address", type="string", format="string", example="Santo Domingo"),
      *            @OA\Property(property="military", type="boolean", format="boolean", example="true"),
      *            @OA\Property(property="institution", type="string", format="string", example="ARD"),
+     *            @OA\Property(property="email", type="string", format="string", example="juan@gmail.com"),
      *            @OA\Property(property="kid_id", type="number", format="number", example="1"),
+     *            @OA\Property(property="work_reference", type="string", format="string", example="Ramon Acosta - 8092344234"),
+     *            @OA\Property(property="personal_reference_1", type="number", format="number", example="Pedro Reyez - 8292344255"),
+     *            @OA\Property(property="personal_reference_2", type="number", format="number", example="Carlos Sanchez - 8092311231"),
      *         ),
      *      ),
      *     @OA\Response(
@@ -186,10 +210,10 @@ class ParentsController extends Controller
 
     public function update(Request $request, $id){
         try{
-            $parent = Parents::where('id',$id)->first();
-            $parent->update($request->all());
+            $applicant = Applicants::where('id',$id)->first();
+            $applicant->update($request->all());
             if (isset($request->kid_id)) {
-                $parent->kids()->attach(['kid_id' => $request->kid_id]);
+                $applicant->kids()->attach(['kid_id' => $request->kid_id]);
             }
             return response()->json(["data"=>"ok"],200);
         }catch (Exception $e) {
@@ -199,12 +223,12 @@ class ParentsController extends Controller
 
     /**
      * @OA\Delete(
-     *      path="/api/parents/{id}",
-     *      operationId="delete_parents",
-     *      tags={"Parents"},
+     *      path="/api/applicants/{id}",
+     *      operationId="delete_applicants",
+     *      tags={"Applicants"},
      *     security={{ "apiAuth": {} }},
-     *      summary="Delete parent",
-     *      description="Delete parent",
+     *      summary="Delete applicant",
+     *      description="Delete applicant",
      *    @OA\Parameter(
      *         in="path",
      *         name="id",
@@ -223,7 +247,7 @@ class ParentsController extends Controller
 
     public function delete($id){
         try{
-            Parents::destroy($id);
+            Applicants::destroy($id);
             return response()->json(["data"=>"ok"],200);
         }catch (Exception $e) {
             return response()->json(["data"=>"none"],200);

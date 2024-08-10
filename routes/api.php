@@ -3,7 +3,8 @@
 use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\AuthorizedPersonsController;
 use App\Http\Controllers\KidController;
-use App\Http\Controllers\ParentsController;
+use App\Http\Controllers\ApplicantsController;
+use App\Http\Controllers\ConcubinesController;
 use App\Http\Controllers\TutorsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -52,9 +53,16 @@ Route::post('/attendances/', [AttendanceController::class, 'register']);
 Route::put('/attendances/{id}/', [AttendanceController::class, 'update']);
 Route::delete('/attendances/{id}/', [AttendanceController::class, 'delete']);
 
-//parents
-Route::get('/parents/', [ParentsController::class, 'index']);
-Route::get('/parents/{id}/', [ParentsController::class, 'watch']);
-Route::post('/parents/', [ParentsController::class, 'register']);
-Route::put('/parents/{id}/', [ParentsController::class, 'update']);
-Route::delete('/parents/{id}/', [ParentsController::class, 'delete']);
+//applicants
+Route::get('/applicants/', [ApplicantsController::class, 'index']);
+Route::get('/applicants/{id}/', [ApplicantsController::class, 'watch']);
+Route::post('/applicants/', [ApplicantsController::class, 'register']);
+Route::put('/applicants/{id}/', [ApplicantsController::class, 'update']);
+Route::delete('/applicants/{id}/', [ApplicantsController::class, 'delete']);
+
+//concubines
+Route::get('/concubines/', [ConcubinesController::class, 'index']);
+Route::get('/concubines/{id}/', [ConcubinesController::class, 'watch']);
+Route::post('/concubines/', [ConcubinesController::class, 'register']);
+Route::put('/concubines/{id}/', [ConcubinesController::class, 'update']);
+Route::delete('/concubines/{id}/', [ConcubinesController::class, 'delete']);

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kids;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -53,7 +54,7 @@ class KidController extends Controller
      */
     public function index()
     {
-        $kids = Kids::with('tutors')->with('parents')->paginate(10);
+        $kids = Kids::with('tutors')->with('applicants')->paginate(10);
         return response()->json(["data"=>$kids],200);
     }
 
@@ -151,7 +152,7 @@ class KidController extends Controller
 
     public function watch($id){
         try{
-            $kids = Kids::with('tutors')->with('parents')->find($id);
+            $kids = Kids::with('tutors')->with('applicants')->find($id);
             return response()->json(["data"=>$kids],200);
         }catch (Exception $e) {
             return response()->json(["data"=>"none"],200);
@@ -242,7 +243,7 @@ class KidController extends Controller
      *            @OA\Property(property="medical_conditions", type="string", format="string", example="Santo Domingo"),
      *            @OA\Property(property="medications", type="string", format="string", example="Santo Domingo"),
      *            @OA\Property(property="tutor_id", type="number", format="number", example="1"),
-     *            @OA\Property(property="parent_id", type="number", format="number", example="1"),
+     *            @OA\Property(property="applicant_id", type="number", format="number", example="1"),
      *         ),
      *      ),
      *     @OA\Response(
@@ -262,8 +263,8 @@ class KidController extends Controller
             if (isset($request->tutor_id)) {
                 $kids->tutors()->attach(['tutor_id' => $request->tutor_id]);
             }
-            if (isset($request->parent_id)) {
-                $kids->parents()->attach(['parent_id' => $request->parent_id]);
+            if (isset($request->applicant_id)) {
+                $kids->applicants()->attach(['applicant_id' => $request->applicant_id]);
             }
             return response()->json(["data"=>"ok"],200);
         }catch (Exception $e) {
