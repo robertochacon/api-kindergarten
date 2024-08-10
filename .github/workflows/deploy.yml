@@ -23,7 +23,7 @@ jobs:
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
         script: |
-          cd /public_html/api-kindergarten
+          cd public_html/api-kindergarten
           git pull origin dev
           php artisan migrate:fresh --seed
           php artisan l5-swagger:generate
