@@ -696,7 +696,15 @@
                                             "type": "string",
                                             "example": ""
                                         },
-                                        "sector": {
+                                        "district": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "sections": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "neighborhood": {
                                             "type": "string",
                                             "example": ""
                                         },
@@ -746,7 +754,7 @@
                                     "properties": {
                                         "message": {
                                             "type": "string",
-                                            "example": "No query results for model [App\\\\Models\\\\Cliente] #id"
+                                            "example": ""
                                         }
                                     },
                                     "type": "object"
@@ -814,9 +822,17 @@
                                         "type": "string",
                                         "example": "Santo Domingo de Guzmán"
                                     },
-                                    "sector": {
+                                    "district": {
                                         "type": "string",
-                                        "example": "Gazcue"
+                                        "example": "Primera Circunscripción"
+                                    },
+                                    "sections": {
+                                        "type": "string",
+                                        "example": "Sección 1"
+                                    },
+                                    "neighborhood": {
+                                        "type": "string",
+                                        "example": "Ensanche La Fe"
                                     },
                                     "classroom": {
                                         "type": "string",
@@ -927,7 +943,7 @@
                                     "properties": {
                                         "message": {
                                             "type": "string",
-                                            "example": "No query results for model [App\\\\Models\\\\Cliente] #id"
+                                            "example": ""
                                         }
                                     },
                                     "type": "object"
@@ -1004,7 +1020,15 @@
                                             "type": "string",
                                             "example": ""
                                         },
-                                        "sector": {
+                                        "district": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "sections": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "neighborhood": {
                                             "type": "string",
                                             "example": ""
                                         },
@@ -1054,7 +1078,7 @@
                                     "properties": {
                                         "message": {
                                             "type": "string",
-                                            "example": "No query results for model [App\\\\Models\\\\Cliente] #id"
+                                            "example": ""
                                         }
                                     },
                                     "type": "object"
@@ -1132,9 +1156,17 @@
                                         "type": "string",
                                         "example": "Santo Domingo de Guzmán"
                                     },
-                                    "sector": {
+                                    "district": {
                                         "type": "string",
-                                        "example": "Gazcue"
+                                        "example": "Primera Circunscripción"
+                                    },
+                                    "sections": {
+                                        "type": "string",
+                                        "example": "Sección 1"
+                                    },
+                                    "neighborhood": {
+                                        "type": "string",
+                                        "example": "Ensanche La Fe"
                                     },
                                     "classroom": {
                                         "type": "string",
