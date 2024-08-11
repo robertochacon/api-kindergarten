@@ -14,4 +14,8 @@ class Concubines extends Model
     protected $fillable = [
         'id','name','last_name','type_identification','identification','parent','marital_status','phone','residence_phone','address','military','institution','email','work_reference','personal_reference_1','personal_reference_2'
     ];
+
+    public function kid(){
+        return $this->hasMany(Kids::class, 'concubine_id');
+    }
 }

@@ -51,7 +51,7 @@ class ApplicantsController extends Controller
      */
     public function index()
     {
-        $patents = Applicants::with('kids')->paginate(10);
+        $patents = Applicants::with('concubine')->with('kid')->paginate(10);
         return response()->json(["data"=>$patents],200);
     }
 
@@ -106,7 +106,7 @@ class ApplicantsController extends Controller
 
     public function watch($id){
         try{
-            $applicant = Applicants::with('kids')->find($id);
+            $applicant = Applicants::with('concubine')->with('kid')->find($id);
             return response()->json(["data"=>$applicant],200);
         }catch (Exception $e) {
             return response()->json(["data"=>"none"],200);

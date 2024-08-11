@@ -39,6 +39,8 @@ class KidController extends Controller
      *              @OA\Property(property="allergies", type="string", example=""),
      *              @OA\Property(property="medical_conditions", type="string", example=""),
      *              @OA\Property(property="medications", type="string", example=""),
+     *              @OA\Property(property="applicant", type="string", example=""),
+     *              @OA\Property(property="concubine", type="string", example=""),
      *              @OA\Property(property="created_at", type="string", example="2023-02-23T00:09:16.000000Z"),
      *              @OA\Property(property="updated_at", type="string", example="2023-02-23T12:33:45.000000Z")
      *         )
@@ -54,14 +56,14 @@ class KidController extends Controller
      */
     public function index()
     {
-        $kids = Kids::with('tutors')->with('applicants')->paginate(10);
+        $kids = Kids::with('applicant')->with('concubine')->with('tutors')->paginate(10);
         return response()->json(["data"=>$kids],200);
     }
 
     /**
      * @OA\Get (
      *     path="/api/kids/totales",
-     *      operationId="all_kids_total",
+     *     operationId="all_kids_total",
      *     tags={"Kids"},
      *     security={{ "apiAuth": {} }},
      *     summary="All total of kids",
@@ -136,6 +138,8 @@ class KidController extends Controller
      *              @OA\Property(property="allergies", type="string", example=""),
      *              @OA\Property(property="medical_conditions", type="string", example=""),
      *              @OA\Property(property="medications", type="string", example=""),
+     *              @OA\Property(property="applicant", type="string", example=""),
+     *              @OA\Property(property="concubine", type="string", example=""),
      *              @OA\Property(property="created_at", type="string", example="2023-02-23T00:09:16.000000Z"),
      *              @OA\Property(property="updated_at", type="string", example="2023-02-23T12:33:45.000000Z")
      *         )
@@ -152,7 +156,7 @@ class KidController extends Controller
 
     public function watch($id){
         try{
-            $kids = Kids::with('tutors')->with('applicants')->find($id);
+            $kids = Kids::with('applicant')->with('concubine')->with('tutors')->find($id);
             return response()->json(["data"=>$kids],200);
         }catch (Exception $e) {
             return response()->json(["data"=>"none"],200);
@@ -171,6 +175,8 @@ class KidController extends Controller
      *         required=true,
      *         @OA\JsonContent(
      *            required={"name"},
+     *            @OA\Property(property="applicant_id", type="number", format="number", example=1),
+     *            @OA\Property(property="concubine_id", type="number", format="number", example=1),
      *            @OA\Property(property="name", type="string", format="string", example="Daniel"),
      *            @OA\Property(property="last_name", type="string", format="string", example="Valdez"),
      *            @OA\Property(property="gender", type="string", format="string", example="Masculino"),
@@ -225,6 +231,9 @@ class KidController extends Controller
      *         required=true,
      *         @OA\JsonContent(
      *            required={"name"},
+     *            @OA\Property(property="applicant_id", type="number", format="number", example=1),
+     *            @OA\Property(property="concubine_id", type="number", format="number", example=1),
+     *            @OA\Property(property="tutor_id", type="number", format="number", example="1"),
      *            @OA\Property(property="name", type="string", format="string", example="Daniel"),
      *            @OA\Property(property="last_name", type="string", format="string", example="Chacon"),
      *            @OA\Property(property="gender", type="string", format="string", example="M"),
@@ -242,8 +251,6 @@ class KidController extends Controller
      *            @OA\Property(property="allergies", type="string", format="string", example="Ninguna"),
      *            @OA\Property(property="medical_conditions", type="string", format="string", example="Santo Domingo"),
      *            @OA\Property(property="medications", type="string", format="string", example="Santo Domingo"),
-     *            @OA\Property(property="tutor_id", type="number", format="number", example="1"),
-     *            @OA\Property(property="applicant_id", type="number", format="number", example="1"),
      *         ),
      *      ),
      *     @OA\Response(
@@ -260,12 +267,9 @@ class KidController extends Controller
         try{
             $kids = Kids::where('id',$id)->first();
             $kids->update($request->all());
-            if (isset($request->tutor_id)) {
-                $kids->tutors()->attach(['tutor_id' => $request->tutor_id]);
-            }
-            if (isset($request->applicant_id)) {
-                $kids->applicants()->attach(['applicant_id' => $request->applicant_id]);
-            }
+            // if (isset($request->tutor_id)) {
+            //     $kids->tutors()->attach(['tutor_id' => $request->tutor_id]);
+            // }
             return response()->json(["data"=>"ok"],200);
         }catch (Exception $e) {
             return response()->json(["data"=>"none"],200);

@@ -15,7 +15,12 @@ class Applicants extends Model
         'id','name','last_name','type_identification','identification','parent','marital_status','phone','residence_phone','address','military','institution','email','work_reference','personal_reference_1','personal_reference_2'
     ];
 
-    public function kids(){
-        return $this->belongsToMany(Kids::class, 'kids_applicants', 'applicant_id', 'kid_id')->withTimestamps();
+    public function concubine(){
+        return $this->hasMany(Concubines::class, 'applicant_id');
     }
+
+    public function kid(){
+        return $this->hasMany(Kids::class, 'applicant_id');
+    }
+
 }

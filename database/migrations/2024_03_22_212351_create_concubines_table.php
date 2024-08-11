@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('concubines', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('applicant_id')->nullable();
+            $table->foreign('applicant_id')->references('id')->on('applicants');
             $table->string("name")->nullable();
             $table->string("last_name")->nullable();
             $table->string("type_identification")->nullable();

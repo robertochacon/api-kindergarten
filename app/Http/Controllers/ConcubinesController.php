@@ -36,6 +36,7 @@ class ConcubinesController extends Controller
      *              @OA\Property(property="work_reference", type="string", format="string", example=""),
      *              @OA\Property(property="personal_reference_1", type="number", format="number", example=""),
      *              @OA\Property(property="personal_reference_2", type="number", format="number", example=""),
+     *              @OA\Property(property="concubine", type="string", format="string", example=""),
      *              @OA\Property(property="created_at", type="string", example="2023-02-23T00:09:16.000000Z"),
      *              @OA\Property(property="updated_at", type="string", example="2023-02-23T12:33:45.000000Z")
      *         )
@@ -51,7 +52,7 @@ class ConcubinesController extends Controller
      */
     public function index()
     {
-        $patents = Concubines::with('kids')->paginate(10);
+        $patents = Concubines::with('kid')->paginate(10);
         return response()->json(["data"=>$patents],200);
     }
 
@@ -90,6 +91,7 @@ class ConcubinesController extends Controller
      *              @OA\Property(property="work_reference", type="string", format="string", example=""),
      *              @OA\Property(property="personal_reference_1", type="number", format="number", example=""),
      *              @OA\Property(property="personal_reference_2", type="number", format="number", example=""),
+     *              @OA\Property(property="concubine", type="string", format="string", example=""),
      *              @OA\Property(property="created_at", type="string", example="2023-02-23T00:09:16.000000Z"),
      *              @OA\Property(property="updated_at", type="string", example="2023-02-23T12:33:45.000000Z")
      *         )
@@ -106,7 +108,7 @@ class ConcubinesController extends Controller
 
     public function watch($id){
         try{
-            $concubine = Concubines::with('kids')->find($id);
+            $concubine = Concubines::with('kid')->find($id);
             return response()->json(["data"=>$concubine],200);
         }catch (Exception $e) {
             return response()->json(["data"=>"none"],200);
@@ -125,6 +127,7 @@ class ConcubinesController extends Controller
      *         required=true,
      *         @OA\JsonContent(
      *            required={"name"},
+     *            @OA\Property(property="applicant_id", type="number", format="number", example=1),
      *            @OA\Property(property="name", type="string", format="string", example="Juan"),
      *            @OA\Property(property="last_name", type="string", format="string", example="Peralta"),
      *            @OA\Property(property="type_identification", type="string", example="Cedula"),
@@ -180,6 +183,7 @@ class ConcubinesController extends Controller
      *         required=true,
      *         @OA\JsonContent(
      *            required={"name"},
+     *            @OA\Property(property="applicant_id", type="number", format="number", example=1),
      *            @OA\Property(property="name", type="string", format="string", example="Juan"),
      *            @OA\Property(property="last_name", type="string", format="string", example="Peralta"),
      *            @OA\Property(property="type_identification", type="string", example="Cedula"),
