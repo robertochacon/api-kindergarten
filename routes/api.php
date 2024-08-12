@@ -32,7 +32,7 @@ Route::group(['middleware' => 'api'], function () {
 });
 
 
-Route::middleware(['auth:api'])->group(function () {
+// Route::middleware(['auth:api'])->group(function () {
 
     Route::post('logout', [AuthController::class, 'logout']);
     Route::post('refresh', [AuthController::class, 'refresh']);
@@ -81,4 +81,4 @@ Route::middleware(['auth:api'])->group(function () {
     Route::put('/concubines/{id}/', [ConcubinesController::class, 'update']);
     Route::delete('/concubines/{id}/', [ConcubinesController::class, 'delete']);
 
-});
+// });
