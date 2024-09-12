@@ -20,6 +20,31 @@ class AttendanceController extends Controller
      *     security={{ "apiAuth": {} }},
      *     summary="All attendances",
      *     description="All attendances",
+     *     @OA\Parameter(
+     *          in="query",
+     *          name="id",
+     *          @OA\Schema(type="integer")
+     *     ),
+     *     @OA\Parameter(
+     *          in="query",
+     *          name="name",
+     *          @OA\Schema(type="string")
+     *     ),
+     *     @OA\Parameter(
+     *          in="query",
+     *          name="last_name",
+     *          @OA\Schema(type="string")
+     *     ),
+     *     @OA\Parameter(
+     *          in="query",
+     *          name="start_date",
+     *          @OA\Schema(type="string")
+     *     ),
+     *     @OA\Parameter(
+     *          in="query",
+     *          name="end_date",
+     *          @OA\Schema(type="string")
+     *     ),
      *     @OA\Response(
      *         response=200,
      *         description="OK",
@@ -40,10 +65,42 @@ class AttendanceController extends Controller
      *      )
      * )
      */
-    public function index()
+    public function index(Request $request)
     {
-        $attendances = Attendance::with('kid')->with('user')->paginate(10);
-        return response()->json(["data"=>$attendances],200);
+        $id = $request->id;
+        $name = $request->name;
+        $lastName = $request->last_name;
+        $startDate = $request->start_date;
+        $endDate = $request->end_date;
+
+        $attendances = Attendance::with(['kid', 'user']);
+
+        if (!empty($id) || !empty($name) || !empty($lastName) || !empty($startDate) || !empty($endDate)) {
+            $attendances->whereHas('kid', function ($query) use ($id, $name, $lastName) {
+                if (!empty($id)) {
+                    $query->where('id', $id);
+                }
+                if (!empty($name)) {
+                    $query->where('name', 'like', '%' . $name . '%');
+                }
+                if (!empty($lastName)) {
+                    $query->where('last_name', 'like', '%' . $lastName . '%');
+                }
+            });
+
+            if (!empty($startDate) && !empty($endDate)) {
+                $attendances->whereBetween('created_at', [$startDate, $endDate]);
+            } elseif (!empty($startDate)) {
+                $attendances->where('created_at', '>=', $startDate);
+            } elseif (!empty($endDate)) {
+                $attendances->where('created_at', '<=', $endDate);
+            }
+        }
+
+        $attendances = $attendances->paginate(10);
+
+        return response()->json(["data" => $attendances], 200);
+
     }
 
 

@@ -34,6 +34,8 @@ return new class extends Migration
             $table->text("allergies")->nullable();
             $table->text("medical_conditions")->nullable();
             $table->text("medications")->nullable();
+            $table->string("pediatrician")->nullable();
+            $table->string("pediatrician_phone")->nullable();
             $table->timestamps();
         });
     }
