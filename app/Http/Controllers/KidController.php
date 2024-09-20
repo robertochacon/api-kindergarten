@@ -6,7 +6,6 @@ use App\Models\Kids;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class KidController extends Controller
 {
@@ -62,6 +61,12 @@ class KidController extends Controller
     public function index()
     {
         $kids = Kids::with('applicant')->with('concubine')->with('tutors')->paginate(10);
+
+        foreach ($kids as $kid) {
+            $qrUrl = "https://api.qrserver.com/v1/create-qr-code/?data=" . $kid->code . "&size=200x200";
+            $kid->qr_code = $qrUrl;
+        }
+
         return response()->json(["data"=>$kids],200);
     }
 
@@ -107,7 +112,7 @@ class KidController extends Controller
         return response()->json(["data"=>$totales],200);
     }
 
-     /**
+    /**
      * @OA\Get (
      *     path="/api/kids/{id}",
      *     operationId="watch_kid",
@@ -161,23 +166,16 @@ class KidController extends Controller
      *          )
      *      )
      * )
-     */
+    */
 
     public function watch($id){
         try{
             $kids = Kids::with('applicant')->with('concubine')->with('tutors')->find($id);
-            $code = $kids->code;
-
-            $qrCode = base64_encode(QrCode::format('png')->size(300)->generate($code));
-            $qrCodeUrl = "data:image/png;base64," . $qrCode;
-
-            return response()->json([
-                "data" => $kids,
-                "qr_code_url" => $qrCodeUrl
-            ], 200);
-
+            $qrUrl = "https://api.qrserver.com/v1/create-qr-code/?data=" . $kids->code . "&size=200x200";
+            $kids->qr_code = $qrUrl;
+            return response()->json(["data"=>$kids],200);
         }catch (Exception $e) {
-            return response()->json(["data"=>"none", "error" => $e->getMessage()], 500);
+            return response()->json(["data"=>"none"],200);
         }
     }
 
