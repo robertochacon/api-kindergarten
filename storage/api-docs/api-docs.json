@@ -71,6 +71,11 @@
                                             "format": "string",
                                             "example": ""
                                         },
+                                        "range": {
+                                            "type": "string",
+                                            "format": "string",
+                                            "example": ""
+                                        },
                                         "email": {
                                             "type": "string",
                                             "format": "string",
@@ -89,6 +94,11 @@
                                         "personal_reference_2": {
                                             "type": "number",
                                             "format": "number",
+                                            "example": ""
+                                        },
+                                        "file": {
+                                            "type": "string",
+                                            "format": "string",
                                             "example": ""
                                         },
                                         "created_at": {
@@ -133,25 +143,26 @@
                     "Applicants"
                 ],
                 "summary": "Store applicant",
-                "description": "Store applicant",
+                "description": "Store applicant and upload documents",
                 "operationId": "store_applicants",
                 "requestBody": {
                     "required": true,
                     "content": {
-                        "application/json": {
+                        "multipart/form-data": {
                             "schema": {
                                 "required": [
-                                    "name"
+                                    "name",
+                                    "last_name",
+                                    "type_identification",
+                                    "identification"
                                 ],
                                 "properties": {
                                     "name": {
                                         "type": "string",
-                                        "format": "string",
                                         "example": "Juan"
                                     },
                                     "last_name": {
                                         "type": "string",
-                                        "format": "string",
                                         "example": "Peralta"
                                     },
                                     "type_identification": {
@@ -160,12 +171,10 @@
                                     },
                                     "identification": {
                                         "type": "string",
-                                        "format": "string",
                                         "example": "40224522776"
                                     },
                                     "parent": {
                                         "type": "string",
-                                        "format": "string",
                                         "example": "Primo"
                                     },
                                     "marital_status": {
@@ -174,48 +183,48 @@
                                     },
                                     "phone": {
                                         "type": "string",
-                                        "format": "string",
                                         "example": "8099877765"
                                     },
                                     "residence_phone": {
                                         "type": "string",
-                                        "format": "string",
                                         "example": "8099886700"
                                     },
                                     "address": {
                                         "type": "string",
-                                        "format": "string",
                                         "example": "Santo Domingo"
                                     },
                                     "military": {
                                         "type": "boolean",
-                                        "format": "boolean",
-                                        "example": "true"
+                                        "example": true
                                     },
                                     "institution": {
                                         "type": "string",
-                                        "format": "string",
                                         "example": "ARD"
+                                    },
+                                    "range": {
+                                        "type": "string",
+                                        "example": "Teniente"
                                     },
                                     "email": {
                                         "type": "string",
-                                        "format": "string",
                                         "example": "juan@gmail.com"
                                     },
                                     "work_reference": {
                                         "type": "string",
-                                        "format": "string",
                                         "example": "Ramon Acosta - 8092344234"
                                     },
                                     "personal_reference_1": {
-                                        "type": "number",
-                                        "format": "number",
+                                        "type": "string",
                                         "example": "Pedro Reyez - 8292344255"
                                     },
                                     "personal_reference_2": {
-                                        "type": "number",
-                                        "format": "number",
+                                        "type": "string",
                                         "example": "Carlos Sanchez - 8092311231"
+                                    },
+                                    "file": {
+                                        "description": "Applicant's document file (PDF, JPG, etc.)",
+                                        "type": "string",
+                                        "format": "binary"
                                     }
                                 },
                                 "type": "object"
@@ -225,16 +234,17 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "Success",
+                        "description": "Applicant created successfully",
                         "content": {
                             "application/json": {
                                 "schema": {
                                     "properties": {
                                         "status": {
                                             "type": "integer",
-                                            "example": ""
+                                            "example": 200
                                         },
                                         "data": {
+                                            "description": "Applicant data",
                                             "type": "object"
                                         }
                                     },
@@ -327,6 +337,11 @@
                                             "format": "string",
                                             "example": ""
                                         },
+                                        "range": {
+                                            "type": "string",
+                                            "format": "string",
+                                            "example": ""
+                                        },
                                         "email": {
                                             "type": "string",
                                             "format": "string",
@@ -345,6 +360,11 @@
                                         "personal_reference_2": {
                                             "type": "number",
                                             "format": "number",
+                                            "example": ""
+                                        },
+                                        "file": {
+                                            "type": "string",
+                                            "format": "string",
                                             "example": ""
                                         },
                                         "created_at": {
@@ -388,8 +408,8 @@
                 "tags": [
                     "Applicants"
                 ],
-                "summary": "Update applicant",
-                "description": "Update applicant",
+                "summary": "Update applicant and upload documents",
+                "description": "Update applicant data and allow file upload",
                 "operationId": "update_applicants",
                 "parameters": [
                     {
@@ -404,20 +424,21 @@
                 "requestBody": {
                     "required": true,
                     "content": {
-                        "application/json": {
+                        "multipart/form-data": {
                             "schema": {
                                 "required": [
-                                    "name"
+                                    "name",
+                                    "last_name",
+                                    "type_identification",
+                                    "identification"
                                 ],
                                 "properties": {
                                     "name": {
                                         "type": "string",
-                                        "format": "string",
                                         "example": "Juan"
                                     },
                                     "last_name": {
                                         "type": "string",
-                                        "format": "string",
                                         "example": "Peralta"
                                     },
                                     "type_identification": {
@@ -426,12 +447,10 @@
                                     },
                                     "identification": {
                                         "type": "string",
-                                        "format": "string",
                                         "example": "40224522776"
                                     },
                                     "parent": {
                                         "type": "string",
-                                        "format": "string",
                                         "example": "Primo"
                                     },
                                     "marital_status": {
@@ -440,53 +459,48 @@
                                     },
                                     "phone": {
                                         "type": "string",
-                                        "format": "string",
                                         "example": "8099877765"
                                     },
                                     "residence_phone": {
                                         "type": "string",
-                                        "format": "string",
                                         "example": "8099886700"
                                     },
                                     "address": {
                                         "type": "string",
-                                        "format": "string",
                                         "example": "Santo Domingo"
                                     },
                                     "military": {
                                         "type": "boolean",
-                                        "format": "boolean",
-                                        "example": "true"
+                                        "example": true
                                     },
                                     "institution": {
                                         "type": "string",
-                                        "format": "string",
                                         "example": "ARD"
+                                    },
+                                    "range": {
+                                        "type": "string",
+                                        "example": "Teniente"
                                     },
                                     "email": {
                                         "type": "string",
-                                        "format": "string",
                                         "example": "juan@gmail.com"
-                                    },
-                                    "kid_id": {
-                                        "type": "number",
-                                        "format": "number",
-                                        "example": "1"
                                     },
                                     "work_reference": {
                                         "type": "string",
-                                        "format": "string",
                                         "example": "Ramon Acosta - 8092344234"
                                     },
                                     "personal_reference_1": {
-                                        "type": "number",
-                                        "format": "number",
+                                        "type": "string",
                                         "example": "Pedro Reyez - 8292344255"
                                     },
                                     "personal_reference_2": {
-                                        "type": "number",
-                                        "format": "number",
+                                        "type": "string",
                                         "example": "Carlos Sanchez - 8092311231"
+                                    },
+                                    "file": {
+                                        "description": "Applicant's updated document file (PDF, JPG, etc.)",
+                                        "type": "string",
+                                        "format": "binary"
                                     }
                                 },
                                 "type": "object"
@@ -496,16 +510,17 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "Success",
+                        "description": "Applicant updated successfully",
                         "content": {
                             "application/json": {
                                 "schema": {
                                     "properties": {
                                         "status": {
                                             "type": "integer",
-                                            "example": ""
+                                            "example": 200
                                         },
                                         "data": {
+                                            "description": "Updated applicant data",
                                             "type": "object"
                                         }
                                     },
@@ -574,6 +589,43 @@
                 "summary": "All attendances",
                 "description": "All attendances",
                 "operationId": "all_attendances",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "last_name",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "start_date",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "end_date",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -882,48 +934,64 @@
                 ]
             }
         },
-        "/api/authorizations": {
-            "get": {
+        "/api/register": {
+            "post": {
                 "tags": [
-                    "Authorized persons"
+                    "Auth"
                 ],
-                "summary": "All authorizations",
-                "description": "All authorizations",
-                "operationId": "all_authorization",
+                "summary": "Registro de nuevo usuario",
+                "description": "Registra un nuevo usuario y devuelve un token JWT",
+                "operationId": "register",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "email",
+                                    "password",
+                                    "password_confirmation"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "John Doe"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email",
+                                        "example": "john.doe@example.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "format": "password",
+                                        "example": "password123"
+                                    },
+                                    "password_confirmation": {
+                                        "type": "string",
+                                        "format": "password",
+                                        "example": "password123"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
                 "responses": {
-                    "200": {
-                        "description": "OK",
+                    "201": {
+                        "description": "User created successfully",
                         "content": {
                             "application/json": {
                                 "schema": {
                                     "properties": {
-                                        "kid_id": {
-                                            "type": "number",
-                                            "example": 1
+                                        "user": {
+                                            "$ref": ""
                                         },
-                                        "tutor_id": {
-                                            "type": "number",
-                                            "example": 1
-                                        },
-                                        "name_kid": {
+                                        "token": {
                                             "type": "string",
-                                            "example": ""
-                                        },
-                                        "name_tutor": {
-                                            "type": "string",
-                                            "example": ""
-                                        },
-                                        "identification": {
-                                            "type": "string",
-                                            "example": ""
-                                        },
-                                        "created_at": {
-                                            "type": "string",
-                                            "example": "2023-02-23T00:09:16.000000Z"
-                                        },
-                                        "updated_at": {
-                                            "type": "string",
-                                            "example": "2023-02-23T12:33:45.000000Z"
+                                            "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..."
                                         }
                                     },
                                     "type": "object"
@@ -931,15 +999,15 @@
                             }
                         }
                     },
-                    "404": {
-                        "description": "NOT FOUND",
+                    "400": {
+                        "description": "Bad Request",
                         "content": {
                             "application/json": {
                                 "schema": {
                                     "properties": {
-                                        "message": {
+                                        "error": {
                                             "type": "string",
-                                            "example": ""
+                                            "example": "Validation error"
                                         }
                                     },
                                     "type": "object"
@@ -947,36 +1015,36 @@
                             }
                         }
                     }
-                },
-                "security": [
-                    {
-                        "apiAuth": []
-                    }
-                ]
-            },
+                }
+            }
+        },
+        "/api/login": {
             "post": {
                 "tags": [
-                    "Authorized persons"
+                    "Auth"
                 ],
-                "summary": "Store authorization",
-                "description": "Store authorization",
-                "operationId": "store_authorization",
+                "summary": "Inicio de sesión de usuario",
+                "description": "Inicia sesión y devuelve un token JWT",
+                "operationId": "login",
                 "requestBody": {
                     "required": true,
                     "content": {
                         "application/json": {
                             "schema": {
                                 "required": [
-                                    "name"
+                                    "email",
+                                    "password"
                                 ],
                                 "properties": {
-                                    "kid_id": {
-                                        "type": "number",
-                                        "example": 1
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email",
+                                        "example": "john.doe@example.com"
                                     },
-                                    "tutor_id": {
-                                        "type": "number",
-                                        "example": 1
+                                    "password": {
+                                        "type": "string",
+                                        "format": "password",
+                                        "example": "password123"
                                     }
                                 },
                                 "type": "object"
@@ -986,17 +1054,66 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "Success",
+                        "description": "Login exitoso",
                         "content": {
                             "application/json": {
                                 "schema": {
                                     "properties": {
-                                        "status": {
-                                            "type": "integer",
-                                            "example": ""
+                                        "access_token": {
+                                            "type": "string",
+                                            "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..."
                                         },
-                                        "data": {
-                                            "type": "object"
+                                        "token_type": {
+                                            "type": "string",
+                                            "example": "bearer"
+                                        },
+                                        "expires_in": {
+                                            "type": "integer",
+                                            "example": 3600
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Credenciales incorrectas",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "Unauthorized"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/logout": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Cerrar sesión",
+                "description": "Cierra la sesión y revoca el token JWT",
+                "operationId": "logout",
+                "responses": {
+                    "200": {
+                        "description": "Logout exitoso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Successfully logged out"
                                         }
                                     },
                                     "type": "object"
@@ -1012,185 +1129,83 @@
                 ]
             }
         },
-        "/api/authorizations/{id}": {
-            "get": {
+        "/api/refresh": {
+            "post": {
                 "tags": [
-                    "Authorized persons"
+                    "Auth"
                 ],
-                "summary": "See authorization",
-                "description": "See authorization",
-                "operationId": "watch_authorization",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
+                "summary": "Refrescar token",
+                "description": "Refresca el token JWT",
+                "operationId": "refresh",
                 "responses": {
                     "200": {
-                        "description": "OK",
+                        "description": "Token refrescado",
                         "content": {
                             "application/json": {
                                 "schema": {
                                     "properties": {
-                                        "kid_id": {
-                                            "type": "number",
+                                        "access_token": {
+                                            "type": "string",
+                                            "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..."
+                                        },
+                                        "token_type": {
+                                            "type": "string",
+                                            "example": "bearer"
+                                        },
+                                        "expires_in": {
+                                            "type": "integer",
+                                            "example": 3600
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/me": {
+            "get": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Obtener usuario autenticado",
+                "description": "Obtiene los datos del usuario autenticado",
+                "operationId": "me",
+                "responses": {
+                    "200": {
+                        "description": "Datos del usuario autenticado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer",
                                             "example": 1
                                         },
-                                        "tutor_id": {
-                                            "type": "number",
-                                            "example": 1
-                                        },
-                                        "name_kid": {
+                                        "name": {
                                             "type": "string",
-                                            "example": ""
+                                            "example": "John Doe"
                                         },
-                                        "name_tutor": {
+                                        "email": {
                                             "type": "string",
-                                            "example": ""
-                                        },
-                                        "identification": {
-                                            "type": "string",
-                                            "example": ""
+                                            "example": "john.doe@example.com"
                                         },
                                         "created_at": {
                                             "type": "string",
-                                            "example": "2023-02-23T00:09:16.000000Z"
+                                            "format": "date-time",
+                                            "example": "2024-08-10T14:42:00Z"
                                         },
                                         "updated_at": {
                                             "type": "string",
-                                            "example": "2023-02-23T12:33:45.000000Z"
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
-                    },
-                    "404": {
-                        "description": "NOT FOUND",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "message": {
-                                            "type": "string",
-                                            "example": ""
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "apiAuth": []
-                    }
-                ]
-            },
-            "put": {
-                "tags": [
-                    "Authorized persons"
-                ],
-                "summary": "Update authorization",
-                "description": "Update authorization",
-                "operationId": "update_authorization",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "required": [
-                                    "name"
-                                ],
-                                "properties": {
-                                    "kid_id": {
-                                        "type": "number",
-                                        "example": 1
-                                    },
-                                    "tutor_id": {
-                                        "type": "number",
-                                        "example": 1
-                                    }
-                                },
-                                "type": "object"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Success",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "status": {
-                                            "type": "integer",
-                                            "example": ""
-                                        },
-                                        "data": {
-                                            "type": "object"
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "apiAuth": []
-                    }
-                ]
-            },
-            "delete": {
-                "tags": [
-                    "Authorized persons"
-                ],
-                "summary": "Delete authorization",
-                "description": "Delete authorization",
-                "operationId": "delete_authorization",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Success",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "status": {
-                                            "type": "integer",
-                                            "example": ""
-                                        },
-                                        "data": {
-                                            "type": "object"
+                                            "format": "date-time",
+                                            "example": "2024-08-10T14:42:00Z"
                                         }
                                     },
                                     "type": "object"
@@ -1292,6 +1307,16 @@
                                             "format": "number",
                                             "example": ""
                                         },
+                                        "concubine": {
+                                            "type": "string",
+                                            "format": "string",
+                                            "example": ""
+                                        },
+                                        "file": {
+                                            "type": "string",
+                                            "format": "string",
+                                            "example": ""
+                                        },
                                         "created_at": {
                                             "type": "string",
                                             "example": "2023-02-23T00:09:16.000000Z"
@@ -1334,25 +1359,27 @@
                     "Concubines"
                 ],
                 "summary": "Store concubine",
-                "description": "Store concubine",
+                "description": "Store concubine and upload related documents",
                 "operationId": "store_concubines",
                 "requestBody": {
                     "required": true,
                     "content": {
-                        "application/json": {
+                        "multipart/form-data": {
                             "schema": {
                                 "required": [
                                     "name"
                                 ],
                                 "properties": {
+                                    "applicant_id": {
+                                        "type": "number",
+                                        "example": 1
+                                    },
                                     "name": {
                                         "type": "string",
-                                        "format": "string",
                                         "example": "Juan"
                                     },
                                     "last_name": {
                                         "type": "string",
-                                        "format": "string",
                                         "example": "Peralta"
                                     },
                                     "type_identification": {
@@ -1361,12 +1388,10 @@
                                     },
                                     "identification": {
                                         "type": "string",
-                                        "format": "string",
                                         "example": "40224522776"
                                     },
                                     "parent": {
                                         "type": "string",
-                                        "format": "string",
                                         "example": "Primo"
                                     },
                                     "marital_status": {
@@ -1375,48 +1400,44 @@
                                     },
                                     "phone": {
                                         "type": "string",
-                                        "format": "string",
                                         "example": "8099877765"
                                     },
                                     "residence_phone": {
                                         "type": "string",
-                                        "format": "string",
                                         "example": "8099886700"
                                     },
                                     "address": {
                                         "type": "string",
-                                        "format": "string",
                                         "example": "Santo Domingo"
                                     },
                                     "military": {
                                         "type": "boolean",
-                                        "format": "boolean",
-                                        "example": "true"
+                                        "example": true
                                     },
                                     "institution": {
                                         "type": "string",
-                                        "format": "string",
                                         "example": "ARD"
                                     },
                                     "email": {
                                         "type": "string",
-                                        "format": "string",
                                         "example": "juan@gmail.com"
                                     },
                                     "work_reference": {
                                         "type": "string",
-                                        "format": "string",
                                         "example": "Ramon Acosta - 8092344234"
                                     },
                                     "personal_reference_1": {
-                                        "type": "number",
-                                        "format": "number",
+                                        "type": "string",
                                         "example": "Pedro Reyez - 8292344255"
                                     },
                                     "personal_reference_2": {
-                                        "type": "number",
-                                        "format": "number",
+                                        "type": "string",
                                         "example": "Carlos Sanchez - 8092311231"
+                                    },
+                                    "file": {
+                                        "description": "Concubine's document file (PDF, JPG, etc.)",
+                                        "type": "string",
+                                        "format": "binary"
                                     }
                                 },
                                 "type": "object"
@@ -1433,7 +1454,7 @@
                                     "properties": {
                                         "status": {
                                             "type": "integer",
-                                            "example": ""
+                                            "example": 200
                                         },
                                         "data": {
                                             "type": "object"
@@ -1548,6 +1569,16 @@
                                             "format": "number",
                                             "example": ""
                                         },
+                                        "concubine": {
+                                            "type": "string",
+                                            "format": "string",
+                                            "example": ""
+                                        },
+                                        "file": {
+                                            "type": "string",
+                                            "format": "string",
+                                            "example": ""
+                                        },
                                         "created_at": {
                                             "type": "string",
                                             "example": "2023-02-23T00:09:16.000000Z"
@@ -1590,7 +1621,7 @@
                     "Concubines"
                 ],
                 "summary": "Update concubine",
-                "description": "Update concubine",
+                "description": "Update concubine and upload related documents",
                 "operationId": "update_concubines",
                 "parameters": [
                     {
@@ -1605,20 +1636,22 @@
                 "requestBody": {
                     "required": true,
                     "content": {
-                        "application/json": {
+                        "multipart/form-data": {
                             "schema": {
                                 "required": [
                                     "name"
                                 ],
                                 "properties": {
+                                    "applicant_id": {
+                                        "type": "number",
+                                        "example": 1
+                                    },
                                     "name": {
                                         "type": "string",
-                                        "format": "string",
                                         "example": "Juan"
                                     },
                                     "last_name": {
                                         "type": "string",
-                                        "format": "string",
                                         "example": "Peralta"
                                     },
                                     "type_identification": {
@@ -1627,12 +1660,10 @@
                                     },
                                     "identification": {
                                         "type": "string",
-                                        "format": "string",
                                         "example": "40224522776"
                                     },
                                     "parent": {
                                         "type": "string",
-                                        "format": "string",
                                         "example": "Primo"
                                     },
                                     "marital_status": {
@@ -1641,53 +1672,48 @@
                                     },
                                     "phone": {
                                         "type": "string",
-                                        "format": "string",
                                         "example": "8099877765"
                                     },
                                     "residence_phone": {
                                         "type": "string",
-                                        "format": "string",
                                         "example": "8099886700"
                                     },
                                     "address": {
                                         "type": "string",
-                                        "format": "string",
                                         "example": "Santo Domingo"
                                     },
                                     "military": {
                                         "type": "boolean",
-                                        "format": "boolean",
-                                        "example": "true"
+                                        "example": true
                                     },
                                     "institution": {
                                         "type": "string",
-                                        "format": "string",
                                         "example": "ARD"
                                     },
                                     "email": {
                                         "type": "string",
-                                        "format": "string",
                                         "example": "juan@gmail.com"
                                     },
                                     "kid_id": {
                                         "type": "number",
-                                        "format": "number",
-                                        "example": "1"
+                                        "example": 1
                                     },
                                     "work_reference": {
                                         "type": "string",
-                                        "format": "string",
                                         "example": "Ramon Acosta - 8092344234"
                                     },
                                     "personal_reference_1": {
-                                        "type": "number",
-                                        "format": "number",
+                                        "type": "string",
                                         "example": "Pedro Reyez - 8292344255"
                                     },
                                     "personal_reference_2": {
-                                        "type": "number",
-                                        "format": "number",
+                                        "type": "string",
                                         "example": "Carlos Sanchez - 8092311231"
+                                    },
+                                    "file": {
+                                        "description": "Concubine's document file (PDF, JPG, etc.)",
+                                        "type": "string",
+                                        "format": "binary"
                                     }
                                 },
                                 "type": "object"
@@ -1704,7 +1730,7 @@
                                     "properties": {
                                         "status": {
                                             "type": "integer",
-                                            "example": ""
+                                            "example": 200
                                         },
                                         "data": {
                                             "type": "object"
@@ -1786,6 +1812,10 @@
                                             "type": "number",
                                             "example": 1
                                         },
+                                        "code": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
                                         "name": {
                                             "type": "string",
                                             "example": ""
@@ -1854,6 +1884,27 @@
                                             "type": "string",
                                             "example": ""
                                         },
+                                        "pediatrician": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "pediatrician_phone": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "applicant": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "concubine": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "file": {
+                                            "type": "string",
+                                            "format": "string",
+                                            "example": ""
+                                        },
                                         "created_at": {
                                             "type": "string",
                                             "example": "2023-02-23T00:09:16.000000Z"
@@ -1896,40 +1947,47 @@
                     "Kids"
                 ],
                 "summary": "Store kid",
-                "description": "Store kid",
+                "description": "Store kid and upload related documents",
                 "operationId": "store_kid",
                 "requestBody": {
                     "required": true,
                     "content": {
-                        "application/json": {
+                        "multipart/form-data": {
                             "schema": {
                                 "required": [
                                     "name"
                                 ],
                                 "properties": {
+                                    "applicant_id": {
+                                        "type": "number",
+                                        "example": 1
+                                    },
+                                    "concubine_id": {
+                                        "type": "number",
+                                        "example": 1
+                                    },
+                                    "code": {
+                                        "type": "string",
+                                        "example": "DV24-0001"
+                                    },
                                     "name": {
                                         "type": "string",
-                                        "format": "string",
                                         "example": "Daniel"
                                     },
                                     "last_name": {
                                         "type": "string",
-                                        "format": "string",
                                         "example": "Valdez"
                                     },
                                     "gender": {
                                         "type": "string",
-                                        "format": "string",
                                         "example": "Masculino"
                                     },
                                     "born_date": {
                                         "type": "string",
-                                        "format": "string",
                                         "example": "12/03/2024"
                                     },
                                     "address": {
                                         "type": "string",
-                                        "format": "string",
                                         "example": "Santo Domingo"
                                     },
                                     "region": {
@@ -1958,33 +2016,40 @@
                                     },
                                     "classroom": {
                                         "type": "string",
-                                        "format": "string",
                                         "example": "2do año"
                                     },
                                     "insurance": {
                                         "type": "string",
-                                        "format": "string",
                                         "example": "Senasa"
                                     },
                                     "insurance_number": {
                                         "type": "string",
-                                        "format": "string",
                                         "example": "0909121"
                                     },
                                     "allergies": {
                                         "type": "string",
-                                        "format": "string",
                                         "example": "Ninguna"
                                     },
                                     "medical_conditions": {
                                         "type": "string",
-                                        "format": "string",
                                         "example": "Santo Domingo"
                                     },
                                     "medications": {
                                         "type": "string",
-                                        "format": "string",
                                         "example": "Santo Domingo"
+                                    },
+                                    "pediatrician": {
+                                        "type": "string",
+                                        "example": "Manuel Acosta"
+                                    },
+                                    "pediatrician_phone": {
+                                        "type": "string",
+                                        "example": "8095583443"
+                                    },
+                                    "file": {
+                                        "description": "Upload a document related to the kid (PDF, JPG, etc.)",
+                                        "type": "string",
+                                        "format": "binary"
                                     }
                                 },
                                 "type": "object"
@@ -2001,7 +2066,7 @@
                                     "properties": {
                                         "status": {
                                             "type": "integer",
-                                            "example": ""
+                                            "example": 200
                                         },
                                         "data": {
                                             "type": "object"
@@ -2114,6 +2179,10 @@
                                             "type": "string",
                                             "example": ""
                                         },
+                                        "code": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
                                         "last_name": {
                                             "type": "string",
                                             "example": ""
@@ -2178,6 +2247,27 @@
                                             "type": "string",
                                             "example": ""
                                         },
+                                        "pediatrician": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "pediatrician_phone": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "applicant": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "concubine": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "file": {
+                                            "type": "string",
+                                            "format": "string",
+                                            "example": ""
+                                        },
                                         "created_at": {
                                             "type": "string",
                                             "example": "2023-02-23T00:09:16.000000Z"
@@ -2220,7 +2310,7 @@
                     "Kids"
                 ],
                 "summary": "Update kid",
-                "description": "Update kid",
+                "description": "Update kid and upload related documents",
                 "operationId": "update_kid",
                 "parameters": [
                     {
@@ -2235,35 +2325,42 @@
                 "requestBody": {
                     "required": true,
                     "content": {
-                        "application/json": {
+                        "multipart/form-data": {
                             "schema": {
                                 "required": [
                                     "name"
                                 ],
                                 "properties": {
+                                    "applicant_id": {
+                                        "type": "number",
+                                        "example": 1
+                                    },
+                                    "concubine_id": {
+                                        "type": "number",
+                                        "example": 1
+                                    },
+                                    "tutor_id": {
+                                        "type": "number",
+                                        "example": 1
+                                    },
                                     "name": {
                                         "type": "string",
-                                        "format": "string",
                                         "example": "Daniel"
                                     },
                                     "last_name": {
                                         "type": "string",
-                                        "format": "string",
                                         "example": "Chacon"
                                     },
                                     "gender": {
                                         "type": "string",
-                                        "format": "string",
                                         "example": "M"
                                     },
                                     "born_date": {
                                         "type": "string",
-                                        "format": "string",
                                         "example": "12/03/2024"
                                     },
                                     "address": {
                                         "type": "string",
-                                        "format": "string",
                                         "example": "Santo Domingo"
                                     },
                                     "region": {
@@ -2292,43 +2389,40 @@
                                     },
                                     "classroom": {
                                         "type": "string",
-                                        "format": "string",
                                         "example": "2do año"
                                     },
                                     "insurance": {
                                         "type": "string",
-                                        "format": "string",
                                         "example": "Senasa"
                                     },
                                     "insurance_number": {
                                         "type": "string",
-                                        "format": "string",
                                         "example": "0909121"
                                     },
                                     "allergies": {
                                         "type": "string",
-                                        "format": "string",
                                         "example": "Ninguna"
                                     },
                                     "medical_conditions": {
                                         "type": "string",
-                                        "format": "string",
                                         "example": "Santo Domingo"
                                     },
                                     "medications": {
                                         "type": "string",
-                                        "format": "string",
                                         "example": "Santo Domingo"
                                     },
-                                    "tutor_id": {
-                                        "type": "number",
-                                        "format": "number",
-                                        "example": "1"
+                                    "pediatrician": {
+                                        "type": "string",
+                                        "example": "Manuel Acosta"
                                     },
-                                    "applicant_id": {
-                                        "type": "number",
-                                        "format": "number",
-                                        "example": "1"
+                                    "pediatrician_phone": {
+                                        "type": "string",
+                                        "example": "8095583443"
+                                    },
+                                    "file": {
+                                        "description": "Upload a document related to the kid (PDF, JPG, etc.)",
+                                        "type": "string",
+                                        "format": "binary"
                                     }
                                 },
                                 "type": "object"
@@ -2345,7 +2439,7 @@
                                     "properties": {
                                         "status": {
                                             "type": "integer",
-                                            "example": ""
+                                            "example": 200
                                         },
                                         "data": {
                                             "type": "object"
@@ -2408,14 +2502,14 @@
                 ]
             }
         },
-        "/api/tutors": {
+        "/api/authorizations": {
             "get": {
                 "tags": [
-                    "Tutors"
+                    "Authorized persons"
                 ],
-                "summary": "All tutors",
-                "description": "All tutors",
-                "operationId": "all_tutor",
+                "summary": "All authorizations",
+                "description": "All authorizations",
+                "operationId": "all_authorization",
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -2500,11 +2594,11 @@
             },
             "post": {
                 "tags": [
-                    "Tutors"
+                    "Authorized persons"
                 ],
-                "summary": "Store tutor",
-                "description": "Store tutor",
-                "operationId": "store_tutor",
+                "summary": "Store authorization",
+                "description": "Store authorization",
+                "operationId": "store_authorization",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -2593,14 +2687,14 @@
                 ]
             }
         },
-        "/api/tutors/{id}": {
+        "/api/authorizations/{id}": {
             "get": {
                 "tags": [
-                    "Tutors"
+                    "Authorized persons"
                 ],
-                "summary": "See tutor",
-                "description": "See tutor",
-                "operationId": "watch_tutor",
+                "summary": "See authorization",
+                "description": "See authorization",
+                "operationId": "watch_authorization",
                 "parameters": [
                     {
                         "name": "id",
@@ -2695,11 +2789,11 @@
             },
             "put": {
                 "tags": [
-                    "Tutors"
+                    "Authorized persons"
                 ],
-                "summary": "Update tutor",
-                "description": "Update tutor",
-                "operationId": "update_tutor",
+                "summary": "Update authorization",
+                "description": "Update authorization",
+                "operationId": "update_authorization",
                 "parameters": [
                     {
                         "name": "id",
@@ -2799,11 +2893,11 @@
             },
             "delete": {
                 "tags": [
-                    "Tutors"
+                    "Authorized persons"
                 ],
-                "summary": "Delete tutor",
-                "description": "Delete tutor",
-                "operationId": "delete_tutor",
+                "summary": "Delete authorization",
+                "description": "Delete authorization",
+                "operationId": "delete_authorization",
                 "parameters": [
                     {
                         "name": "id",
@@ -2842,5 +2936,21 @@
                 ]
             }
         }
-    }
+    },
+    "components": {
+        "securitySchemes": {
+            "apiAuth": {
+                "type": "http",
+                "in": "header",
+                "bearerFormat": "JWT",
+                "scheme": "bearer"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Auth",
+            "description": "API Endpoints de Autenticación"
+        }
+    ]
 }
