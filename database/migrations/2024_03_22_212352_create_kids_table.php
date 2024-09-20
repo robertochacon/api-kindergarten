@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreign('applicant_id')->references('id')->on('applicants');
             $table->unsignedBigInteger('concubine_id')->nullable();
             $table->foreign('concubine_id')->references('id')->on('concubines');
+            $table->string("code")->nullable();
             $table->string("name")->nullable();
             $table->string("last_name")->nullable();
             $table->enum("gender",["Masculino","Femenino"])->default("Masculino");
@@ -36,6 +37,7 @@ return new class extends Migration
             $table->text("medications")->nullable();
             $table->string("pediatrician")->nullable();
             $table->string("pediatrician_phone")->nullable();
+            $table->string("file")->nullable();
             $table->timestamps();
         });
     }

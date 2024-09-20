@@ -9,12 +9,12 @@ class TutorsController extends Controller
 {
         /**
      * @OA\Get (
-     *     path="/api/tutors",
-     *      operationId="all_tutor",
-     *     tags={"Tutors"},
+     *     path="/api/authorizations",
+     *      operationId="all_authorization",
+     *     tags={"Authorized persons"},
      *     security={{ "apiAuth": {} }},
-     *     summary="All tutors",
-     *     description="All tutors",
+     *     summary="All authorizations",
+     *     description="All authorizations",
      *     @OA\Response(
      *         response=200,
      *         description="OK",
@@ -50,12 +50,12 @@ class TutorsController extends Controller
 
      /**
      * @OA\Get (
-     *     path="/api/tutors/{id}",
-     *     operationId="watch_tutor",
-     *     tags={"Tutors"},
+     *     path="/api/authorizations/{id}",
+     *     operationId="watch_authorization",
+     *     tags={"Authorized persons"},
      *     security={{ "apiAuth": {} }},
-     *     summary="See tutor",
-     *     description="See tutor",
+     *     summary="See authorization",
+     *     description="See authorization",
      *     @OA\Parameter(
      *         in="path",
      *         name="id",
@@ -100,12 +100,12 @@ class TutorsController extends Controller
 
     /**
      * @OA\Post(
-     *      path="/api/tutors",
-     *      operationId="store_tutor",
-     *      tags={"Tutors"},
+     *      path="/api/authorizations",
+     *      operationId="store_authorization",
+     *      tags={"Authorized persons"},
      *     security={{ "apiAuth": {} }},
-     *      summary="Store tutor",
-     *      description="Store tutor",
+     *      summary="Store authorization",
+     *      description="Store authorization",
      *      @OA\RequestBody(
      *         required=true,
      *         @OA\JsonContent(
@@ -143,12 +143,12 @@ class TutorsController extends Controller
 
     /**
      * @OA\Put(
-     *     path="/api/tutors/{id}",
-     *     operationId="update_tutor",
-     *     tags={"Tutors"},
+     *     path="/api/authorizations/{id}",
+     *     operationId="update_authorization",
+     *     tags={"Authorized persons"},
      *     security={{ "apiAuth": {} }},
-     *     summary="Update tutor",
-     *     description="Update tutor",
+     *     summary="Update authorization",
+     *     description="Update authorization",
      *     @OA\Parameter(
      *         in="path",
      *         name="id",
@@ -195,12 +195,12 @@ class TutorsController extends Controller
 
     /**
      * @OA\Delete(
-     *      path="/api/tutors/{id}",
-     *      operationId="delete_tutor",
-     *      tags={"Tutors"},
+     *      path="/api/authorizations/{id}",
+     *      operationId="delete_authorization",
+     *      tags={"Authorized persons"},
      *     security={{ "apiAuth": {} }},
-     *      summary="Delete tutor",
-     *      description="Delete tutor",
+     *      summary="Delete authorization",
+     *      description="Delete authorization",
      *    @OA\Parameter(
      *         in="path",
      *         name="id",

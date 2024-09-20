@@ -30,6 +30,7 @@ return new class extends Migration
             $table->string("work_reference")->nullable();
             $table->string("personal_reference_1")->nullable();
             $table->string("personal_reference_2")->nullable();
+            $table->string("file")->nullable();
             $table->timestamps();
         });
     }
