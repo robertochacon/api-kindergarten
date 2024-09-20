@@ -99,7 +99,7 @@ class AuthController extends Controller
      *         )
      *     ),
      *     @OA\Response(
-     *         response=401,
+     *         response=400,
      *         description="Credenciales incorrectas",
      *         @OA\JsonContent(
      *             @OA\Property(property="error", type="string", example="Unauthorized")
@@ -112,7 +112,7 @@ class AuthController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (!$token = Auth::attempt($credentials)) {
-            return response()->json(['error' => 'Unauthorized'], 401);
+            return response()->json(['error' => 'Unauthorized'], 400);
         }
 
         $user = User::where('email',$request->email)->first();
