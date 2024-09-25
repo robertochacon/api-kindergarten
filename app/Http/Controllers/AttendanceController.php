@@ -23,7 +23,7 @@ class AttendanceController extends Controller
      *     @OA\Parameter(
      *          in="query",
      *          name="code",
-     *          @OA\Schema(type="integer")
+     *          @OA\Schema(type="string")
      *     ),
      *     @OA\Parameter(
      *          in="query",
@@ -78,7 +78,7 @@ class AttendanceController extends Controller
         if (!empty($code) || !empty($name) || !empty($lastName) || !empty($startDate) || !empty($endDate)) {
             $attendances->whereHas('kid', function ($query) use ($code, $name, $lastName) {
                 if (!empty($code)) {
-                    $query->where('code', $code);
+                    $query->where('code', 'like', '%' . $code . '%');
                 }
                 if (!empty($name)) {
                     $query->where('name', 'like', '%' . $name . '%');
@@ -141,7 +141,7 @@ class AttendanceController extends Controller
 
     public function watch($code){
         try{
-            $attendance = Attendance::with('kid')->with('user')->where("code",$code);
+            $attendance = Attendance::with('kid')->with('user')->where("code",$code)->first();
             return response()->json(["data"=>$attendance],200);
         }catch (Exception $e) {
             return response()->json(["data"=>"none"],200);
@@ -160,7 +160,7 @@ class AttendanceController extends Controller
      *         required=true,
      *         @OA\JsonContent(
      *            required={"name"},
-     *              @OA\Property(property="kid_id", type="number", example=1),
+     *              @OA\Property(property="code", type="number", example="DV24-0001"),
      *              @OA\Property(property="user_id", type="number", example=1),
      *              @OA\Property(property="attendance", type="boolean", example=true),
      *         ),
@@ -179,6 +179,8 @@ class AttendanceController extends Controller
     {
         try {
             $attendance = new Attendance($request->all());
+            $kid = Kids::where('code',$request->code)->first();
+            $attendance->kid_id = $kid->id;
             $attendance->save();
             return response()->json(["data" => $attendance], 200);
 
@@ -205,7 +207,7 @@ class AttendanceController extends Controller
      *         required=true,
      *         @OA\JsonContent(
      *            required={"name"},
-     *              @OA\Property(property="kid_id", type="number", example=1),
+     *              @OA\Property(property="code", type="number", example="DV24-0001"),
      *              @OA\Property(property="user_id", type="number", example=1),
      *              @OA\Property(property="attendance", type="boolean", example=true),
      *         ),
@@ -223,6 +225,8 @@ class AttendanceController extends Controller
     public function update(Request $request, $id){
         try{
             $attendance = Attendance::where('id',$id)->first();
+            $kid = Kids::where('code',$request->code)->first();
+            $attendance->kid_id = $kid->id;
             $attendance->update($request->all());
             return response()->json(["data"=>"ok"],200);
         }catch (Exception $e) {

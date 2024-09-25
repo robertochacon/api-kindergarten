@@ -25,6 +25,7 @@ return new class extends Migration
             $table->boolean("military")->default(true);
             $table->string("institution")->nullable();
             $table->string("range")->nullable();
+            $table->string("other")->nullable();
             $table->string("email")->nullable();
             $table->string("name_work_reference_1")->nullable();
             $table->string("phone_work_reference_1")->nullable();

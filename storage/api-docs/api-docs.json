@@ -76,6 +76,10 @@
                                             "format": "string",
                                             "example": ""
                                         },
+                                        "other": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
                                         "email": {
                                             "type": "string",
                                             "format": "string",
@@ -209,6 +213,10 @@
                                     "range": {
                                         "type": "string",
                                         "example": "Teniente"
+                                    },
+                                    "other": {
+                                        "type": "string",
+                                        "example": "Gerente de la academia"
                                     },
                                     "email": {
                                         "type": "string",
@@ -355,6 +363,10 @@
                                             "format": "string",
                                             "example": ""
                                         },
+                                        "other": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
                                         "email": {
                                             "type": "string",
                                             "format": "string",
@@ -499,6 +511,10 @@
                                         "type": "string",
                                         "example": "Teniente"
                                     },
+                                    "other": {
+                                        "type": "string",
+                                        "example": "Gerente de la academia"
+                                    },
                                     "email": {
                                         "type": "string",
                                         "example": "juan@gmail.com"
@@ -620,7 +636,7 @@
                         "name": "code",
                         "in": "query",
                         "schema": {
-                            "type": "integer"
+                            "type": "string"
                         }
                     },
                     {
@@ -724,9 +740,9 @@
                                     "name"
                                 ],
                                 "properties": {
-                                    "kid_id": {
+                                    "code": {
                                         "type": "number",
-                                        "example": 1
+                                        "example": "DV24-0001"
                                     },
                                     "user_id": {
                                         "type": "number",
@@ -870,9 +886,9 @@
                                     "name"
                                 ],
                                 "properties": {
-                                    "kid_id": {
+                                    "code": {
                                         "type": "number",
-                                        "example": 1
+                                        "example": "DV24-0001"
                                     },
                                     "user_id": {
                                         "type": "number",
