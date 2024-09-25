@@ -81,19 +81,24 @@
                                             "format": "string",
                                             "example": ""
                                         },
-                                        "work_reference": {
+                                        "name_work_reference_1": {
                                             "type": "string",
                                             "format": "string",
                                             "example": ""
                                         },
-                                        "personal_reference_1": {
-                                            "type": "number",
-                                            "format": "number",
+                                        "phone_work_reference_1": {
+                                            "type": "string",
+                                            "format": "string",
                                             "example": ""
                                         },
-                                        "personal_reference_2": {
-                                            "type": "number",
-                                            "format": "number",
+                                        "name_work_reference_2": {
+                                            "type": "string",
+                                            "format": "string",
+                                            "example": ""
+                                        },
+                                        "phone_work_reference_2": {
+                                            "type": "string",
+                                            "format": "string",
                                             "example": ""
                                         },
                                         "file": {
@@ -209,17 +214,25 @@
                                         "type": "string",
                                         "example": "juan@gmail.com"
                                     },
-                                    "work_reference": {
+                                    "name_work_reference_1": {
                                         "type": "string",
-                                        "example": "Ramon Acosta - 8092344234"
+                                        "format": "string",
+                                        "example": "Pedro Sanchez"
                                     },
-                                    "personal_reference_1": {
+                                    "phone_work_reference_1": {
                                         "type": "string",
-                                        "example": "Pedro Reyez - 8292344255"
+                                        "format": "string",
+                                        "example": "8099886700"
                                     },
-                                    "personal_reference_2": {
+                                    "name_work_reference_2": {
                                         "type": "string",
-                                        "example": "Carlos Sanchez - 8092311231"
+                                        "format": "string",
+                                        "example": "Manuel Acosta"
+                                    },
+                                    "phone_work_reference_2": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "8099886700"
                                     },
                                     "file": {
                                         "description": "Applicant's document file (PDF, JPG, etc.)",
@@ -347,19 +360,24 @@
                                             "format": "string",
                                             "example": ""
                                         },
-                                        "work_reference": {
+                                        "name_work_reference_1": {
                                             "type": "string",
                                             "format": "string",
                                             "example": ""
                                         },
-                                        "personal_reference_1": {
-                                            "type": "number",
-                                            "format": "number",
+                                        "phone_work_reference_1": {
+                                            "type": "string",
+                                            "format": "string",
                                             "example": ""
                                         },
-                                        "personal_reference_2": {
-                                            "type": "number",
-                                            "format": "number",
+                                        "name_work_reference_2": {
+                                            "type": "string",
+                                            "format": "string",
+                                            "example": ""
+                                        },
+                                        "phone_work_reference_2": {
+                                            "type": "string",
+                                            "format": "string",
                                             "example": ""
                                         },
                                         "file": {
@@ -485,17 +503,25 @@
                                         "type": "string",
                                         "example": "juan@gmail.com"
                                     },
-                                    "work_reference": {
+                                    "name_work_reference_1": {
                                         "type": "string",
-                                        "example": "Ramon Acosta - 8092344234"
+                                        "format": "string",
+                                        "example": "Pedro Sanchez"
                                     },
-                                    "personal_reference_1": {
+                                    "phone_work_reference_1": {
                                         "type": "string",
-                                        "example": "Pedro Reyez - 8292344255"
+                                        "format": "string",
+                                        "example": "8099886700"
                                     },
-                                    "personal_reference_2": {
+                                    "name_work_reference_2": {
                                         "type": "string",
-                                        "example": "Carlos Sanchez - 8092311231"
+                                        "format": "string",
+                                        "example": "Manuel Acosta"
+                                    },
+                                    "phone_work_reference_2": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "8099886700"
                                     },
                                     "file": {
                                         "description": "Applicant's updated document file (PDF, JPG, etc.)",
@@ -591,7 +617,7 @@
                 "operationId": "all_attendances",
                 "parameters": [
                     {
-                        "name": "id",
+                        "name": "code",
                         "in": "query",
                         "schema": {
                             "type": "integer"
@@ -754,7 +780,7 @@
                 "operationId": "watch_attendance",
                 "parameters": [
                     {
-                        "name": "id",
+                        "name": "code",
                         "in": "path",
                         "required": true,
                         "schema": {
@@ -1077,7 +1103,7 @@
                             }
                         }
                     },
-                    "401": {
+                    "400": {
                         "description": "Credenciales incorrectas",
                         "content": {
                             "application/json": {
@@ -1292,19 +1318,24 @@
                                             "format": "string",
                                             "example": ""
                                         },
-                                        "work_reference": {
+                                        "name_work_reference_1": {
                                             "type": "string",
                                             "format": "string",
                                             "example": ""
                                         },
-                                        "personal_reference_1": {
-                                            "type": "number",
-                                            "format": "number",
+                                        "phone_work_reference_1": {
+                                            "type": "string",
+                                            "format": "string",
                                             "example": ""
                                         },
-                                        "personal_reference_2": {
-                                            "type": "number",
-                                            "format": "number",
+                                        "name_work_reference_2": {
+                                            "type": "string",
+                                            "format": "string",
+                                            "example": ""
+                                        },
+                                        "phone_work_reference_2": {
+                                            "type": "string",
+                                            "format": "string",
                                             "example": ""
                                         },
                                         "concubine": {
@@ -1422,17 +1453,25 @@
                                         "type": "string",
                                         "example": "juan@gmail.com"
                                     },
-                                    "work_reference": {
+                                    "name_work_reference_1": {
                                         "type": "string",
-                                        "example": "Ramon Acosta - 8092344234"
+                                        "format": "string",
+                                        "example": "Pedro Sanchez"
                                     },
-                                    "personal_reference_1": {
+                                    "phone_work_reference_1": {
                                         "type": "string",
-                                        "example": "Pedro Reyez - 8292344255"
+                                        "format": "string",
+                                        "example": "8099886700"
                                     },
-                                    "personal_reference_2": {
+                                    "name_work_reference_2": {
                                         "type": "string",
-                                        "example": "Carlos Sanchez - 8092311231"
+                                        "format": "string",
+                                        "example": "Manuel Acosta"
+                                    },
+                                    "phone_work_reference_2": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "8099886700"
                                     },
                                     "file": {
                                         "description": "Concubine's document file (PDF, JPG, etc.)",
@@ -1554,19 +1593,24 @@
                                             "format": "string",
                                             "example": ""
                                         },
-                                        "work_reference": {
+                                        "name_work_reference_1": {
                                             "type": "string",
                                             "format": "string",
                                             "example": ""
                                         },
-                                        "personal_reference_1": {
-                                            "type": "number",
-                                            "format": "number",
+                                        "phone_work_reference_1": {
+                                            "type": "string",
+                                            "format": "string",
                                             "example": ""
                                         },
-                                        "personal_reference_2": {
-                                            "type": "number",
-                                            "format": "number",
+                                        "name_work_reference_2": {
+                                            "type": "string",
+                                            "format": "string",
+                                            "example": ""
+                                        },
+                                        "phone_work_reference_2": {
+                                            "type": "string",
+                                            "format": "string",
                                             "example": ""
                                         },
                                         "concubine": {
@@ -1698,17 +1742,25 @@
                                         "type": "number",
                                         "example": 1
                                     },
-                                    "work_reference": {
+                                    "name_work_reference_1": {
                                         "type": "string",
-                                        "example": "Ramon Acosta - 8092344234"
+                                        "format": "string",
+                                        "example": "Pedro Sanchez"
                                     },
-                                    "personal_reference_1": {
+                                    "phone_work_reference_1": {
                                         "type": "string",
-                                        "example": "Pedro Reyez - 8292344255"
+                                        "format": "string",
+                                        "example": "8099886700"
                                     },
-                                    "personal_reference_2": {
+                                    "name_work_reference_2": {
                                         "type": "string",
-                                        "example": "Carlos Sanchez - 8092311231"
+                                        "format": "string",
+                                        "example": "Manuel Acosta"
+                                    },
+                                    "phone_work_reference_2": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "8099886700"
                                     },
                                     "file": {
                                         "description": "Concubine's document file (PDF, JPG, etc.)",

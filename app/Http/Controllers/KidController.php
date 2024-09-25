@@ -60,7 +60,7 @@ class KidController extends Controller
      */
     public function index()
     {
-        $kids = Kids::with('applicant')->with('concubine')->with('tutors')->paginate(10);
+        $kids = Kids::with('applicant')->with('concubine')->with('authorizations')->paginate(10);
 
         foreach ($kids as $kid) {
             $qrUrl = "https://api.qrserver.com/v1/create-qr-code/?data=" . $kid->code . "&size=200x200";
@@ -170,7 +170,7 @@ class KidController extends Controller
 
     public function watch($id){
         try{
-            $kids = Kids::with('applicant')->with('concubine')->with('tutors')->find($id);
+            $kids = Kids::with('applicant')->with('concubine')->with('authorizations')->find($id);
             $qrUrl = "https://api.qrserver.com/v1/create-qr-code/?data=" . $kids->code . "&size=200x200";
             $kids->qr_code = $qrUrl;
             return response()->json(["data"=>$kids],200);

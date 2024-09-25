@@ -26,9 +26,10 @@ return new class extends Migration
             $table->string("institution")->nullable();
             $table->string("range")->nullable();
             $table->string("email")->nullable();
-            $table->string("work_reference")->nullable();
-            $table->string("personal_reference_1")->nullable();
-            $table->string("personal_reference_2")->nullable();
+            $table->string("name_work_reference_1")->nullable();
+            $table->string("phone_work_reference_1")->nullable();
+            $table->string("name_work_reference_2")->nullable();
+            $table->string("phone_work_reference_2")->nullable();
             $table->string("file")->nullable();
             $table->timestamps();
         });

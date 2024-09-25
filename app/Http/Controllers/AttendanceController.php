@@ -22,7 +22,7 @@ class AttendanceController extends Controller
      *     description="All attendances",
      *     @OA\Parameter(
      *          in="query",
-     *          name="id",
+     *          name="code",
      *          @OA\Schema(type="integer")
      *     ),
      *     @OA\Parameter(
@@ -67,7 +67,7 @@ class AttendanceController extends Controller
      */
     public function index(Request $request)
     {
-        $id = $request->id;
+        $code = $request->code;
         $name = $request->name;
         $lastName = $request->last_name;
         $startDate = $request->start_date;
@@ -75,10 +75,10 @@ class AttendanceController extends Controller
 
         $attendances = Attendance::with(['kid', 'user']);
 
-        if (!empty($id) || !empty($name) || !empty($lastName) || !empty($startDate) || !empty($endDate)) {
-            $attendances->whereHas('kid', function ($query) use ($id, $name, $lastName) {
-                if (!empty($id)) {
-                    $query->where('id', $id);
+        if (!empty($code) || !empty($name) || !empty($lastName) || !empty($startDate) || !empty($endDate)) {
+            $attendances->whereHas('kid', function ($query) use ($code, $name, $lastName) {
+                if (!empty($code)) {
+                    $query->where('code', $code);
                 }
                 if (!empty($name)) {
                     $query->where('name', 'like', '%' . $name . '%');
@@ -114,7 +114,7 @@ class AttendanceController extends Controller
      *     description="See attendance",
      *    @OA\Parameter(
      *         in="path",
-     *         name="id",
+     *         name="code",
      *         required=true,
      *         @OA\Schema(type="string")
      *     ),
@@ -139,9 +139,9 @@ class AttendanceController extends Controller
      * )
      */
 
-    public function watch($id){
+    public function watch($code){
         try{
-            $attendance = Attendance::with('kid')->with('user')->find($id);
+            $attendance = Attendance::with('kid')->with('user')->where("code",$code);
             return response()->json(["data"=>$attendance],200);
         }catch (Exception $e) {
             return response()->json(["data"=>"none"],200);

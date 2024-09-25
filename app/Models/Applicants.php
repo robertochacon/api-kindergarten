@@ -12,7 +12,7 @@ class Applicants extends Model
     protected $table = 'applicants';
 
     protected $fillable = [
-        'id','name','last_name','type_identification','identification','parent','marital_status','phone','residence_phone','address','military','institution','range','email','work_reference','personal_reference_1','personal_reference_2','file'
+        'id','name','last_name','type_identification','identification','parent','marital_status','phone','residence_phone','address','military','institution','range','email','name_work_reference_1','phone_work_reference_1','name_work_reference_2','phone_work_reference_2','file'
     ];
 
     public function concubine(){
