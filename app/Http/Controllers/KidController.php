@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Applicants;
+use App\Models\Concubines;
 use App\Models\Kids;
 use Exception;
 use Illuminate\Http\Request;
@@ -237,6 +239,14 @@ class KidController extends Controller
 
     public function register(Request $request)
     {
+        if (!Applicants::find($request->input('applicant_id'))) {
+            return response()->json(['error' => 'El solicitante proporcionado no existe.'], 404);
+        }
+
+        if (!Concubines::find($request->input('concubine_id'))) {
+            return response()->json(['error' => 'El concubino proporcionado no existe.'], 404);
+        }
+
         $kids = new Kids($request->except('file'));
         $kids->save();
 

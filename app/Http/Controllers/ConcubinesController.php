@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Applicants;
 use App\Models\Concubines;
 use Exception;
 use Illuminate\Http\Request;
@@ -172,22 +173,27 @@ class ConcubinesController extends Controller
 
     public function register(Request $request)
     {
-    $concubine = new Concubines($request->except('file'));
-    $concubine->save();
 
-    if ($request->hasFile('file')) {
-        $file = $request->file('file');
-        $filename = 'concubine_' . $concubine->id . '_' . now()->format('Ymd_His') . '.' . $file->getClientOriginalExtension();
-        $file->storeAs('public/files', $filename);
-        $path = url('storage/files', $filename);
-        $concubine->file = $path;
-    }
+        if (!Applicants::find($request->input('applicant_id'))) {
+            return response()->json(['error' => 'El solicitante proporcionado no existe.'], 404);
+        }
 
-    if (isset($request->kid_id)) {
-        $concubine->kids()->attach(['kid_id' => $request->kid_id]);
-    }
+        $concubine = new Concubines($request->except('file'));
+        $concubine->save();
 
-    $concubine->save();
+        if ($request->hasFile('file')) {
+            $file = $request->file('file');
+            $filename = 'concubine_' . $concubine->id . '_' . now()->format('Ymd_His') . '.' . $file->getClientOriginalExtension();
+            $file->storeAs('public/files', $filename);
+            $path = url('storage/files', $filename);
+            $concubine->file = $path;
+        }
+
+        if (isset($request->kid_id)) {
+            $concubine->kids()->attach(['kid_id' => $request->kid_id]);
+        }
+
+        $concubine->save();
         return response()->json(["data"=>$concubine],200);
     }
 

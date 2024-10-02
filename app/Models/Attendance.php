@@ -12,7 +12,7 @@ class Attendance extends Model
     protected $table = 'attendances';
 
     protected $fillable = [
-        'id','kid_id','user_id','attendance'
+        'id','kid_id','user_id','attendance','entry_time','exit_time'
     ];
 
     public function user(){

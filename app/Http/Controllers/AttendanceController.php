@@ -52,6 +52,8 @@ class AttendanceController extends Controller
      *              @OA\Property(property="kid_id", type="number", example=1),
      *              @OA\Property(property="user_id", type="number", example=1),
      *              @OA\Property(property="attendance", type="boolean", example=true),
+     *              @OA\Property(property="entry_time", type="string", example="2023-02-23T08:00:00.000000Z"),
+     *              @OA\Property(property="exit_time", type="string", example="2023-02-23T16:00:00.000000Z"),
      *              @OA\Property(property="created_at", type="string", example="2023-02-23T00:09:16.000000Z"),
      *              @OA\Property(property="updated_at", type="string", example="2023-02-23T12:33:45.000000Z")
      *         )
@@ -125,6 +127,8 @@ class AttendanceController extends Controller
      *              @OA\Property(property="kid_id", type="number", example=1),
      *              @OA\Property(property="user_id", type="number", example=1),
      *              @OA\Property(property="attendance", type="boolean", example=true),
+     *              @OA\Property(property="entry_time", type="string", example="2023-02-23T08:00:00.000000Z"),
+     *              @OA\Property(property="exit_time", type="string", example="2023-02-23T16:00:00.000000Z"),
      *              @OA\Property(property="created_at", type="string", example="2023-02-23T00:09:16.000000Z"),
      *              @OA\Property(property="updated_at", type="string", example="2023-02-23T12:33:45.000000Z")
      *         )
@@ -163,6 +167,8 @@ class AttendanceController extends Controller
      *              @OA\Property(property="code", type="number", example="DV24-0001"),
      *              @OA\Property(property="user_id", type="number", example=1),
      *              @OA\Property(property="attendance", type="boolean", example=true),
+     *              @OA\Property(property="entry_time", type="string", example="2023-02-23T08:00:00.000000Z"),
+     *              @OA\Property(property="exit_time", type="string", example="2023-02-23T16:00:00.000000Z"),
      *         ),
      *      ),
      *     @OA\Response(
@@ -175,19 +181,32 @@ class AttendanceController extends Controller
      *  )
      */
 
-    public function register(Request $request)
-    {
-        try {
-            $attendance = new Attendance($request->all());
-            $kid = Kids::where('code',$request->code)->first();
-            $attendance->kid_id = $kid->id;
-            $attendance->save();
-            return response()->json(["data" => $attendance], 200);
+     public function register(Request $request)
+     {
+         try {
+             $kid = Kids::where('code', $request->code)->firstOrFail();
 
-        } catch (Exception $e) {
-            return response()->json(["data"=>"Problemas tecnicos"],500);
-        }
-    }
+             $existingAttendance = Attendance::where('kid_id', $kid->id)
+                 ->whereNull('exit_time')
+                 ->first();
+
+             if ($existingAttendance) {
+                 $existingAttendance->exit_time = now();
+                 $existingAttendance->save();
+                 return response()->json(["message" => "Salida registrada exitosamente", "data" => $existingAttendance], 200);
+             } else {
+                 $attendance = new Attendance();
+                 $attendance->kid_id = $kid->id;
+                 $attendance->user_id = $request->user_id;
+                 $attendance->entry_time = now();
+                 $attendance->save();
+                 return response()->json(["message" => "Entrada registrada exitosamente", "data" => $attendance], 200);
+             }
+
+         } catch (Exception $e) {
+             return response()->json(["message" => "Error al registrar asistencia", "error" => $e->getMessage()], 500);
+         }
+     }
 
     /**
      * @OA\Put(
@@ -210,6 +229,8 @@ class AttendanceController extends Controller
      *              @OA\Property(property="code", type="number", example="DV24-0001"),
      *              @OA\Property(property="user_id", type="number", example=1),
      *              @OA\Property(property="attendance", type="boolean", example=true),
+     *              @OA\Property(property="entry_time", type="string", example="2023-02-23T08:00:00.000000Z"),
+     *              @OA\Property(property="exit_time", type="string", example="2023-02-23T16:00:00.000000Z"),
      *         ),
      *      ),
      *     @OA\Response(
