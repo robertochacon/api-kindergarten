@@ -759,14 +759,6 @@
                                     "attendance": {
                                         "type": "boolean",
                                         "example": true
-                                    },
-                                    "entry_time": {
-                                        "type": "string",
-                                        "example": "2023-02-23T08:00:00.000000Z"
-                                    },
-                                    "exit_time": {
-                                        "type": "string",
-                                        "example": "2023-02-23T16:00:00.000000Z"
                                     }
                                 },
                                 "type": "object"

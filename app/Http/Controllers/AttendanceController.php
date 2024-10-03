@@ -167,8 +167,6 @@ class AttendanceController extends Controller
      *              @OA\Property(property="code", type="number", example="DV24-0001"),
      *              @OA\Property(property="user_id", type="number", example=1),
      *              @OA\Property(property="attendance", type="boolean", example=true),
-     *              @OA\Property(property="entry_time", type="string", example="2023-02-23T08:00:00.000000Z"),
-     *              @OA\Property(property="exit_time", type="string", example="2023-02-23T16:00:00.000000Z"),
      *         ),
      *      ),
      *     @OA\Response(

@@ -16,6 +16,8 @@ return new class extends Migration
             $table->unsignedBigInteger('kid_id')->nullable();
             $table->unsignedBigInteger('user_id')->nullable();
             $table->boolean("attendance")->default(true);
+            $table->time('entry_time')->nullable();
+            $table->time('exit_time')->nullable();
             $table->timestamps();
         });
     }
