@@ -13,7 +13,7 @@ class Kids extends Model
     protected $table = 'kids';
 
     protected $fillable = [
-        'id','applicant_id','concubine_id','code','name','last_name','gender','born_date','address','region','province','municipality','district','sections','neighborhood','classroom','insurance','insurance_number','allergies','medical_conditions','medications','pediatrician','pediatrician_phone','file'
+        'id','applicant_id','concubine_id','code','name','last_name','gender','born_date','address','region','province','municipality','district','sections','neighborhood','classroom','insurance','insurance_number','allergies','medical_conditions','medications','pediatrician','pediatrician_phone','file','insurance_file','vaccines_file'
     ];
 
     public function authorizations(){

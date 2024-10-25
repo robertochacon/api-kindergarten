@@ -47,6 +47,8 @@ class KidController extends Controller
      *              @OA\Property(property="applicant", type="string", example=""),
      *              @OA\Property(property="concubine", type="string", example=""),
      *              @OA\Property(property="file", type="string", format="string", example=""),
+     *              @OA\Property(property="insurance_file", type="string", format="string", example=""),
+     *              @OA\Property(property="vaccines_file", type="string", format="string", example=""),
      *              @OA\Property(property="created_at", type="string", example="2023-02-23T00:09:16.000000Z"),
      *              @OA\Property(property="updated_at", type="string", example="2023-02-23T12:33:45.000000Z")
      *         )
@@ -156,6 +158,8 @@ class KidController extends Controller
      *              @OA\Property(property="applicant", type="string", example=""),
      *              @OA\Property(property="concubine", type="string", example=""),
      *              @OA\Property(property="file", type="string", format="string", example=""),
+     *              @OA\Property(property="insurance_file", type="string", format="string", example=""),
+     *              @OA\Property(property="vaccines_file", type="string", format="string", example=""),
      *              @OA\Property(property="created_at", type="string", example="2023-02-23T00:09:16.000000Z"),
      *              @OA\Property(property="updated_at", type="string", example="2023-02-23T12:33:45.000000Z")
      *         )
@@ -222,6 +226,18 @@ class KidController extends Controller
      *                     type="string",
      *                     format="binary",
      *                     description="Upload a document related to the kid (PDF, JPG, etc.)"
+     *                 ),
+     *                     @OA\Property(
+     *                     property="insurance_file",
+     *                     type="string",
+     *                     format="binary",
+     *                     description="Upload a document related to the kid (PDF, JPG, etc.)"
+     *                 ),
+     *                     @OA\Property(
+     *                     property="vaccines_file",
+     *                     type="string",
+     *                     format="binary",
+     *                     description="Upload a document related to the kid (PDF, JPG, etc.)"
      *                 )
      *             )
      *         )
@@ -263,6 +279,22 @@ class KidController extends Controller
             $file->storeAs('public/files', $filename);
             $path = url('storage/files', $filename);
             $kids->file = $path;
+        }
+
+        if ($request->hasFile('insurance_file')) {
+            $file = $request->file('insurance_file');
+            $filename = 'kid_insurance_file' . $kids->id . '_' . now()->format('Ymd_His') . '.' . $file->getClientOriginalExtension();
+            $file->storeAs('public/files', $filename);
+            $path = url('storage/files', $filename);
+            $kids->insurance_file = $path;
+        }
+
+        if ($request->hasFile('vaccines_file')) {
+            $file = $request->file('vaccines_file');
+            $filename = 'kid_vaccines_file' . $kids->id . '_' . now()->format('Ymd_His') . '.' . $file->getClientOriginalExtension();
+            $file->storeAs('public/files', $filename);
+            $path = url('storage/files', $filename);
+            $kids->vaccines_file = $path;
         }
 
         $kids->save();
@@ -317,6 +349,18 @@ class KidController extends Controller
      *                     type="string",
      *                     format="binary",
      *                     description="Upload a document related to the kid (PDF, JPG, etc.)"
+     *                 ),
+     *                     @OA\Property(
+     *                     property="insurance_file",
+     *                     type="string",
+     *                     format="binary",
+     *                     description="Upload a document related to the kid (PDF, JPG, etc.)"
+     *                 ),
+     *                     @OA\Property(
+     *                     property="vaccines_file",
+     *                     type="string",
+     *                     format="binary",
+     *                     description="Upload a document related to the kid (PDF, JPG, etc.)"
      *                 )
      *             )
      *         )
@@ -343,6 +387,22 @@ class KidController extends Controller
                 $file->storeAs('public/files', $filename);
                 $path = url('storage/files', $filename);
                 $kids->file = $path;
+            }
+
+            if ($request->hasFile('insurance_file')) {
+                $file = $request->file('insurance_file');
+                $filename = 'kid_insurance_file' . $kids->id . '_' . now()->format('Ymd_His') . '.' . $file->getClientOriginalExtension();
+                $file->storeAs('public/files', $filename);
+                $path = url('storage/files', $filename);
+                $kids->insurance_file = $path;
+            }
+
+            if ($request->hasFile('vaccines_file')) {
+                $file = $request->file('vaccines_file');
+                $filename = 'kid_vaccines_file' . $kids->id . '_' . now()->format('Ymd_His') . '.' . $file->getClientOriginalExtension();
+                $file->storeAs('public/files', $filename);
+                $path = url('storage/files', $filename);
+                $kids->vaccines_file = $path;
             }
 
             $kids->save();

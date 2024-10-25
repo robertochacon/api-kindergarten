@@ -38,6 +38,8 @@ return new class extends Migration
             $table->string("pediatrician")->nullable();
             $table->string("pediatrician_phone")->nullable();
             $table->string("file")->nullable();
+            $table->string("insurance_file")->nullable();
+            $table->string("vaccines_file")->nullable();
             $table->timestamps();
         });
     }

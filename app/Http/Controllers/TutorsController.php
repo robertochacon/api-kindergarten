@@ -28,6 +28,7 @@ class TutorsController extends Controller
      *              @OA\Property(property="residence_phone", type="string", format="string", example=""),
      *              @OA\Property(property="address", type="string", example=""),
      *              @OA\Property(property="military", type="boolean", format="boolean", example=""),
+     *              @OA\Property(property="file", type="string", format="string", example=""),
      *              @OA\Property(property="created_at", type="string", example="2023-02-23T00:09:16.000000Z"),
      *              @OA\Property(property="updated_at", type="string", example="2023-02-23T12:33:45.000000Z")
      *         )
@@ -75,6 +76,7 @@ class TutorsController extends Controller
      *              @OA\Property(property="residence_phone", type="string", format="string", example=""),
      *              @OA\Property(property="address", type="string", example=""),
      *              @OA\Property(property="military", type="boolean", format="boolean", example="true"),
+     *              @OA\Property(property="file", type="string", format="string", example=""),
      *              @OA\Property(property="created_at", type="string", example="2023-02-23T00:09:16.000000Z"),
      *              @OA\Property(property="updated_at", type="string", example="2023-02-23T12:33:45.000000Z")
      *         )
@@ -119,6 +121,12 @@ class TutorsController extends Controller
      *            @OA\Property(property="address", type="string", format="string", example="Santo Domingo"),
      *            @OA\Property(property="military", type="boolean", format="boolean", example="true"),
      *            @OA\Property(property="kid_id", type="number", format="number", example="1"),
+     *            @OA\Property(
+     *                property="file",
+     *                type="string",
+     *                format="binary",
+     *                description="Upload a document related to the kid (PDF, JPG, etc.)"
+     *            ),
      *         ),
      *      ),
      *     @OA\Response(
@@ -168,6 +176,12 @@ class TutorsController extends Controller
      *            @OA\Property(property="address", type="string", format="string", example=""),
      *            @OA\Property(property="military", type="boolean", format="boolean", example="true"),
      *            @OA\Property(property="kid_id", type="number", format="number", example="1"),
+     *            @OA\Property(
+     *                property="file",
+     *                type="string",
+     *                format="binary",
+     *                description="Upload a document related to the kid (PDF, JPG, etc.)"
+     *            ),
      *         ),
      *      ),
      *     @OA\Response(

@@ -1997,6 +1997,16 @@
                                             "format": "string",
                                             "example": ""
                                         },
+                                        "insurance_file": {
+                                            "type": "string",
+                                            "format": "string",
+                                            "example": ""
+                                        },
+                                        "vaccines_file": {
+                                            "type": "string",
+                                            "format": "string",
+                                            "example": ""
+                                        },
                                         "created_at": {
                                             "type": "string",
                                             "example": "2023-02-23T00:09:16.000000Z"
@@ -2139,6 +2149,16 @@
                                         "example": "8095583443"
                                     },
                                     "file": {
+                                        "description": "Upload a document related to the kid (PDF, JPG, etc.)",
+                                        "type": "string",
+                                        "format": "binary"
+                                    },
+                                    "insurance_file": {
+                                        "description": "Upload a document related to the kid (PDF, JPG, etc.)",
+                                        "type": "string",
+                                        "format": "binary"
+                                    },
+                                    "vaccines_file": {
                                         "description": "Upload a document related to the kid (PDF, JPG, etc.)",
                                         "type": "string",
                                         "format": "binary"
@@ -2360,6 +2380,16 @@
                                             "format": "string",
                                             "example": ""
                                         },
+                                        "insurance_file": {
+                                            "type": "string",
+                                            "format": "string",
+                                            "example": ""
+                                        },
+                                        "vaccines_file": {
+                                            "type": "string",
+                                            "format": "string",
+                                            "example": ""
+                                        },
                                         "created_at": {
                                             "type": "string",
                                             "example": "2023-02-23T00:09:16.000000Z"
@@ -2515,6 +2545,16 @@
                                         "description": "Upload a document related to the kid (PDF, JPG, etc.)",
                                         "type": "string",
                                         "format": "binary"
+                                    },
+                                    "insurance_file": {
+                                        "description": "Upload a document related to the kid (PDF, JPG, etc.)",
+                                        "type": "string",
+                                        "format": "binary"
+                                    },
+                                    "vaccines_file": {
+                                        "description": "Upload a document related to the kid (PDF, JPG, etc.)",
+                                        "type": "string",
+                                        "format": "binary"
                                     }
                                 },
                                 "type": "object"
@@ -2647,6 +2687,11 @@
                                             "format": "boolean",
                                             "example": ""
                                         },
+                                        "file": {
+                                            "type": "string",
+                                            "format": "string",
+                                            "example": ""
+                                        },
                                         "created_at": {
                                             "type": "string",
                                             "example": "2023-02-23T00:09:16.000000Z"
@@ -2744,6 +2789,11 @@
                                         "type": "number",
                                         "format": "number",
                                         "example": "1"
+                                    },
+                                    "file": {
+                                        "description": "Upload a document related to the kid (PDF, JPG, etc.)",
+                                        "type": "string",
+                                        "format": "binary"
                                     }
                                 },
                                 "type": "object"
@@ -2841,6 +2891,11 @@
                                             "type": "boolean",
                                             "format": "boolean",
                                             "example": "true"
+                                        },
+                                        "file": {
+                                            "type": "string",
+                                            "format": "string",
+                                            "example": ""
                                         },
                                         "created_at": {
                                             "type": "string",
@@ -2949,6 +3004,11 @@
                                         "type": "number",
                                         "format": "number",
                                         "example": "1"
+                                    },
+                                    "file": {
+                                        "description": "Upload a document related to the kid (PDF, JPG, etc.)",
+                                        "type": "string",
+                                        "format": "binary"
                                     }
                                 },
                                 "type": "object"
