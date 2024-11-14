@@ -13,7 +13,6 @@ class ApplicantsController extends Controller
      *     path="/api/applicants",
      *      operationId="all_applicants",
      *     tags={"Applicants"},
-     *     security={{ "apiAuth": {} }},
      *     summary="All applicants",
      *     description="All applicants",
      *     @OA\Response(
@@ -65,10 +64,9 @@ class ApplicantsController extends Controller
      *     path="/api/applicants/{id}",
      *     operationId="watch_applicants",
      *     tags={"Applicants"},
-     *     security={{ "apiAuth": {} }},
      *     summary="See applicant",
      *     description="See applicant",
-     *    @OA\Parameter(
+     *     @OA\Parameter(
      *         in="path",
      *         name="id",
      *         required=true,
@@ -126,7 +124,6 @@ class ApplicantsController extends Controller
      *      path="/api/applicants",
      *      operationId="store_applicants",
      *      tags={"Applicants"},
-     *      security={{ "apiAuth": {} }},
      *      summary="Store applicant",
      *      description="Store applicant and upload documents",
      *      @OA\RequestBody(
@@ -170,6 +167,13 @@ class ApplicantsController extends Controller
      *              @OA\Property(property="data", type="object", description="Applicant data")
      *          )
      *      )
+     *      @OA\Response(
+     *          response=404,
+     *          description="NOT FOUND",
+     *          @OA\JsonContent(
+     *              @OA\Property(property="message", type="string", example=""),
+     *          )
+     *      )
      *  )
      */
 
@@ -202,7 +206,6 @@ class ApplicantsController extends Controller
      *     path="/api/applicants/{id}",
      *     operationId="update_applicants",
      *     tags={"Applicants"},
-     *     security={{ "apiAuth": {} }},
      *     summary="Update applicant and upload documents",
      *     description="Update applicant data and allow file upload",
      *     @OA\Parameter(
@@ -252,6 +255,13 @@ class ApplicantsController extends Controller
      *              @OA\Property(property="data", type="object", description="Updated applicant data")
      *          )
      *     )
+     *      @OA\Response(
+     *          response=404,
+     *          description="NOT FOUND",
+     *          @OA\JsonContent(
+     *              @OA\Property(property="message", type="string", example=""),
+     *          )
+     *      )
      * )
      */
 
@@ -285,10 +295,9 @@ class ApplicantsController extends Controller
      *      path="/api/applicants/{id}",
      *      operationId="delete_applicants",
      *      tags={"Applicants"},
-     *     security={{ "apiAuth": {} }},
      *      summary="Delete applicant",
      *      description="Delete applicant",
-     *    @OA\Parameter(
+     *      @OA\Parameter(
      *         in="path",
      *         name="id",
      *         required=true,
@@ -301,6 +310,13 @@ class ApplicantsController extends Controller
      *             @OA\Property(property="data",type="object")
      *          )
      *       )
+     *      @OA\Response(
+     *          response=404,
+     *          description="NOT FOUND",
+     *          @OA\JsonContent(
+     *              @OA\Property(property="message", type="string", example=""),
+     *          )
+     *      )
      *  )
      */
 

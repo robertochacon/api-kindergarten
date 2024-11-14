@@ -12,7 +12,6 @@ class TutorsController extends Controller
      *     path="/api/authorizations",
      *      operationId="all_authorization",
      *     tags={"Authorized persons"},
-     *     security={{ "apiAuth": {} }},
      *     summary="All authorizations",
      *     description="All authorizations",
      *     @OA\Response(
@@ -54,7 +53,6 @@ class TutorsController extends Controller
      *     path="/api/authorizations/{id}",
      *     operationId="watch_authorization",
      *     tags={"Authorized persons"},
-     *     security={{ "apiAuth": {} }},
      *     summary="See authorization",
      *     description="See authorization",
      *     @OA\Parameter(
@@ -105,7 +103,6 @@ class TutorsController extends Controller
      *      path="/api/authorizations",
      *      operationId="store_authorization",
      *      tags={"Authorized persons"},
-     *     security={{ "apiAuth": {} }},
      *      summary="Store authorization",
      *      description="Store authorization",
      *      @OA\RequestBody(
@@ -154,7 +151,6 @@ class TutorsController extends Controller
      *     path="/api/authorizations/{id}",
      *     operationId="update_authorization",
      *     tags={"Authorized persons"},
-     *     security={{ "apiAuth": {} }},
      *     summary="Update authorization",
      *     description="Update authorization",
      *     @OA\Parameter(
@@ -212,7 +208,6 @@ class TutorsController extends Controller
      *      path="/api/authorizations/{id}",
      *      operationId="delete_authorization",
      *      tags={"Authorized persons"},
-     *     security={{ "apiAuth": {} }},
      *      summary="Delete authorization",
      *      description="Delete authorization",
      *    @OA\Parameter(

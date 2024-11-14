@@ -130,7 +130,6 @@ class AuthController extends Controller
      *     description="Cierra la sesión y revoca el token JWT",
      *     operationId="logout",
      *     tags={"Auth"},
-     *     security={{"apiAuth":{}}},
      *     @OA\Response(
      *         response=200,
      *         description="Logout exitoso",
@@ -154,7 +153,6 @@ class AuthController extends Controller
      *     description="Refresca el token JWT",
      *     operationId="refresh",
      *     tags={"Auth"},
-     *     security={{"apiAuth":{}}},
      *     @OA\Response(
      *         response=200,
      *         description="Token refrescado",
@@ -178,7 +176,6 @@ class AuthController extends Controller
      *     description="Obtiene los datos del usuario autenticado",
      *     operationId="me",
      *     tags={"Auth"},
-     *     security={{"apiAuth":{}}},
      *     @OA\Response(
      *         response=200,
      *         description="Datos del usuario autenticado",

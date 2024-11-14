@@ -16,7 +16,6 @@ class KidController extends Controller
      *     path="/api/kids",
      *      operationId="all_kids",
      *     tags={"Kids"},
-     *     security={{ "apiAuth": {} }},
      *     summary="All kids",
      *     description="All kids",
      *     @OA\Response(
@@ -79,7 +78,6 @@ class KidController extends Controller
      *     path="/api/kids/totales",
      *     operationId="all_kids_total",
      *     tags={"Kids"},
-     *     security={{ "apiAuth": {} }},
      *     summary="All total of kids",
      *     description="All total of kids",
      *     @OA\Response(
@@ -121,7 +119,6 @@ class KidController extends Controller
      *     path="/api/kids/{id}",
      *     operationId="watch_kid",
      *     tags={"Kids"},
-     *     security={{ "apiAuth": {} }},
      *     summary="See kid",
      *     description="See kid",
      *    @OA\Parameter(
@@ -190,7 +187,6 @@ class KidController extends Controller
      *      path="/api/kids",
      *      operationId="store_kid",
      *      tags={"Kids"},
-     *      security={{ "apiAuth": {} }},
      *      summary="Store kid",
      *      description="Store kid and upload related documents",
      *      @OA\RequestBody(
@@ -307,7 +303,6 @@ class KidController extends Controller
      *     path="/api/kids/{id}",
      *     operationId="update_kid",
      *     tags={"Kids"},
-     *     security={{ "apiAuth": {} }},
      *     summary="Update kid",
      *     description="Update kid and upload related documents",
      *     @OA\Parameter(
@@ -418,7 +413,6 @@ class KidController extends Controller
      *      path="/api/kids/{id}",
      *      operationId="delete_kid",
      *      tags={"Kids"},
-     *     security={{ "apiAuth": {} }},
      *      summary="Delete kid",
      *      description="Delete kid",
      *    @OA\Parameter(

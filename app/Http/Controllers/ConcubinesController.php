@@ -14,7 +14,6 @@ class ConcubinesController extends Controller
      *     path="/api/concubines",
      *     operationId="all_concubines",
      *     tags={"Concubines"},
-     *     security={{ "apiAuth": {} }},
      *     summary="All concubines",
      *     description="All concubines",
      *     @OA\Response(
@@ -65,7 +64,6 @@ class ConcubinesController extends Controller
      *     path="/api/concubines/{id}",
      *     operationId="watch_concubines",
      *     tags={"Concubines"},
-     *     security={{ "apiAuth": {} }},
      *     summary="See concubine",
      *     description="See concubine",
      *    @OA\Parameter(
@@ -125,7 +123,6 @@ class ConcubinesController extends Controller
      *      path="/api/concubines",
      *      operationId="store_concubines",
      *      tags={"Concubines"},
-     *      security={{ "apiAuth": {} }},
      *      summary="Store concubine",
      *      description="Store concubine and upload related documents",
      *      @OA\RequestBody(
@@ -202,7 +199,6 @@ class ConcubinesController extends Controller
      *     path="/api/concubines/{id}",
      *     operationId="update_concubines",
      *     tags={"Concubines"},
-     *     security={{ "apiAuth": {} }},
      *     summary="Update concubine",
      *     description="Update concubine and upload related documents",
      *     @OA\Parameter(
@@ -286,7 +282,6 @@ class ConcubinesController extends Controller
      *      path="/api/concubines/{id}",
      *      operationId="delete_concubines",
      *      tags={"Concubines"},
-     *     security={{ "apiAuth": {} }},
      *      summary="Delete concubine",
      *      description="Delete concubine",
      *    @OA\Parameter(

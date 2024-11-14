@@ -15,9 +15,8 @@ class AttendanceController extends Controller
     /**
      * @OA\Get (
      *     path="/api/attendances",
-     *      operationId="all_attendances",
+     *     operationId="all_attendances",
      *     tags={"Attendances of kids"},
-     *     security={{ "apiAuth": {} }},
      *     summary="All attendances",
      *     description="All attendances",
      *     @OA\Parameter(
@@ -111,7 +110,6 @@ class AttendanceController extends Controller
      *     path="/api/attendances/{id}",
      *     operationId="watch_attendance",
      *     tags={"Attendances of kids"},
-     *     security={{ "apiAuth": {} }},
      *     summary="See attendance",
      *     description="See attendance",
      *    @OA\Parameter(
@@ -157,7 +155,6 @@ class AttendanceController extends Controller
      *      path="/api/attendances",
      *      operationId="store_attendance",
      *      tags={"Attendances of kids"},
-     *     security={{ "apiAuth": {} }},
      *      summary="Store attendance",
      *      description="Store attendance",
      *      @OA\RequestBody(
@@ -211,7 +208,6 @@ class AttendanceController extends Controller
      *     path="/api/attendances/{id}",
      *     operationId="update_attendance",
      *     tags={"Attendances of kids"},
-     *     security={{ "apiAuth": {} }},
      *     summary="Update attendance",
      *     description="Update attendance",
      *     @OA\Parameter(
@@ -258,7 +254,6 @@ class AttendanceController extends Controller
      *      path="/api/attendances/{id}",
      *      operationId="delete_attendance",
      *      tags={"Attendances of kids"},
-     *     security={{ "apiAuth": {} }},
      *      summary="Delete attendance",
      *      description="Delete attendance",
      *    @OA\Parameter(
