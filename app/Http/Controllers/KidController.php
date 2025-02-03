@@ -433,7 +433,7 @@ class KidController extends Controller
 
     public function delete($id){
         try{
-            Kids::destroy($id);
+            Kids::where('id', $id)->delete();
             return response()->json(["data"=>"ok"],200);
         }catch (Exception $e) {
             return response()->json(["data"=>"none"],200);
