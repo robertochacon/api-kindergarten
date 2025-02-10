@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Applicants;
 use App\Models\Concubines;
 use App\Models\Kids;
+use Carbon\Carbon;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -260,6 +261,9 @@ class KidController extends Controller
         }
 
         $kids = new Kids($request->except('file'));
+        if ($request->has('born_date')) {
+            $kids->born_date = Carbon::createFromFormat('d/m/Y', $request->input('born_date'))->format('Y-m-d');
+        }
         $kids->save();
 
         $initials = strtoupper(substr($kids->name, 0, 1)) . strtoupper(substr($kids->last_name, 0, 1));
@@ -374,6 +378,9 @@ class KidController extends Controller
     public function update(Request $request, $id){
         try{
             $kids = Kids::where('id',$id)->first();
+            if ($request->has('born_date')) {
+                $kids->born_date = Carbon::createFromFormat('d/m/Y', $request->input('born_date'))->format('Y-m-d');
+            }
             $kids->update($request->except('file'));
 
             if ($request->hasFile('file')) {

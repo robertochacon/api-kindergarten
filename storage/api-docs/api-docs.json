@@ -62,9 +62,8 @@
                                             "example": ""
                                         },
                                         "military": {
-                                            "type": "boolean",
-                                            "format": "boolean",
-                                            "example": ""
+                                            "type": "integer",
+                                            "example": 1
                                         },
                                         "institution": {
                                             "type": "string",
@@ -140,12 +139,7 @@
                             }
                         }
                     }
-                },
-                "security": [
-                    {
-                        "apiAuth": []
-                    }
-                ]
+                }
             },
             "post": {
                 "tags": [
@@ -203,8 +197,8 @@
                                         "example": "Santo Domingo"
                                     },
                                     "military": {
-                                        "type": "boolean",
-                                        "example": true
+                                        "type": "integer",
+                                        "example": 1
                                     },
                                     "institution": {
                                         "type": "string",
@@ -273,13 +267,24 @@
                                 }
                             }
                         }
+                    },
+                    "404": {
+                        "description": "NOT FOUND",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": ""
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
                     }
-                },
-                "security": [
-                    {
-                        "apiAuth": []
-                    }
-                ]
+                }
             }
         },
         "/api/applicants/{id}": {
@@ -349,9 +354,8 @@
                                             "example": ""
                                         },
                                         "military": {
-                                            "type": "boolean",
-                                            "format": "boolean",
-                                            "example": "true"
+                                            "type": "integer",
+                                            "example": 1
                                         },
                                         "institution": {
                                             "type": "string",
@@ -427,12 +431,7 @@
                             }
                         }
                     }
-                },
-                "security": [
-                    {
-                        "apiAuth": []
-                    }
-                ]
+                }
             },
             "put": {
                 "tags": [
@@ -500,8 +499,8 @@
                                         "example": "Santo Domingo"
                                     },
                                     "military": {
-                                        "type": "boolean",
-                                        "example": true
+                                        "type": "integer",
+                                        "example": 1
                                     },
                                     "institution": {
                                         "type": "string",
@@ -570,13 +569,24 @@
                                 }
                             }
                         }
+                    },
+                    "404": {
+                        "description": "NOT FOUND",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": ""
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
                     }
-                },
-                "security": [
-                    {
-                        "apiAuth": []
-                    }
-                ]
+                }
             },
             "delete": {
                 "tags": [
@@ -614,13 +624,24 @@
                                 }
                             }
                         }
+                    },
+                    "404": {
+                        "description": "NOT FOUND",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": ""
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
                     }
-                },
-                "security": [
-                    {
-                        "apiAuth": []
-                    }
-                ]
+                }
             }
         },
         "/api/attendances": {
@@ -725,73 +746,7 @@
                             }
                         }
                     }
-                },
-                "security": [
-                    {
-                        "apiAuth": []
-                    }
-                ]
-            },
-            "post": {
-                "tags": [
-                    "Attendances of kids"
-                ],
-                "summary": "Store attendance",
-                "description": "Store attendance",
-                "operationId": "store_attendance",
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "required": [
-                                    "name"
-                                ],
-                                "properties": {
-                                    "code": {
-                                        "type": "number",
-                                        "example": "DV24-0001"
-                                    },
-                                    "user_id": {
-                                        "type": "number",
-                                        "example": 1
-                                    },
-                                    "attendance": {
-                                        "type": "boolean",
-                                        "example": true
-                                    }
-                                },
-                                "type": "object"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Success",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "status": {
-                                            "type": "integer",
-                                            "example": ""
-                                        },
-                                        "data": {
-                                            "type": "object"
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "apiAuth": []
-                    }
-                ]
+                }
             }
         },
         "/api/attendances/{id}": {
@@ -869,12 +824,7 @@
                             }
                         }
                     }
-                },
-                "security": [
-                    {
-                        "apiAuth": []
-                    }
-                ]
+                }
             },
             "put": {
                 "tags": [
@@ -948,12 +898,7 @@
                             }
                         }
                     }
-                },
-                "security": [
-                    {
-                        "apiAuth": []
-                    }
-                ]
+                }
             },
             "delete": {
                 "tags": [
@@ -992,12 +937,7 @@
                             }
                         }
                     }
-                },
-                "security": [
-                    {
-                        "apiAuth": []
-                    }
-                ]
+                }
             }
         },
         "/api/register": {
@@ -1187,12 +1127,7 @@
                             }
                         }
                     }
-                },
-                "security": [
-                    {
-                        "apiAuth": []
-                    }
-                ]
+                }
             }
         },
         "/api/refresh": {
@@ -1228,12 +1163,7 @@
                             }
                         }
                     }
-                },
-                "security": [
-                    {
-                        "apiAuth": []
-                    }
-                ]
+                }
             }
         },
         "/api/me": {
@@ -1279,12 +1209,7 @@
                             }
                         }
                     }
-                },
-                "security": [
-                    {
-                        "apiAuth": []
-                    }
-                ]
+                }
             }
         },
         "/api/concubines": {
@@ -1344,9 +1269,8 @@
                                             "example": ""
                                         },
                                         "military": {
-                                            "type": "boolean",
-                                            "format": "boolean",
-                                            "example": ""
+                                            "type": "integer",
+                                            "example": 1
                                         },
                                         "institution": {
                                             "type": "string",
@@ -1418,12 +1342,7 @@
                             }
                         }
                     }
-                },
-                "security": [
-                    {
-                        "apiAuth": []
-                    }
-                ]
+                }
             },
             "post": {
                 "tags": [
@@ -1482,8 +1401,8 @@
                                         "example": "Santo Domingo"
                                     },
                                     "military": {
-                                        "type": "boolean",
-                                        "example": true
+                                        "type": "integer",
+                                        "example": 1
                                     },
                                     "institution": {
                                         "type": "string",
@@ -1544,12 +1463,7 @@
                             }
                         }
                     }
-                },
-                "security": [
-                    {
-                        "apiAuth": []
-                    }
-                ]
+                }
             }
         },
         "/api/concubines/{id}": {
@@ -1619,9 +1533,8 @@
                                             "example": ""
                                         },
                                         "military": {
-                                            "type": "boolean",
-                                            "format": "boolean",
-                                            "example": "true"
+                                            "type": "integer",
+                                            "example": 1
                                         },
                                         "institution": {
                                             "type": "string",
@@ -1693,12 +1606,7 @@
                             }
                         }
                     }
-                },
-                "security": [
-                    {
-                        "apiAuth": []
-                    }
-                ]
+                }
             },
             "put": {
                 "tags": [
@@ -1767,8 +1675,8 @@
                                         "example": "Santo Domingo"
                                     },
                                     "military": {
-                                        "type": "boolean",
-                                        "example": true
+                                        "type": "integer",
+                                        "example": 1
                                     },
                                     "institution": {
                                         "type": "string",
@@ -1833,12 +1741,7 @@
                             }
                         }
                     }
-                },
-                "security": [
-                    {
-                        "apiAuth": []
-                    }
-                ]
+                }
             },
             "delete": {
                 "tags": [
@@ -1877,12 +1780,7 @@
                             }
                         }
                     }
-                },
-                "security": [
-                    {
-                        "apiAuth": []
-                    }
-                ]
+                }
             }
         },
         "/api/kids": {
@@ -2037,12 +1935,7 @@
                             }
                         }
                     }
-                },
-                "security": [
-                    {
-                        "apiAuth": []
-                    }
-                ]
+                }
             },
             "post": {
                 "tags": [
@@ -2189,12 +2082,7 @@
                             }
                         }
                     }
-                },
-                "security": [
-                    {
-                        "apiAuth": []
-                    }
-                ]
+                }
             }
         },
         "/api/kids/totales": {
@@ -2250,12 +2138,7 @@
                             }
                         }
                     }
-                },
-                "security": [
-                    {
-                        "apiAuth": []
-                    }
-                ]
+                }
             }
         },
         "/api/kids/{id}": {
@@ -2420,12 +2303,7 @@
                             }
                         }
                     }
-                },
-                "security": [
-                    {
-                        "apiAuth": []
-                    }
-                ]
+                }
             },
             "put": {
                 "tags": [
@@ -2582,12 +2460,7 @@
                             }
                         }
                     }
-                },
-                "security": [
-                    {
-                        "apiAuth": []
-                    }
-                ]
+                }
             },
             "delete": {
                 "tags": [
@@ -2626,12 +2499,7 @@
                             }
                         }
                     }
-                },
-                "security": [
-                    {
-                        "apiAuth": []
-                    }
-                ]
+                }
             }
         },
         "/api/authorizations": {
@@ -2683,9 +2551,8 @@
                                             "example": ""
                                         },
                                         "military": {
-                                            "type": "boolean",
-                                            "format": "boolean",
-                                            "example": ""
+                                            "type": "integer",
+                                            "example": 1
                                         },
                                         "file": {
                                             "type": "string",
@@ -2722,12 +2589,7 @@
                             }
                         }
                     }
-                },
-                "security": [
-                    {
-                        "apiAuth": []
-                    }
-                ]
+                }
             },
             "post": {
                 "tags": [
@@ -2781,9 +2643,8 @@
                                         "example": "Santo Domingo"
                                     },
                                     "military": {
-                                        "type": "boolean",
-                                        "format": "boolean",
-                                        "example": "true"
+                                        "type": "integer",
+                                        "example": 1
                                     },
                                     "kid_id": {
                                         "type": "number",
@@ -2821,12 +2682,7 @@
                             }
                         }
                     }
-                },
-                "security": [
-                    {
-                        "apiAuth": []
-                    }
-                ]
+                }
             }
         },
         "/api/authorizations/{id}": {
@@ -2888,9 +2744,8 @@
                                             "example": ""
                                         },
                                         "military": {
-                                            "type": "boolean",
-                                            "format": "boolean",
-                                            "example": "true"
+                                            "type": "integer",
+                                            "example": 1
                                         },
                                         "file": {
                                             "type": "string",
@@ -2927,12 +2782,7 @@
                             }
                         }
                     }
-                },
-                "security": [
-                    {
-                        "apiAuth": []
-                    }
-                ]
+                }
             },
             "put": {
                 "tags": [
@@ -2996,9 +2846,8 @@
                                         "example": ""
                                     },
                                     "military": {
-                                        "type": "boolean",
-                                        "format": "boolean",
-                                        "example": "true"
+                                        "type": "integer",
+                                        "example": 1
                                     },
                                     "kid_id": {
                                         "type": "number",
@@ -3036,12 +2885,7 @@
                             }
                         }
                     }
-                },
-                "security": [
-                    {
-                        "apiAuth": []
-                    }
-                ]
+                }
             },
             "delete": {
                 "tags": [
@@ -3080,18 +2924,13 @@
                             }
                         }
                     }
-                },
-                "security": [
-                    {
-                        "apiAuth": []
-                    }
-                ]
+                }
             }
         }
     },
     "components": {
         "securitySchemes": {
-            "apiAuth": {
+            "bearerAuth": {
                 "type": "http",
                 "in": "header",
                 "bearerFormat": "JWT",
@@ -3099,10 +2938,35 @@
             }
         }
     },
+    "security": [
+        {
+            "bearerAuth": []
+        }
+    ],
     "tags": [
         {
             "name": "Auth",
             "description": "API Endpoints de Autenticación"
+        },
+        {
+            "name": "Applicants",
+            "description": "Applicants"
+        },
+        {
+            "name": "Attendances of kids",
+            "description": "Attendances of kids"
+        },
+        {
+            "name": "Concubines",
+            "description": "Concubines"
+        },
+        {
+            "name": "Kids",
+            "description": "Kids"
+        },
+        {
+            "name": "Authorized persons",
+            "description": "Authorized persons"
         }
     ]
 }

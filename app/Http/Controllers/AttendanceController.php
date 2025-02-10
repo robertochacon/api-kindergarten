@@ -150,32 +150,6 @@ class AttendanceController extends Controller
         }
     }
 
-    /**
-     * @OA\Post(
-     *      path="/api/attendances",
-     *      operationId="store_attendance",
-     *      tags={"Attendances of kids"},
-     *      summary="Store attendance",
-     *      description="Store attendance",
-     *      @OA\RequestBody(
-     *         required=true,
-     *         @OA\JsonContent(
-     *            required={"name"},
-     *              @OA\Property(property="code", type="number", example="DV24-0001"),
-     *              @OA\Property(property="user_id", type="number", example=1),
-     *              @OA\Property(property="attendance", type="boolean", example=true),
-     *         ),
-     *      ),
-     *     @OA\Response(
-     *          response=200, description="Success",
-     *          @OA\JsonContent(
-     *             @OA\Property(property="status", type="integer", example=""),
-     *             @OA\Property(property="data",type="object")
-     *          )
-     *       )
-     *  )
-     */
-
      public function register(Request $request)
      {
          try {
@@ -274,7 +248,7 @@ class AttendanceController extends Controller
 
     public function delete($id){
         try{
-            Attendance::destroy($id);
+            Attendance::where('id', $id)->delete();
             return response()->json(["data"=>"ok"],200);
         }catch (Exception $e) {
             return response()->json(["data"=>"Problemas tecnicos"],500);

@@ -29,7 +29,7 @@ class ApplicantsController extends Controller
      *              @OA\Property(property="phone", type="string", example=""),
      *              @OA\Property(property="residence_phone", type="string", format="string", example=""),
      *              @OA\Property(property="address", type="string", example=""),
-     *              @OA\Property(property="military", type="boolean", format="boolean", example=""),
+     *              @OA\Property(property="military", type="integer", example=1),
      *              @OA\Property(property="institution", type="string", format="string", example=""),
      *              @OA\Property(property="range", type="string", format="string", example=""),
      *              @OA\Property(property="other", type="string", example=""),
@@ -86,7 +86,7 @@ class ApplicantsController extends Controller
      *              @OA\Property(property="phone", type="string", example=""),
      *              @OA\Property(property="residence_phone", type="string", format="string", example=""),
      *              @OA\Property(property="address", type="string", example=""),
-     *              @OA\Property(property="military", type="boolean", format="boolean", example="true"),
+     *              @OA\Property(property="military", type="integer", example=1),
      *              @OA\Property(property="institution", type="string", format="string", example=""),
      *              @OA\Property(property="range", type="string", format="string", example=""),
      *              @OA\Property(property="other", type="string", example=""),
@@ -141,7 +141,7 @@ class ApplicantsController extends Controller
      *                 @OA\Property(property="phone", type="string", example="8099877765"),
      *                 @OA\Property(property="residence_phone", type="string", example="8099886700"),
      *                 @OA\Property(property="address", type="string", example="Santo Domingo"),
-     *                 @OA\Property(property="military", type="boolean", example=true),
+     *                 @OA\Property(property="military", type="integer", example=1),
      *                 @OA\Property(property="institution", type="string", example="ARD"),
      *                 @OA\Property(property="range", type="string", example="Teniente"),
      *                 @OA\Property(property="other", type="string", example="Gerente de la academia"),
@@ -166,7 +166,7 @@ class ApplicantsController extends Controller
      *              @OA\Property(property="status", type="integer", example=200),
      *              @OA\Property(property="data", type="object", description="Applicant data")
      *          )
-     *      )
+     *      ),
      *      @OA\Response(
      *          response=404,
      *          description="NOT FOUND",
@@ -229,7 +229,7 @@ class ApplicantsController extends Controller
      *                 @OA\Property(property="phone", type="string", example="8099877765"),
      *                 @OA\Property(property="residence_phone", type="string", example="8099886700"),
      *                 @OA\Property(property="address", type="string", example="Santo Domingo"),
-     *                 @OA\Property(property="military", type="boolean", example=true),
+     *                 @OA\Property(property="military", type="integer", example=1),
      *                 @OA\Property(property="institution", type="string", example="ARD"),
      *                 @OA\Property(property="range", type="string", example="Teniente"),
      *                 @OA\Property(property="other", type="string", example="Gerente de la academia"),
@@ -254,7 +254,7 @@ class ApplicantsController extends Controller
      *              @OA\Property(property="status", type="integer", example=200),
      *              @OA\Property(property="data", type="object", description="Updated applicant data")
      *          )
-     *     )
+     *     ),
      *      @OA\Response(
      *          response=404,
      *          description="NOT FOUND",
@@ -309,7 +309,7 @@ class ApplicantsController extends Controller
      *             @OA\Property(property="status", type="integer", example=""),
      *             @OA\Property(property="data",type="object")
      *          )
-     *       )
+     *       ),
      *      @OA\Response(
      *          response=404,
      *          description="NOT FOUND",
@@ -322,7 +322,7 @@ class ApplicantsController extends Controller
 
     public function delete($id){
         try{
-            Applicants::destroy($id);
+            Applicants::where('id', $id)->delete();
             return response()->json(["data"=>"ok"],200);
         }catch (Exception $e) {
             return response()->json(["data"=>"none"],200);

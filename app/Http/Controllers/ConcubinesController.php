@@ -30,7 +30,7 @@ class ConcubinesController extends Controller
      *              @OA\Property(property="phone", type="string", example=""),
      *              @OA\Property(property="residence_phone", type="string", format="string", example=""),
      *              @OA\Property(property="address", type="string", example=""),
-     *              @OA\Property(property="military", type="boolean", format="boolean", example=""),
+     *              @OA\Property(property="military", type="integer", example=1),
      *              @OA\Property(property="institution", type="string", format="string", example=""),
      *              @OA\Property(property="email", type="string", format="string", example=""),
      *              @OA\Property(property="name_work_reference_1", type="string", format="string", example=""),
@@ -86,7 +86,7 @@ class ConcubinesController extends Controller
      *              @OA\Property(property="phone", type="string", example=""),
      *              @OA\Property(property="residence_phone", type="string", format="string", example=""),
      *              @OA\Property(property="address", type="string", example=""),
-     *              @OA\Property(property="military", type="boolean", format="boolean", example="true"),
+     *              @OA\Property(property="military", type="integer", example=1),
      *              @OA\Property(property="institution", type="string", format="string", example=""),
      *              @OA\Property(property="email", type="string", format="string", example=""),
      *              @OA\Property(property="name_work_reference_1", type="string", format="string", example=""),
@@ -141,7 +141,7 @@ class ConcubinesController extends Controller
      *                 @OA\Property(property="phone", type="string", example="8099877765"),
      *                 @OA\Property(property="residence_phone", type="string", example="8099886700"),
      *                 @OA\Property(property="address", type="string", example="Santo Domingo"),
-     *                 @OA\Property(property="military", type="boolean", example=true),
+     *                 @OA\Property(property="military", type="integer", example=1),
      *                 @OA\Property(property="institution", type="string", example="ARD"),
      *                 @OA\Property(property="email", type="string", example="juan@gmail.com"),
      *                 @OA\Property(property="name_work_reference_1", type="string", format="string", example="Pedro Sanchez"),
@@ -223,7 +223,7 @@ class ConcubinesController extends Controller
      *                 @OA\Property(property="phone", type="string", example="8099877765"),
      *                 @OA\Property(property="residence_phone", type="string", example="8099886700"),
      *                 @OA\Property(property="address", type="string", example="Santo Domingo"),
-     *                 @OA\Property(property="military", type="boolean", example=true),
+     *                 @OA\Property(property="military", type="integer", example=1),
      *                 @OA\Property(property="institution", type="string", example="ARD"),
      *                 @OA\Property(property="email", type="string", example="juan@gmail.com"),
      *                 @OA\Property(property="kid_id", type="number", example=1),
@@ -302,7 +302,7 @@ class ConcubinesController extends Controller
 
     public function delete($id){
         try{
-            Concubines::destroy($id);
+            Concubines::where('id', $id)->delete();
             return response()->json(["data"=>"ok"],200);
         }catch (Exception $e) {
             return response()->json(["data"=>"none"],200);
