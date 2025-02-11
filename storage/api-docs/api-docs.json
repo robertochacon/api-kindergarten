@@ -1268,10 +1268,6 @@
                                             "type": "string",
                                             "example": ""
                                         },
-                                        "military": {
-                                            "type": "integer",
-                                            "example": 1
-                                        },
                                         "institution": {
                                             "type": "string",
                                             "format": "string",
@@ -1400,10 +1396,6 @@
                                         "type": "string",
                                         "example": "Santo Domingo"
                                     },
-                                    "military": {
-                                        "type": "integer",
-                                        "example": 1
-                                    },
                                     "institution": {
                                         "type": "string",
                                         "example": "ARD"
@@ -1531,10 +1523,6 @@
                                         "address": {
                                             "type": "string",
                                             "example": ""
-                                        },
-                                        "military": {
-                                            "type": "integer",
-                                            "example": 1
                                         },
                                         "institution": {
                                             "type": "string",
@@ -1673,10 +1661,6 @@
                                     "address": {
                                         "type": "string",
                                         "example": "Santo Domingo"
-                                    },
-                                    "military": {
-                                        "type": "integer",
-                                        "example": 1
                                     },
                                     "institution": {
                                         "type": "string",
