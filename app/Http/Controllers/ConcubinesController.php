@@ -179,7 +179,7 @@ class ConcubinesController extends Controller
             $file = $request->file('file');
             $filename = 'concubine_' . $concubine->id . '_' . now()->format('Ymd_His') . '.' . $file->getClientOriginalExtension();
             $file->storeAs('public/files', $filename);
-            $path = url('storage/files', $filename);
+            $path = url('storage/public/files', $filename);
             $concubine->file = $path;
         }
 
@@ -257,7 +257,7 @@ class ConcubinesController extends Controller
                 $file = $request->file('file');
                 $filename = 'concubine_' . $concubine->id . '_' . now()->format('Ymd_His') . '.' . $file->getClientOriginalExtension();
                 $file->storeAs('public/files', $filename);
-                $path = url('storage/files', $filename);
+                $path = url('storage/public/files', $filename);
                 $concubine->file = $path;
             }
 

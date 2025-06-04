@@ -277,7 +277,7 @@ class KidController extends Controller
             $file = $request->file('file');
             $filename = 'kid_' . $kids->id . '_' . now()->format('Ymd_His') . '.' . $file->getClientOriginalExtension();
             $file->storeAs('public/files', $filename);
-            $path = url('storage/files', $filename);
+            $path = url('storage/public/files', $filename);
             $kids->file = $path;
         }
 
@@ -285,7 +285,7 @@ class KidController extends Controller
             $file = $request->file('insurance_file');
             $filename = 'kid_insurance_file' . $kids->id . '_' . now()->format('Ymd_His') . '.' . $file->getClientOriginalExtension();
             $file->storeAs('public/files', $filename);
-            $path = url('storage/files', $filename);
+            $path = url('storage/public/files', $filename);
             $kids->insurance_file = $path;
         }
 
@@ -293,7 +293,7 @@ class KidController extends Controller
             $file = $request->file('vaccines_file');
             $filename = 'kid_vaccines_file' . $kids->id . '_' . now()->format('Ymd_His') . '.' . $file->getClientOriginalExtension();
             $file->storeAs('public/files', $filename);
-            $path = url('storage/files', $filename);
+            $path = url('storage/public/files', $filename);
             $kids->vaccines_file = $path;
         }
 
@@ -387,7 +387,7 @@ class KidController extends Controller
                 $file = $request->file('file');
                 $filename = 'kid_' . $kids->id . '_' . now()->format('Ymd_His') . '.' . $file->getClientOriginalExtension();
                 $file->storeAs('public/files', $filename);
-                $path = url('storage/files', $filename);
+                $path = url('storage/public/files', $filename);
                 $kids->file = $path;
             }
 
@@ -395,7 +395,7 @@ class KidController extends Controller
                 $file = $request->file('insurance_file');
                 $filename = 'kid_insurance_file' . $kids->id . '_' . now()->format('Ymd_His') . '.' . $file->getClientOriginalExtension();
                 $file->storeAs('public/files', $filename);
-                $path = url('storage/files', $filename);
+                $path = url('storage/public/files', $filename);
                 $kids->insurance_file = $path;
             }
 
@@ -403,7 +403,7 @@ class KidController extends Controller
                 $file = $request->file('vaccines_file');
                 $filename = 'kid_vaccines_file' . $kids->id . '_' . now()->format('Ymd_His') . '.' . $file->getClientOriginalExtension();
                 $file->storeAs('public/files', $filename);
-                $path = url('storage/files', $filename);
+                $path = url('storage/public/files', $filename);
                 $kids->vaccines_file = $path;
             }
 

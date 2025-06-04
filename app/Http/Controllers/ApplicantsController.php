@@ -188,7 +188,7 @@ class ApplicantsController extends Controller
             $file = $request->file('file');
             $filename = 'applicant_' . $applicant->id . '_' . now()->format('Ymd_His') . '.' . $file->getClientOriginalExtension();
             $file->storeAs('public/files', $filename);
-            $path = url('storage/files', $filename);
+            $path = url('storage/public/files', $filename);
             $applicant->file = $path;
         }
 
@@ -275,7 +275,7 @@ class ApplicantsController extends Controller
                 $file = $request->file('file');
                 $filename = 'applicant_' . $applicant->id . '_' . now()->format('Ymd_His') . '.'  . $file->getClientOriginalExtension();
                 $file->storeAs('public/files', $filename);
-                $path = url('storage/files', $filename);
+                $path = url('storage/public/files', $filename);
                 $applicant->file = $path;
             }
 
