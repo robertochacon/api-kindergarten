@@ -8,6 +8,7 @@ use App\Models\Kids;
 use Carbon\Carbon;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 
 class KidController extends Controller
@@ -64,7 +65,7 @@ class KidController extends Controller
      */
     public function index()
     {
-        $kids = Kids::with('applicant')->with('concubine')->with('authorizations')->paginate(10);
+        $kids = Kids::with('applicant')->with('concubine')->with('tutors')->paginate(10);
 
         foreach ($kids as $kid) {
             $qrUrl = "https://api.qrserver.com/v1/create-qr-code/?data=" . $kid->code . "&size=200x200";
@@ -300,6 +301,64 @@ class KidController extends Controller
         $kids->save();
 
         return response()->json(["data"=>$kids],200);
+    }
+
+    public function multipleRegister(Request $request)
+    {
+        $result = [];
+    
+        foreach ($request->input('kids', []) as $kidData) {
+            // Validaciones
+            if (!Applicants::find($kidData['applicant_id'] ?? null)) {
+                return response()->json(['error' => 'El solicitante proporcionado no existe.'], 404);
+            }
+    
+            if (!Concubines::find($kidData['concubine_id'] ?? null)) {
+                return response()->json(['error' => 'El concubino proporcionado no existe.'], 404);
+            }
+    
+            // Crear nuevo niño
+            $kid = new Kids(Arr::except($kidData, ['file', 'insurance_file', 'vaccines_file', 'born_date']));
+            
+            if (!empty($kidData['born_date'])) {
+                $kid->born_date = Carbon::createFromFormat('d/m/Y', $kidData['born_date'])->format('Y-m-d');
+            }
+    
+            $kid->save();
+    
+            // Generar código
+            $initials = strtoupper(substr($kid->name, 0, 1)) . strtoupper(substr($kid->last_name, 0, 1));
+            $year = substr(Carbon::now()->year, -2);
+            $id = str_pad($kid->id, 4, '0', STR_PAD_LEFT);
+            $kid->code = $initials . $year . "-" . $id;
+    
+            // Archivos (usa nombre de campo con key única si aplica)
+            if ($request->hasFile("files.{$kidData['temp_key']}.file")) {
+                $file = $request->file("files.{$kidData['temp_key']}.file");
+                $filename = 'kid_' . $kid->id . '_' . now()->format('Ymd_His') . '.' . $file->getClientOriginalExtension();
+                $file->storeAs('public/files', $filename);
+                $kid->file = url('storage/files/' . $filename);
+            }
+    
+            if ($request->hasFile("files.{$kidData['temp_key']}.insurance_file")) {
+                $file = $request->file("files.{$kidData['temp_key']}.insurance_file");
+                $filename = 'kid_insurance_' . $kid->id . '_' . now()->format('Ymd_His') . '.' . $file->getClientOriginalExtension();
+                $file->storeAs('public/files', $filename);
+                $kid->insurance_file = url('storage/files/' . $filename);
+            }
+    
+            if ($request->hasFile("files.{$kidData['temp_key']}.vaccines_file")) {
+                $file = $request->file("files.{$kidData['temp_key']}.vaccines_file");
+                $filename = 'kid_vaccines_' . $kid->id . '_' . now()->format('Ymd_His') . '.' . $file->getClientOriginalExtension();
+                $file->storeAs('public/files', $filename);
+                $kid->vaccines_file = url('storage/files/' . $filename);
+            }
+    
+            $kid->save();
+            $result[] = $kid;
+        }
+    
+        return response()->json(['data' => $result], 200);
     }
 
     /**

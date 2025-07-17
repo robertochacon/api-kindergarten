@@ -1,10 +1,11 @@
 <?php
 
+use App\Http\Controllers\GeneralRegisterController;
 use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\KidController;
 use App\Http\Controllers\ApplicantsController;
 use App\Http\Controllers\ConcubinesController;
-use App\Http\Controllers\TutorsController;
+use App\Http\Controllers\AuthorizedPersonsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -33,6 +34,8 @@ Route::group(['middleware' => 'api'], function () {
 
 // Route::middleware(['auth:api'])->group(function () {
 
+    Route::post('general-register', [GeneralRegisterController::class, 'register']);
+
     Route::post('logout', [AuthController::class, 'logout']);
     Route::post('refresh', [AuthController::class, 'refresh']);
     Route::get('me', [AuthController::class, 'me']);
@@ -46,11 +49,11 @@ Route::group(['middleware' => 'api'], function () {
     Route::delete('/kids/{id}/', [KidController::class, 'delete']);
 
     //authorizations tutors of kid
-    Route::get('/authorizations/', [TutorsController::class, 'index']);
-    Route::get('/authorizations/{id}/', [TutorsController::class, 'watch']);
-    Route::post('/authorizations/', [TutorsController::class, 'register']);
-    Route::put('/authorizations/{id}/', [TutorsController::class, 'update']);
-    Route::delete('/authorizations/{id}/', [TutorsController::class, 'delete']);
+    Route::get('/authorizations/', [AuthorizedPersonsController::class, 'index']);
+    Route::get('/authorizations/{id}/', [AuthorizedPersonsController::class, 'watch']);
+    Route::post('/authorizations/', [AuthorizedPersonsController::class, 'register']);
+    Route::put('/authorizations/{id}/', [AuthorizedPersonsController::class, 'update']);
+    Route::delete('/authorizations/{id}/', [AuthorizedPersonsController::class, 'delete']);
 
     //attendances
     Route::get('/attendances/', [AttendanceController::class, 'index']);

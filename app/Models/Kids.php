@@ -16,8 +16,8 @@ class Kids extends Model
         'id','applicant_id','concubine_id','code','name','last_name','gender','born_date','address','region','province','municipality','district','sections','neighborhood','classroom','insurance','insurance_number','allergies','medical_conditions','medications','pediatrician','pediatrician_phone','file','insurance_file','vaccines_file'
     ];
 
-    public function authorizations(){
-        return $this->belongsToMany(Tutors::class, 'kids_tutors', 'kid_id', 'tutor_id')->withTimestamps();
+    public function tutors(){
+        return $this->hasMany(AuthorizedPersons::class, 'applicant_id', 'applicant_id');
     }
 
     public function applicant(){
@@ -27,10 +27,5 @@ class Kids extends Model
     public function concubine(){
         return $this->belongsTo(Concubines::class);
     }
-
-
-    // public function authorizations(): HasMany{
-    //     return $this->hasMany(Authorizations::class, 'kid_id', 'id')->withTimestamps();
-    // }
 
 }
