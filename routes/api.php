@@ -6,6 +6,8 @@ use App\Http\Controllers\KidController;
 use App\Http\Controllers\ApplicantsController;
 use App\Http\Controllers\ConcubinesController;
 use App\Http\Controllers\AuthorizedPersonsController;
+use App\Http\Controllers\PediatricianController;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -75,5 +77,19 @@ Route::group(['middleware' => 'api'], function () {
     Route::post('/concubines/', [ConcubinesController::class, 'register']);
     Route::put('/concubines/{id}/', [ConcubinesController::class, 'update']);
     Route::delete('/concubines/{id}/', [ConcubinesController::class, 'delete']);
+
+    //pediatricians
+    Route::get('/pediatricians/', [PediatricianController::class, 'index']);
+    Route::get('/pediatricians/{id}/', [PediatricianController::class, 'show']);
+    Route::post('/pediatricians/', [PediatricianController::class, 'store']);
+    Route::put('/pediatricians/{id}/', [PediatricianController::class, 'update']);
+    Route::delete('/pediatricians/{id}/', [PediatricianController::class, 'destroy']);
+
+    //users
+    Route::get('/users/', [UserController::class, 'index']);
+    Route::get('/users/{id}/', [UserController::class, 'show']);
+    Route::post('/users/', [UserController::class, 'store']);
+    Route::put('/users/{id}/', [UserController::class, 'update']);
+    Route::delete('/users/{id}/', [UserController::class, 'destroy']);
 
 // });

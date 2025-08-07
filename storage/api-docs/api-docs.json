@@ -1212,6 +1212,431 @@
                 }
             }
         },
+        "/api/authorizations": {
+            "get": {
+                "tags": [
+                    "Authorized persons"
+                ],
+                "summary": "All authorizations",
+                "description": "All authorizations",
+                "operationId": "all_authorization",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "number",
+                                            "example": 1
+                                        },
+                                        "name": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "last_name": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "identification": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "parent": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "phone": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "residence_phone": {
+                                            "type": "string",
+                                            "format": "string",
+                                            "example": ""
+                                        },
+                                        "address": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "military": {
+                                            "type": "integer",
+                                            "example": 1
+                                        },
+                                        "file": {
+                                            "type": "string",
+                                            "format": "string",
+                                            "example": ""
+                                        },
+                                        "created_at": {
+                                            "type": "string",
+                                            "example": "2023-02-23T00:09:16.000000Z"
+                                        },
+                                        "updated_at": {
+                                            "type": "string",
+                                            "example": "2023-02-23T12:33:45.000000Z"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "NOT FOUND",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": ""
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Authorized persons"
+                ],
+                "summary": "Store authorization",
+                "description": "Store authorization",
+                "operationId": "store_authorization",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Juan"
+                                    },
+                                    "last_name": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Santos"
+                                    },
+                                    "identification": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "00123492349"
+                                    },
+                                    "parent": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Tio"
+                                    },
+                                    "phone": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "8293242233"
+                                    },
+                                    "residence_phone": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": ""
+                                    },
+                                    "address": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Santo Domingo"
+                                    },
+                                    "military": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "kid_id": {
+                                        "type": "number",
+                                        "format": "number",
+                                        "example": "1"
+                                    },
+                                    "file": {
+                                        "description": "Upload a document related to the kid (PDF, JPG, etc.)",
+                                        "type": "string",
+                                        "format": "binary"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": ""
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/authorizations/{id}": {
+            "get": {
+                "tags": [
+                    "Authorized persons"
+                ],
+                "summary": "See authorization",
+                "description": "See authorization",
+                "operationId": "watch_authorization",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "number",
+                                            "example": 1
+                                        },
+                                        "name": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "last_name": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "identification": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "parent": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "phone": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "residence_phone": {
+                                            "type": "string",
+                                            "format": "string",
+                                            "example": ""
+                                        },
+                                        "address": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "military": {
+                                            "type": "integer",
+                                            "example": 1
+                                        },
+                                        "file": {
+                                            "type": "string",
+                                            "format": "string",
+                                            "example": ""
+                                        },
+                                        "created_at": {
+                                            "type": "string",
+                                            "example": "2023-02-23T00:09:16.000000Z"
+                                        },
+                                        "updated_at": {
+                                            "type": "string",
+                                            "example": "2023-02-23T12:33:45.000000Z"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "NOT FOUND",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": ""
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Authorized persons"
+                ],
+                "summary": "Update authorization",
+                "description": "Update authorization",
+                "operationId": "update_authorization",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": ""
+                                    },
+                                    "last_name": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": ""
+                                    },
+                                    "identification": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": ""
+                                    },
+                                    "parent": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": ""
+                                    },
+                                    "phone": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": ""
+                                    },
+                                    "residence_phone": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": ""
+                                    },
+                                    "address": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": ""
+                                    },
+                                    "military": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "kid_id": {
+                                        "type": "number",
+                                        "format": "number",
+                                        "example": "1"
+                                    },
+                                    "file": {
+                                        "description": "Upload a document related to the kid (PDF, JPG, etc.)",
+                                        "type": "string",
+                                        "format": "binary"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": ""
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Authorized persons"
+                ],
+                "summary": "Delete authorization",
+                "description": "Delete authorization",
+                "operationId": "delete_authorization",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": ""
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/api/concubines": {
             "get": {
                 "tags": [
@@ -2486,86 +2911,58 @@
                 }
             }
         },
-        "/api/authorizations": {
+        "/api/pediatricians/": {
             "get": {
                 "tags": [
-                    "Authorized persons"
+                    "Pediatricians"
                 ],
-                "summary": "All authorizations",
-                "description": "All authorizations",
-                "operationId": "all_authorization",
+                "summary": "Listar todos los pediatras",
+                "description": "Obtiene una lista de todos los pediatras registrados",
+                "operationId": "getPediatricians",
                 "responses": {
                     "200": {
-                        "description": "OK",
+                        "description": "Lista de pediatras obtenida exitosamente",
                         "content": {
                             "application/json": {
                                 "schema": {
                                     "properties": {
-                                        "id": {
-                                            "type": "number",
-                                            "example": 1
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
                                         },
-                                        "name": {
-                                            "type": "string",
-                                            "example": ""
-                                        },
-                                        "last_name": {
-                                            "type": "string",
-                                            "example": ""
-                                        },
-                                        "identification": {
-                                            "type": "string",
-                                            "example": ""
-                                        },
-                                        "parent": {
-                                            "type": "string",
-                                            "example": ""
-                                        },
-                                        "phone": {
-                                            "type": "string",
-                                            "example": ""
-                                        },
-                                        "residence_phone": {
-                                            "type": "string",
-                                            "format": "string",
-                                            "example": ""
-                                        },
-                                        "address": {
-                                            "type": "string",
-                                            "example": ""
-                                        },
-                                        "military": {
-                                            "type": "integer",
-                                            "example": 1
-                                        },
-                                        "file": {
-                                            "type": "string",
-                                            "format": "string",
-                                            "example": ""
-                                        },
-                                        "created_at": {
-                                            "type": "string",
-                                            "example": "2023-02-23T00:09:16.000000Z"
-                                        },
-                                        "updated_at": {
-                                            "type": "string",
-                                            "example": "2023-02-23T12:33:45.000000Z"
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
-                    },
-                    "404": {
-                        "description": "NOT FOUND",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "message": {
-                                            "type": "string",
-                                            "example": ""
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "range": {
+                                                        "type": "string",
+                                                        "example": "Pediatra General"
+                                                    },
+                                                    "name": {
+                                                        "type": "string",
+                                                        "example": "Dr. María González"
+                                                    },
+                                                    "identification": {
+                                                        "type": "string",
+                                                        "example": "12345678"
+                                                    },
+                                                    "created_at": {
+                                                        "type": "string",
+                                                        "format": "date-time",
+                                                        "example": "2025-08-07T22:40:52.000000Z"
+                                                    },
+                                                    "updated_at": {
+                                                        "type": "string",
+                                                        "format": "date-time",
+                                                        "example": "2025-08-07T22:40:52.000000Z"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
                                         }
                                     },
                                     "type": "object"
@@ -2577,68 +2974,36 @@
             },
             "post": {
                 "tags": [
-                    "Authorized persons"
+                    "Pediatricians"
                 ],
-                "summary": "Store authorization",
-                "description": "Store authorization",
-                "operationId": "store_authorization",
+                "summary": "Crear un nuevo pediatra",
+                "description": "Crea un nuevo pediatra con los datos proporcionados",
+                "operationId": "createPediatrician",
                 "requestBody": {
                     "required": true,
                     "content": {
                         "application/json": {
                             "schema": {
                                 "required": [
-                                    "name"
+                                    "range",
+                                    "name",
+                                    "identification"
                                 ],
                                 "properties": {
-                                    "name": {
+                                    "range": {
+                                        "description": "Rango o especialidad del pediatra",
                                         "type": "string",
-                                        "format": "string",
-                                        "example": "Juan"
+                                        "example": "Pediatra General"
                                     },
-                                    "last_name": {
+                                    "name": {
+                                        "description": "Nombre completo del pediatra",
                                         "type": "string",
-                                        "format": "string",
-                                        "example": "Santos"
+                                        "example": "Dr. María González"
                                     },
                                     "identification": {
+                                        "description": "Número de identificación único",
                                         "type": "string",
-                                        "format": "string",
-                                        "example": "00123492349"
-                                    },
-                                    "parent": {
-                                        "type": "string",
-                                        "format": "string",
-                                        "example": "Tio"
-                                    },
-                                    "phone": {
-                                        "type": "string",
-                                        "format": "string",
-                                        "example": "8293242233"
-                                    },
-                                    "residence_phone": {
-                                        "type": "string",
-                                        "format": "string",
-                                        "example": ""
-                                    },
-                                    "address": {
-                                        "type": "string",
-                                        "format": "string",
-                                        "example": "Santo Domingo"
-                                    },
-                                    "military": {
-                                        "type": "integer",
-                                        "example": 1
-                                    },
-                                    "kid_id": {
-                                        "type": "number",
-                                        "format": "number",
-                                        "example": "1"
-                                    },
-                                    "file": {
-                                        "description": "Upload a document related to the kid (PDF, JPG, etc.)",
-                                        "type": "string",
-                                        "format": "binary"
+                                        "example": "12345678"
                                     }
                                 },
                                 "type": "object"
@@ -2647,17 +3012,95 @@
                     }
                 },
                 "responses": {
-                    "200": {
-                        "description": "Success",
+                    "201": {
+                        "description": "Pediatra creado exitosamente",
                         "content": {
                             "application/json": {
                                 "schema": {
                                     "properties": {
-                                        "status": {
-                                            "type": "integer",
-                                            "example": ""
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Pediatrician created successfully"
                                         },
                                         "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "range": {
+                                                    "type": "string",
+                                                    "example": "Pediatra General"
+                                                },
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "Dr. María González"
+                                                },
+                                                "identification": {
+                                                    "type": "string",
+                                                    "example": "12345678"
+                                                },
+                                                "created_at": {
+                                                    "type": "string",
+                                                    "format": "date-time",
+                                                    "example": "2025-08-07T22:40:52.000000Z"
+                                                },
+                                                "updated_at": {
+                                                    "type": "string",
+                                                    "format": "date-time",
+                                                    "example": "2025-08-07T22:40:52.000000Z"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Error de validación",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Validation failed"
+                                        },
+                                        "errors": {
+                                            "properties": {
+                                                "range": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string",
+                                                        "example": "The range field is required."
+                                                    }
+                                                },
+                                                "name": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string",
+                                                        "example": "The name field is required."
+                                                    }
+                                                },
+                                                "identification": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string",
+                                                        "example": "The identification field is required."
+                                                    }
+                                                }
+                                            },
                                             "type": "object"
                                         }
                                     },
@@ -2669,80 +3112,67 @@
                 }
             }
         },
-        "/api/authorizations/{id}": {
+        "/api/pediatricians/{id}/": {
             "get": {
                 "tags": [
-                    "Authorized persons"
+                    "Pediatricians"
                 ],
-                "summary": "See authorization",
-                "description": "See authorization",
-                "operationId": "watch_authorization",
+                "summary": "Obtener un pediatra específico",
+                "description": "Obtiene los datos de un pediatra por su ID",
+                "operationId": "getPediatrician",
                 "parameters": [
                     {
                         "name": "id",
                         "in": "path",
+                        "description": "ID del pediatra",
                         "required": true,
                         "schema": {
-                            "type": "string"
+                            "type": "integer",
+                            "example": 1
                         }
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "OK",
+                        "description": "Pediatra encontrado exitosamente",
                         "content": {
                             "application/json": {
                                 "schema": {
                                     "properties": {
-                                        "id": {
-                                            "type": "number",
-                                            "example": 1
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
                                         },
-                                        "name": {
-                                            "type": "string",
-                                            "example": ""
-                                        },
-                                        "last_name": {
-                                            "type": "string",
-                                            "example": ""
-                                        },
-                                        "identification": {
-                                            "type": "string",
-                                            "example": ""
-                                        },
-                                        "parent": {
-                                            "type": "string",
-                                            "example": ""
-                                        },
-                                        "phone": {
-                                            "type": "string",
-                                            "example": ""
-                                        },
-                                        "residence_phone": {
-                                            "type": "string",
-                                            "format": "string",
-                                            "example": ""
-                                        },
-                                        "address": {
-                                            "type": "string",
-                                            "example": ""
-                                        },
-                                        "military": {
-                                            "type": "integer",
-                                            "example": 1
-                                        },
-                                        "file": {
-                                            "type": "string",
-                                            "format": "string",
-                                            "example": ""
-                                        },
-                                        "created_at": {
-                                            "type": "string",
-                                            "example": "2023-02-23T00:09:16.000000Z"
-                                        },
-                                        "updated_at": {
-                                            "type": "string",
-                                            "example": "2023-02-23T12:33:45.000000Z"
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "range": {
+                                                    "type": "string",
+                                                    "example": "Pediatra General"
+                                                },
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "Dr. María González"
+                                                },
+                                                "identification": {
+                                                    "type": "string",
+                                                    "example": "12345678"
+                                                },
+                                                "created_at": {
+                                                    "type": "string",
+                                                    "format": "date-time",
+                                                    "example": "2025-08-07T22:40:52.000000Z"
+                                                },
+                                                "updated_at": {
+                                                    "type": "string",
+                                                    "format": "date-time",
+                                                    "example": "2025-08-07T22:40:52.000000Z"
+                                                }
+                                            },
+                                            "type": "object"
                                         }
                                     },
                                     "type": "object"
@@ -2751,14 +3181,18 @@
                         }
                     },
                     "404": {
-                        "description": "NOT FOUND",
+                        "description": "Pediatra no encontrado",
                         "content": {
                             "application/json": {
                                 "schema": {
                                     "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
                                         "message": {
                                             "type": "string",
-                                            "example": ""
+                                            "example": "Pediatrician not found"
                                         }
                                     },
                                     "type": "object"
@@ -2770,18 +3204,20 @@
             },
             "put": {
                 "tags": [
-                    "Authorized persons"
+                    "Pediatricians"
                 ],
-                "summary": "Update authorization",
-                "description": "Update authorization",
-                "operationId": "update_authorization",
+                "summary": "Actualizar un pediatra",
+                "description": "Actualiza los datos de un pediatra existente",
+                "operationId": "updatePediatrician",
                 "parameters": [
                     {
                         "name": "id",
                         "in": "path",
+                        "description": "ID del pediatra",
                         "required": true,
                         "schema": {
-                            "type": "string"
+                            "type": "integer",
+                            "example": 1
                         }
                     }
                 ],
@@ -2790,58 +3226,21 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "required": [
-                                    "name"
-                                ],
                                 "properties": {
-                                    "name": {
+                                    "range": {
+                                        "description": "Rango o especialidad del pediatra",
                                         "type": "string",
-                                        "format": "string",
-                                        "example": ""
+                                        "example": "Pediatra Especialista"
                                     },
-                                    "last_name": {
+                                    "name": {
+                                        "description": "Nombre completo del pediatra",
                                         "type": "string",
-                                        "format": "string",
-                                        "example": ""
+                                        "example": "Dr. María González"
                                     },
                                     "identification": {
+                                        "description": "Número de identificación único",
                                         "type": "string",
-                                        "format": "string",
-                                        "example": ""
-                                    },
-                                    "parent": {
-                                        "type": "string",
-                                        "format": "string",
-                                        "example": ""
-                                    },
-                                    "phone": {
-                                        "type": "string",
-                                        "format": "string",
-                                        "example": ""
-                                    },
-                                    "residence_phone": {
-                                        "type": "string",
-                                        "format": "string",
-                                        "example": ""
-                                    },
-                                    "address": {
-                                        "type": "string",
-                                        "format": "string",
-                                        "example": ""
-                                    },
-                                    "military": {
-                                        "type": "integer",
-                                        "example": 1
-                                    },
-                                    "kid_id": {
-                                        "type": "number",
-                                        "format": "number",
-                                        "example": "1"
-                                    },
-                                    "file": {
-                                        "description": "Upload a document related to the kid (PDF, JPG, etc.)",
-                                        "type": "string",
-                                        "format": "binary"
+                                        "example": "12345678"
                                     }
                                 },
                                 "type": "object"
@@ -2851,16 +3250,100 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "Success",
+                        "description": "Pediatra actualizado exitosamente",
                         "content": {
                             "application/json": {
                                 "schema": {
                                     "properties": {
-                                        "status": {
-                                            "type": "integer",
-                                            "example": ""
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Pediatrician updated successfully"
                                         },
                                         "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "range": {
+                                                    "type": "string",
+                                                    "example": "Pediatra Especialista"
+                                                },
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "Dr. María González"
+                                                },
+                                                "identification": {
+                                                    "type": "string",
+                                                    "example": "12345678"
+                                                },
+                                                "created_at": {
+                                                    "type": "string",
+                                                    "format": "date-time",
+                                                    "example": "2025-08-07T22:40:52.000000Z"
+                                                },
+                                                "updated_at": {
+                                                    "type": "string",
+                                                    "format": "date-time",
+                                                    "example": "2025-08-07T22:41:09.000000Z"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Pediatra no encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Pediatrician not found"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Error de validación",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Validation failed"
+                                        },
+                                        "errors": {
+                                            "properties": {
+                                                "identification": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string",
+                                                        "example": "The identification has already been taken."
+                                                    }
+                                                }
+                                            },
                                             "type": "object"
                                         }
                                     },
@@ -2873,34 +3356,622 @@
             },
             "delete": {
                 "tags": [
-                    "Authorized persons"
+                    "Pediatricians"
                 ],
-                "summary": "Delete authorization",
-                "description": "Delete authorization",
-                "operationId": "delete_authorization",
+                "summary": "Eliminar un pediatra",
+                "description": "Elimina un pediatra de la base de datos",
+                "operationId": "deletePediatrician",
                 "parameters": [
                     {
                         "name": "id",
                         "in": "path",
+                        "description": "ID del pediatra",
                         "required": true,
                         "schema": {
-                            "type": "string"
+                            "type": "integer",
+                            "example": 1
                         }
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "Success",
+                        "description": "Pediatra eliminado exitosamente",
                         "content": {
                             "application/json": {
                                 "schema": {
                                     "properties": {
-                                        "status": {
-                                            "type": "integer",
-                                            "example": ""
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Pediatrician deleted successfully"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Pediatra no encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Pediatrician not found"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/users/": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Listar todos los usuarios",
+                "description": "Obtiene una lista de todos los usuarios registrados",
+                "operationId": "getUsers",
+                "responses": {
+                    "200": {
+                        "description": "Lista de usuarios obtenida exitosamente",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
                                         },
                                         "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "name": {
+                                                        "type": "string",
+                                                        "example": "John Doe"
+                                                    },
+                                                    "email": {
+                                                        "type": "string",
+                                                        "example": "john.doe@example.com"
+                                                    },
+                                                    "email_verified_at": {
+                                                        "type": "string",
+                                                        "format": "date-time",
+                                                        "example": null,
+                                                        "nullable": true
+                                                    },
+                                                    "role": {
+                                                        "description": "admin o user",
+                                                        "type": "string",
+                                                        "example": "user"
+                                                    },
+                                                    "created_at": {
+                                                        "type": "string",
+                                                        "format": "date-time",
+                                                        "example": "2025-08-07T22:40:52.000000Z"
+                                                    },
+                                                    "updated_at": {
+                                                        "type": "string",
+                                                        "format": "date-time",
+                                                        "example": "2025-08-07T22:40:52.000000Z"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Crear un nuevo usuario",
+                "description": "Crea un nuevo usuario con los datos proporcionados",
+                "operationId": "createUser",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "email",
+                                    "password",
+                                    "password_confirmation"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "description": "Nombre completo del usuario",
+                                        "type": "string",
+                                        "example": "John Doe"
+                                    },
+                                    "email": {
+                                        "description": "Email único del usuario",
+                                        "type": "string",
+                                        "format": "email",
+                                        "example": "john.doe@example.com"
+                                    },
+                                    "password": {
+                                        "description": "Contraseña del usuario",
+                                        "type": "string",
+                                        "format": "password",
+                                        "example": "password123"
+                                    },
+                                    "password_confirmation": {
+                                        "description": "Confirmación de la contraseña",
+                                        "type": "string",
+                                        "format": "password",
+                                        "example": "password123"
+                                    },
+                                    "role": {
+                                        "description": "Rol del usuario (admin o user)",
+                                        "type": "string",
+                                        "example": "user"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Usuario creado exitosamente",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "User created successfully"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "John Doe"
+                                                },
+                                                "email": {
+                                                    "type": "string",
+                                                    "example": "john.doe@example.com"
+                                                },
+                                                "email_verified_at": {
+                                                    "type": "string",
+                                                    "format": "date-time",
+                                                    "example": null,
+                                                    "nullable": true
+                                                },
+                                                "role": {
+                                                    "type": "string",
+                                                    "example": "user"
+                                                },
+                                                "created_at": {
+                                                    "type": "string",
+                                                    "format": "date-time",
+                                                    "example": "2025-08-07T22:40:52.000000Z"
+                                                },
+                                                "updated_at": {
+                                                    "type": "string",
+                                                    "format": "date-time",
+                                                    "example": "2025-08-07T22:40:52.000000Z"
+                                                }
+                                            },
                                             "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Error de validación",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Validation failed"
+                                        },
+                                        "errors": {
+                                            "properties": {
+                                                "name": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string",
+                                                        "example": "The name field is required."
+                                                    }
+                                                },
+                                                "email": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string",
+                                                        "example": "The email field is required."
+                                                    }
+                                                },
+                                                "password": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string",
+                                                        "example": "The password field is required."
+                                                    }
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/users/{id}/": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Obtener un usuario específico",
+                "description": "Obtiene los datos de un usuario por su ID",
+                "operationId": "getUser",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID del usuario",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": 1
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Usuario encontrado exitosamente",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "John Doe"
+                                                },
+                                                "email": {
+                                                    "type": "string",
+                                                    "example": "john.doe@example.com"
+                                                },
+                                                "email_verified_at": {
+                                                    "type": "string",
+                                                    "format": "date-time",
+                                                    "example": null,
+                                                    "nullable": true
+                                                },
+                                                "role": {
+                                                    "type": "string",
+                                                    "example": "user"
+                                                },
+                                                "created_at": {
+                                                    "type": "string",
+                                                    "format": "date-time",
+                                                    "example": "2025-08-07T22:40:52.000000Z"
+                                                },
+                                                "updated_at": {
+                                                    "type": "string",
+                                                    "format": "date-time",
+                                                    "example": "2025-08-07T22:40:52.000000Z"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Usuario no encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "User not found"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Actualizar un usuario",
+                "description": "Actualiza los datos de un usuario existente",
+                "operationId": "updateUser",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID del usuario",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": 1
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "description": "Nombre completo del usuario",
+                                        "type": "string",
+                                        "example": "John Doe Updated"
+                                    },
+                                    "email": {
+                                        "description": "Email único del usuario",
+                                        "type": "string",
+                                        "format": "email",
+                                        "example": "john.updated@example.com"
+                                    },
+                                    "password": {
+                                        "description": "Nueva contraseña del usuario",
+                                        "type": "string",
+                                        "format": "password",
+                                        "example": "newpassword123"
+                                    },
+                                    "password_confirmation": {
+                                        "description": "Confirmación de la nueva contraseña",
+                                        "type": "string",
+                                        "format": "password",
+                                        "example": "newpassword123"
+                                    },
+                                    "role": {
+                                        "description": "Rol del usuario (admin o user)",
+                                        "type": "string",
+                                        "example": "admin"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Usuario actualizado exitosamente",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "User updated successfully"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "John Doe Updated"
+                                                },
+                                                "email": {
+                                                    "type": "string",
+                                                    "example": "john.updated@example.com"
+                                                },
+                                                "email_verified_at": {
+                                                    "type": "string",
+                                                    "format": "date-time",
+                                                    "example": null,
+                                                    "nullable": true
+                                                },
+                                                "role": {
+                                                    "type": "string",
+                                                    "example": "admin"
+                                                },
+                                                "created_at": {
+                                                    "type": "string",
+                                                    "format": "date-time",
+                                                    "example": "2025-08-07T22:40:52.000000Z"
+                                                },
+                                                "updated_at": {
+                                                    "type": "string",
+                                                    "format": "date-time",
+                                                    "example": "2025-08-07T22:41:09.000000Z"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Usuario no encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "User not found"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Error de validación",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Validation failed"
+                                        },
+                                        "errors": {
+                                            "properties": {
+                                                "email": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string",
+                                                        "example": "The email has already been taken."
+                                                    }
+                                                },
+                                                "password": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string",
+                                                        "example": "The password confirmation does not match."
+                                                    }
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Eliminar un usuario",
+                "description": "Elimina un usuario de la base de datos",
+                "operationId": "deleteUser",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID del usuario",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": 1
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Usuario eliminado exitosamente",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "User deleted successfully"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Usuario no encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "User not found"
                                         }
                                     },
                                     "type": "object"
@@ -2933,6 +4004,14 @@
             "description": "API Endpoints de Autenticación"
         },
         {
+            "name": "Pediatricians",
+            "description": "API Endpoints para gestión de pediatras"
+        },
+        {
+            "name": "Users",
+            "description": "API Endpoints para gestión de usuarios"
+        },
+        {
             "name": "Applicants",
             "description": "Applicants"
         },
@@ -2941,16 +4020,16 @@
             "description": "Attendances of kids"
         },
         {
+            "name": "Authorized persons",
+            "description": "Authorized persons"
+        },
+        {
             "name": "Concubines",
             "description": "Concubines"
         },
         {
             "name": "Kids",
             "description": "Kids"
-        },
-        {
-            "name": "Authorized persons",
-            "description": "Authorized persons"
         }
     ]
 }
