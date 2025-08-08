@@ -2946,9 +2946,9 @@
                                                         "type": "string",
                                                         "example": "Dr. María González"
                                                     },
-                                                    "identification": {
+                                                    "phone": {
                                                         "type": "string",
-                                                        "example": "12345678"
+                                                        "example": "+1234567890"
                                                     },
                                                     "created_at": {
                                                         "type": "string",
@@ -2987,7 +2987,7 @@
                                 "required": [
                                     "range",
                                     "name",
-                                    "identification"
+                                    "phone"
                                 ],
                                 "properties": {
                                     "range": {
@@ -3000,10 +3000,10 @@
                                         "type": "string",
                                         "example": "Dr. María González"
                                     },
-                                    "identification": {
-                                        "description": "Número de identificación único",
+                                    "phone": {
+                                        "description": "Número de teléfono único",
                                         "type": "string",
-                                        "example": "12345678"
+                                        "example": "+1234567890"
                                     }
                                 },
                                 "type": "object"
@@ -3040,9 +3040,9 @@
                                                     "type": "string",
                                                     "example": "Dr. María González"
                                                 },
-                                                "identification": {
+                                                "phone": {
                                                     "type": "string",
-                                                    "example": "12345678"
+                                                    "example": "+1234567890"
                                                 },
                                                 "created_at": {
                                                     "type": "string",
@@ -3093,11 +3093,11 @@
                                                         "example": "The name field is required."
                                                     }
                                                 },
-                                                "identification": {
+                                                "phone": {
                                                     "type": "array",
                                                     "items": {
                                                         "type": "string",
-                                                        "example": "The identification field is required."
+                                                        "example": "The phone field is required."
                                                     }
                                                 }
                                             },
@@ -3157,9 +3157,9 @@
                                                     "type": "string",
                                                     "example": "Dr. María González"
                                                 },
-                                                "identification": {
+                                                "phone": {
                                                     "type": "string",
-                                                    "example": "12345678"
+                                                    "example": "+1234567890"
                                                 },
                                                 "created_at": {
                                                     "type": "string",
@@ -3237,10 +3237,10 @@
                                         "type": "string",
                                         "example": "Dr. María González"
                                     },
-                                    "identification": {
-                                        "description": "Número de identificación único",
+                                    "phone": {
+                                        "description": "Número de teléfono único",
                                         "type": "string",
-                                        "example": "12345678"
+                                        "example": "+1234567890"
                                     }
                                 },
                                 "type": "object"
@@ -3277,9 +3277,9 @@
                                                     "type": "string",
                                                     "example": "Dr. María González"
                                                 },
-                                                "identification": {
+                                                "phone": {
                                                     "type": "string",
-                                                    "example": "12345678"
+                                                    "example": "+1234567890"
                                                 },
                                                 "created_at": {
                                                     "type": "string",
@@ -3336,11 +3336,11 @@
                                         },
                                         "errors": {
                                             "properties": {
-                                                "identification": {
+                                                "phone": {
                                                     "type": "array",
                                                     "items": {
                                                         "type": "string",
-                                                        "example": "The identification has already been taken."
+                                                        "example": "The phone has already been taken."
                                                     }
                                                 }
                                             },

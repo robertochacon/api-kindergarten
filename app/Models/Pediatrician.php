@@ -12,7 +12,7 @@ class Pediatrician extends Model
     protected $fillable = [
         'range',
         'name',
-        'identification'
+        'phone'
     ];
 
     protected $casts = [

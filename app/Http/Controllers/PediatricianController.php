@@ -34,7 +34,7 @@ class PediatricianController extends Controller
      *                     @OA\Property(property="id", type="integer", example=1),
      *                     @OA\Property(property="range", type="string", example="Pediatra General"),
      *                     @OA\Property(property="name", type="string", example="Dr. María González"),
-     *                     @OA\Property(property="identification", type="string", example="12345678"),
+     *                     @OA\Property(property="phone", type="string", example="+1234567890"),
      *                     @OA\Property(property="created_at", type="string", format="date-time", example="2025-08-07T22:40:52.000000Z"),
      *                     @OA\Property(property="updated_at", type="string", format="date-time", example="2025-08-07T22:40:52.000000Z")
      *                 )
@@ -62,10 +62,10 @@ class PediatricianController extends Controller
      *     @OA\RequestBody(
      *         required=true,
      *         @OA\JsonContent(
-     *             required={"range","name","identification"},
+     *             required={"range","name","phone"},
      *             @OA\Property(property="range", type="string", example="Pediatra General", description="Rango o especialidad del pediatra"),
      *             @OA\Property(property="name", type="string", example="Dr. María González", description="Nombre completo del pediatra"),
-     *             @OA\Property(property="identification", type="string", example="12345678", description="Número de identificación único")
+     *             @OA\Property(property="phone", type="string", example="+1234567890", description="Número de teléfono único")
      *         )
      *     ),
      *     @OA\Response(
@@ -80,7 +80,7 @@ class PediatricianController extends Controller
      *                 @OA\Property(property="id", type="integer", example=1),
      *                 @OA\Property(property="range", type="string", example="Pediatra General"),
      *                 @OA\Property(property="name", type="string", example="Dr. María González"),
-     *                 @OA\Property(property="identification", type="string", example="12345678"),
+     *                 @OA\Property(property="phone", type="string", example="+1234567890"),
      *                 @OA\Property(property="created_at", type="string", format="date-time", example="2025-08-07T22:40:52.000000Z"),
      *                 @OA\Property(property="updated_at", type="string", format="date-time", example="2025-08-07T22:40:52.000000Z")
      *             )
@@ -97,7 +97,7 @@ class PediatricianController extends Controller
      *                 type="object",
      *                 @OA\Property(property="range", type="array", @OA\Items(type="string", example="The range field is required.")),
      *                 @OA\Property(property="name", type="array", @OA\Items(type="string", example="The name field is required.")),
-     *                 @OA\Property(property="identification", type="array", @OA\Items(type="string", example="The identification field is required."))
+     *                 @OA\Property(property="phone", type="array", @OA\Items(type="string", example="The phone field is required."))
      *             )
      *         )
      *     )
@@ -109,7 +109,7 @@ class PediatricianController extends Controller
             $validated = $request->validate([
                 'range' => 'required|string|max:255',
                 'name' => 'required|string|max:255',
-                'identification' => 'required|string|max:255|unique:pediatricians,identification'
+                'phone' => 'required|string|max:255|unique:pediatricians,phone'
             ]);
 
             $pediatrician = Pediatrician::create($validated);
@@ -153,7 +153,7 @@ class PediatricianController extends Controller
      *                 @OA\Property(property="id", type="integer", example=1),
      *                 @OA\Property(property="range", type="string", example="Pediatra General"),
      *                 @OA\Property(property="name", type="string", example="Dr. María González"),
-     *                 @OA\Property(property="identification", type="string", example="12345678"),
+     *                 @OA\Property(property="phone", type="string", example="+1234567890"),
      *                 @OA\Property(property="created_at", type="string", format="date-time", example="2025-08-07T22:40:52.000000Z"),
      *                 @OA\Property(property="updated_at", type="string", format="date-time", example="2025-08-07T22:40:52.000000Z")
      *             )
@@ -205,7 +205,7 @@ class PediatricianController extends Controller
      *         @OA\JsonContent(
      *             @OA\Property(property="range", type="string", example="Pediatra Especialista", description="Rango o especialidad del pediatra"),
      *             @OA\Property(property="name", type="string", example="Dr. María González", description="Nombre completo del pediatra"),
-     *             @OA\Property(property="identification", type="string", example="12345678", description="Número de identificación único")
+     *             @OA\Property(property="phone", type="string", example="+1234567890", description="Número de teléfono único")
      *         )
      *     ),
      *     @OA\Response(
@@ -220,7 +220,7 @@ class PediatricianController extends Controller
      *                 @OA\Property(property="id", type="integer", example=1),
      *                 @OA\Property(property="range", type="string", example="Pediatra Especialista"),
      *                 @OA\Property(property="name", type="string", example="Dr. María González"),
-     *                 @OA\Property(property="identification", type="string", example="12345678"),
+     *                 @OA\Property(property="phone", type="string", example="+1234567890"),
      *                 @OA\Property(property="created_at", type="string", format="date-time", example="2025-08-07T22:40:52.000000Z"),
      *                 @OA\Property(property="updated_at", type="string", format="date-time", example="2025-08-07T22:41:09.000000Z")
      *             )
@@ -243,7 +243,7 @@ class PediatricianController extends Controller
      *             @OA\Property(
      *                 property="errors",
      *                 type="object",
-     *                 @OA\Property(property="identification", type="array", @OA\Items(type="string", example="The identification has already been taken."))
+     *                 @OA\Property(property="phone", type="array", @OA\Items(type="string", example="The phone has already been taken."))
      *             )
      *         )
      *     )
@@ -264,7 +264,7 @@ class PediatricianController extends Controller
             $validated = $request->validate([
                 'range' => 'sometimes|required|string|max:255',
                 'name' => 'sometimes|required|string|max:255',
-                'identification' => 'sometimes|required|string|max:255|unique:pediatricians,identification,' . $id
+                'phone' => 'sometimes|required|string|max:255|unique:pediatricians,phone,' . $id
             ]);
 
             $pediatrician->update($validated);

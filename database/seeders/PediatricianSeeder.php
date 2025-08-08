@@ -14,15 +14,21 @@ class PediatricianSeeder extends Seeder
     public function run(): void
     {
         Pediatrician::create([
-            'range' => 'Pediatra General',
-            'name' => 'Dr. María González',
-            'identification' => '12345678'
+            'range' => 'CAPITÁN DE COBERTA - DR. GREGORIO FLORIAN MONTES',
+            'name' => 'Dr. Gregorio Florian Montes',
+            'phone' => '(849)-257-4016'
         ]);
 
         Pediatrician::create([
-            'range' => 'Pediatra Especialista',
-            'name' => 'Dr. Carlos Rodríguez',
-            'identification' => '87654321'
+            'range' => 'TENIENTE DE NAVIO - DRA. PATRICIA PACHECO PÉREZ',
+            'name' => 'Dr. Patricia Pacheco Pérez',
+            'phone' => '(829)-764-1611'
+        ]);
+
+        Pediatrician::create([
+            'range' => 'SARGENTO - DRA. JESSICA TEJERA VERAS',
+            'name' => 'Dr. Jessica Tejera Veras',
+            'phone' => '(809)-306-6817'
         ]);
     }
 }

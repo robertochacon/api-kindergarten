@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('range');
             $table->string('name');
-            $table->string('identification')->unique();
+            $table->string('phone')->unique();
             $table->timestamps();
         });
     }
