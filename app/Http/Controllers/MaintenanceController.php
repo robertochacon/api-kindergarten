@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Artisan;
 /**
  * @OA\Tag(
  *     name="Maintenance",
- *     description="Endpoints para ejecutar tareas de mantenimiento (protegidos por token)"
+ *     description="Endpoint para ejecutar comandos de mantenimiento (protegido por token)"
  * )
  */
 class MaintenanceController extends Controller
@@ -29,129 +29,70 @@ class MaintenanceController extends Controller
 
     /**
      * @OA\Post(
-     *     path="/api/maintenance/migrate-fresh-seed",
-     *     summary="Ejecuta php artisan migrate:fresh --seed",
+     *     path="/api/maintenance/run",
+     *     summary="Ejecuta un comando de Artisan permitido",
      *     tags={"Maintenance"},
-     *     @OA\Parameter(
-     *         name="X-Maintenance-Token",
-     *         in="header",
+     *     @OA\Parameter(name="X-Maintenance-Token", in="header", required=true, @OA\Schema(type="string")),
+     *     @OA\RequestBody(
      *         required=true,
-     *         @OA\Schema(type="string")
+     *         @OA\JsonContent(
+     *             required={"command"},
+     *             @OA\Property(property="command", type="string", example="migrate:fresh"),
+     *             @OA\Property(
+     *                 property="options",
+     *                 type="object",
+     *                 example={"--seed": true, "--force": true}
+     *             )
+     *         )
      *     ),
-     *     @OA\Response(
-     *         response=200,
-     *         description="OK"
-     *     ),
-     *     @OA\Response(
-     *         response=403,
-     *         description="Unauthorized"
-     *     )
+     *     @OA\Response(response=200, description="OK"),
+     *     @OA\Response(response=403, description="Unauthorized"),
+     *     @OA\Response(response=400, description="Bad Request")
      * )
      */
-    public function migrateFreshSeed(Request $request): JsonResponse
+    public function run(Request $request): JsonResponse
     {
         if ($resp = $this->authorizeRequest($request)) {
             return $resp;
         }
-        Artisan::call('migrate:fresh', ['--seed' => true, '--force' => true]);
+
+        $command = (string) $request->input('command');
+        $options = (array) ($request->input('options') ?? []);
+
+        // Whitelist de comandos permitidos
+        $allowed = [
+            'cache:clear',
+            'config:clear',
+            'route:clear',
+            'optimize:clear',
+            'migrate',
+            'migrate:fresh',
+            'db:seed',
+            'l5-swagger:generate',
+        ];
+
+        if (!in_array($command, $allowed, true)) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Command not allowed',
+                'allowed' => $allowed,
+            ], 400);
+        }
+
+        // Forzar --force en comandos de migración en producción
+        if (str_starts_with($command, 'migrate')) {
+            $options['--force'] = true;
+        }
+
+        $exitCode = Artisan::call($command, $options);
+        $output = Artisan::output();
+
         return response()->json([
-            'success' => true,
-            'message' => 'migrate:fresh --seed executed',
+            'success' => $exitCode === 0,
+            'command' => $command,
+            'options' => $options,
+            'exit_code' => $exitCode,
+            'output' => $output,
         ]);
-    }
-
-    /**
-     * @OA\Post(
-     *     path="/api/maintenance/cache-clear",
-     *     summary="Ejecuta php artisan cache:clear",
-     *     tags={"Maintenance"},
-     *     @OA\Parameter(name="X-Maintenance-Token", in="header", required=true, @OA\Schema(type="string")),
-     *     @OA\Response(response=200, description="OK"),
-     *     @OA\Response(response=403, description="Unauthorized")
-     * )
-     */
-    public function cacheClear(Request $request): JsonResponse
-    {
-        if ($resp = $this->authorizeRequest($request)) {
-            return $resp;
-        }
-        Artisan::call('cache:clear');
-        return response()->json(['success' => true, 'message' => 'cache:clear executed']);
-    }
-
-    /**
-     * @OA\Post(
-     *     path="/api/maintenance/config-clear",
-     *     summary="Ejecuta php artisan config:clear",
-     *     tags={"Maintenance"},
-     *     @OA\Parameter(name="X-Maintenance-Token", in="header", required=true, @OA\Schema(type="string")),
-     *     @OA\Response(response=200, description="OK"),
-     *     @OA\Response(response=403, description="Unauthorized")
-     * )
-     */
-    public function configClear(Request $request): JsonResponse
-    {
-        if ($resp = $this->authorizeRequest($request)) {
-            return $resp;
-        }
-        Artisan::call('config:clear');
-        return response()->json(['success' => true, 'message' => 'config:clear executed']);
-    }
-
-    /**
-     * @OA\Post(
-     *     path="/api/maintenance/route-clear",
-     *     summary="Ejecuta php artisan route:clear",
-     *     tags={"Maintenance"},
-     *     @OA\Parameter(name="X-Maintenance-Token", in="header", required=true, @OA\Schema(type="string")),
-     *     @OA\Response(response=200, description="OK"),
-     *     @OA\Response(response=403, description="Unauthorized")
-     * )
-     */
-    public function routeClear(Request $request): JsonResponse
-    {
-        if ($resp = $this->authorizeRequest($request)) {
-            return $resp;
-        }
-        Artisan::call('route:clear');
-        return response()->json(['success' => true, 'message' => 'route:clear executed']);
-    }
-
-    /**
-     * @OA\Post(
-     *     path="/api/maintenance/optimize-clear",
-     *     summary="Ejecuta php artisan optimize:clear",
-     *     tags={"Maintenance"},
-     *     @OA\Parameter(name="X-Maintenance-Token", in="header", required=true, @OA\Schema(type="string")),
-     *     @OA\Response(response=200, description="OK"),
-     *     @OA\Response(response=403, description="Unauthorized")
-     * )
-     */
-    public function optimizeClear(Request $request): JsonResponse
-    {
-        if ($resp = $this->authorizeRequest($request)) {
-            return $resp;
-        }
-        Artisan::call('optimize:clear');
-        return response()->json(['success' => true, 'message' => 'optimize:clear executed']);
-    }
-
-    /**
-     * @OA\Post(
-     *     path="/api/maintenance/swagger-generate",
-     *     summary="Ejecuta php artisan l5-swagger:generate",
-     *     tags={"Maintenance"},
-     *     @OA\Parameter(name="X-Maintenance-Token", in="header", required=true, @OA\Schema(type="string")),
-     *     @OA\Response(response=200, description="OK"),
-     *     @OA\Response(response=403, description="Unauthorized")
-     * )
-     */
-    public function swaggerGenerate(Request $request): JsonResponse
-    {
-        if ($resp = $this->authorizeRequest($request)) {
-            return $resp;
-        }
-        Artisan::call('l5-swagger:generate');
-        return response()->json(['success' => true, 'message' => 'l5-swagger:generate executed']);
     }
 } 

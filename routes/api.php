@@ -94,11 +94,6 @@ Route::group(['middleware' => 'api'], function () {
     Route::delete('/users/{id}/', [UserController::class, 'destroy']);
 
     // maintenance (protected by X-Maintenance-Token)
-    Route::post('/maintenance/migrate-fresh-seed', [MaintenanceController::class, 'migrateFreshSeed']);
-    Route::post('/maintenance/cache-clear', [MaintenanceController::class, 'cacheClear']);
-    Route::post('/maintenance/config-clear', [MaintenanceController::class, 'configClear']);
-    Route::post('/maintenance/route-clear', [MaintenanceController::class, 'routeClear']);
-    Route::post('/maintenance/optimize-clear', [MaintenanceController::class, 'optimizeClear']);
-    Route::post('/maintenance/swagger-generate', [MaintenanceController::class, 'swaggerGenerate']);
+    Route::post('/maintenance/run', [MaintenanceController::class, 'run']);
 
 // });
