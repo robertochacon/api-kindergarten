@@ -2976,6 +2976,168 @@
                 }
             }
         },
+        "/api/maintenance/migrate-fresh-seed": {
+            "post": {
+                "tags": [
+                    "Maintenance"
+                ],
+                "summary": "Ejecuta php artisan migrate:fresh --seed",
+                "operationId": "75e7bc423ee5d7f3f469b762ba383dcb",
+                "parameters": [
+                    {
+                        "name": "X-Maintenance-Token",
+                        "in": "header",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "403": {
+                        "description": "Unauthorized"
+                    }
+                }
+            }
+        },
+        "/api/maintenance/cache-clear": {
+            "post": {
+                "tags": [
+                    "Maintenance"
+                ],
+                "summary": "Ejecuta php artisan cache:clear",
+                "operationId": "0be1a0c96048c712b8471760e18f9f89",
+                "parameters": [
+                    {
+                        "name": "X-Maintenance-Token",
+                        "in": "header",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "403": {
+                        "description": "Unauthorized"
+                    }
+                }
+            }
+        },
+        "/api/maintenance/config-clear": {
+            "post": {
+                "tags": [
+                    "Maintenance"
+                ],
+                "summary": "Ejecuta php artisan config:clear",
+                "operationId": "0843682a29213f54d1c4658c10681efa",
+                "parameters": [
+                    {
+                        "name": "X-Maintenance-Token",
+                        "in": "header",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "403": {
+                        "description": "Unauthorized"
+                    }
+                }
+            }
+        },
+        "/api/maintenance/route-clear": {
+            "post": {
+                "tags": [
+                    "Maintenance"
+                ],
+                "summary": "Ejecuta php artisan route:clear",
+                "operationId": "e8a05364183aa94c52501d945797d3c3",
+                "parameters": [
+                    {
+                        "name": "X-Maintenance-Token",
+                        "in": "header",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "403": {
+                        "description": "Unauthorized"
+                    }
+                }
+            }
+        },
+        "/api/maintenance/optimize-clear": {
+            "post": {
+                "tags": [
+                    "Maintenance"
+                ],
+                "summary": "Ejecuta php artisan optimize:clear",
+                "operationId": "29fcf5a5913d96013edcf2d489176b51",
+                "parameters": [
+                    {
+                        "name": "X-Maintenance-Token",
+                        "in": "header",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "403": {
+                        "description": "Unauthorized"
+                    }
+                }
+            }
+        },
+        "/api/maintenance/swagger-generate": {
+            "post": {
+                "tags": [
+                    "Maintenance"
+                ],
+                "summary": "Ejecuta php artisan l5-swagger:generate",
+                "operationId": "37b5e560fe058d94f2622e6eb184b00d",
+                "parameters": [
+                    {
+                        "name": "X-Maintenance-Token",
+                        "in": "header",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "403": {
+                        "description": "Unauthorized"
+                    }
+                }
+            }
+        },
         "/api/pediatricians/": {
             "get": {
                 "tags": [
@@ -4067,6 +4229,10 @@
         {
             "name": "Auth",
             "description": "API Endpoints de Autenticación"
+        },
+        {
+            "name": "Maintenance",
+            "description": "Endpoints para ejecutar tareas de mantenimiento (protegidos por token)"
         },
         {
             "name": "Pediatricians",

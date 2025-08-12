@@ -8,6 +8,7 @@ use App\Http\Controllers\ConcubinesController;
 use App\Http\Controllers\AuthorizedPersonsController;
 use App\Http\Controllers\PediatricianController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\MaintenanceController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -91,5 +92,13 @@ Route::group(['middleware' => 'api'], function () {
     Route::post('/users/', [UserController::class, 'store']);
     Route::put('/users/{id}/', [UserController::class, 'update']);
     Route::delete('/users/{id}/', [UserController::class, 'destroy']);
+
+    // maintenance (protected by X-Maintenance-Token)
+    Route::post('/maintenance/migrate-fresh-seed', [MaintenanceController::class, 'migrateFreshSeed']);
+    Route::post('/maintenance/cache-clear', [MaintenanceController::class, 'cacheClear']);
+    Route::post('/maintenance/config-clear', [MaintenanceController::class, 'configClear']);
+    Route::post('/maintenance/route-clear', [MaintenanceController::class, 'routeClear']);
+    Route::post('/maintenance/optimize-clear', [MaintenanceController::class, 'optimizeClear']);
+    Route::post('/maintenance/swagger-generate', [MaintenanceController::class, 'swaggerGenerate']);
 
 // });
