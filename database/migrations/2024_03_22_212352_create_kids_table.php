@@ -35,8 +35,8 @@ return new class extends Migration
             $table->text("allergies")->nullable();
             $table->text("medical_conditions")->nullable();
             $table->text("medications")->nullable();
-            $table->string("pediatrician")->nullable();
-            $table->string("pediatrician_phone")->nullable();
+            $table->unsignedBigInteger("pediatrician_id")->nullable();
+            $table->foreign('pediatrician_id')->references('id')->on('pediatricians');
             $table->string("file")->nullable();
             $table->string("insurance_file")->nullable();
             $table->string("vaccines_file")->nullable();

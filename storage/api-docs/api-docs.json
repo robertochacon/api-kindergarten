@@ -2284,12 +2284,26 @@
                                             "example": ""
                                         },
                                         "pediatrician": {
-                                            "type": "string",
-                                            "example": ""
-                                        },
-                                        "pediatrician_phone": {
-                                            "type": "string",
-                                            "example": ""
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "range": {
+                                                    "type": "string",
+                                                    "example": "Pediatra General"
+                                                },
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "Dr. María González"
+                                                },
+                                                "phone": {
+                                                    "type": "string",
+                                                    "example": "+1234567890"
+                                                }
+                                            },
+                                            "type": "object",
+                                            "nullable": true
                                         },
                                         "applicant": {
                                             "type": "string",
@@ -2442,13 +2456,9 @@
                                         "type": "string",
                                         "example": "Santo Domingo"
                                     },
-                                    "pediatrician": {
-                                        "type": "string",
-                                        "example": "Manuel Acosta"
-                                    },
-                                    "pediatrician_phone": {
-                                        "type": "string",
-                                        "example": "8095583443"
+                                    "pediatrician_id": {
+                                        "type": "number",
+                                        "example": 1
                                     },
                                     "file": {
                                         "description": "Upload a document related to the kid (PDF, JPG, etc.)",
@@ -2499,9 +2509,9 @@
                 "tags": [
                     "Kids"
                 ],
-                "summary": "All total of kids",
-                "description": "All total of kids",
-                "operationId": "all_kids_total",
+                "summary": "Totals of kids by gender, age, course and sector",
+                "description": "Return totals grouped by gender (masculino/femenino), age (in years), course (classroom) and sector (neighborhood)",
+                "operationId": "kids_totals",
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -2509,21 +2519,66 @@
                             "application/json": {
                                 "schema": {
                                     "properties": {
-                                        "total_kids_gender": {
-                                            "type": "string",
-                                            "example": ""
+                                        "gender": {
+                                            "properties": {
+                                                "masculino": {
+                                                    "type": "integer",
+                                                    "example": 10
+                                                },
+                                                "femenino": {
+                                                    "type": "integer",
+                                                    "example": 12
+                                                }
+                                            },
+                                            "type": "object"
                                         },
-                                        "total_kids_province": {
-                                            "type": "string",
-                                            "example": ""
+                                        "age": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "age": {
+                                                        "type": "integer",
+                                                        "example": 4
+                                                    },
+                                                    "total": {
+                                                        "type": "integer",
+                                                        "example": 7
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
                                         },
-                                        "total_kids_sector": {
-                                            "type": "string",
-                                            "example": ""
+                                        "course": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "course": {
+                                                        "type": "string",
+                                                        "example": "2do año"
+                                                    },
+                                                    "total": {
+                                                        "type": "integer",
+                                                        "example": 8
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
                                         },
-                                        "total_kids_classroom": {
-                                            "type": "string",
-                                            "example": ""
+                                        "sector": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "sector": {
+                                                        "type": "string",
+                                                        "example": "Ensanche La Fe"
+                                                    },
+                                                    "total": {
+                                                        "type": "integer",
+                                                        "example": 5
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
                                         }
                                     },
                                     "type": "object"
@@ -2652,12 +2707,26 @@
                                             "example": ""
                                         },
                                         "pediatrician": {
-                                            "type": "string",
-                                            "example": ""
-                                        },
-                                        "pediatrician_phone": {
-                                            "type": "string",
-                                            "example": ""
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "range": {
+                                                    "type": "string",
+                                                    "example": "Pediatra General"
+                                                },
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "Dr. María González"
+                                                },
+                                                "phone": {
+                                                    "type": "string",
+                                                    "example": "+1234567890"
+                                                }
+                                            },
+                                            "type": "object",
+                                            "nullable": true
                                         },
                                         "applicant": {
                                             "type": "string",
@@ -2820,13 +2889,9 @@
                                         "type": "string",
                                         "example": "Santo Domingo"
                                     },
-                                    "pediatrician": {
-                                        "type": "string",
-                                        "example": "Manuel Acosta"
-                                    },
-                                    "pediatrician_phone": {
-                                        "type": "string",
-                                        "example": "8095583443"
+                                    "pediatrician_id": {
+                                        "type": "number",
+                                        "example": 1
                                     },
                                     "file": {
                                         "description": "Upload a document related to the kid (PDF, JPG, etc.)",

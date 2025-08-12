@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Applicants;
 use App\Models\Concubines;
 use App\Models\Kids;
+use App\Models\Pediatrician;
 use Carbon\Carbon;
 use Exception;
 use Illuminate\Http\Request;
@@ -43,8 +44,15 @@ class KidController extends Controller
      *              @OA\Property(property="allergies", type="string", example=""),
      *              @OA\Property(property="medical_conditions", type="string", example=""),
      *              @OA\Property(property="medications", type="string", example=""),
-     *              @OA\Property(property="pediatrician", type="string", example=""),
-     *              @OA\Property(property="pediatrician_phone", type="string", example=""),
+     *              @OA\Property(
+     *                  property="pediatrician",
+     *                  type="object",
+     *                  nullable=true,
+     *                  @OA\Property(property="id", type="integer", example=1),
+     *                  @OA\Property(property="range", type="string", example="Pediatra General"),
+     *                  @OA\Property(property="name", type="string", example="Dr. María González"),
+     *                  @OA\Property(property="phone", type="string", example="+1234567890")
+     *              ),
      *              @OA\Property(property="applicant", type="string", example=""),
      *              @OA\Property(property="concubine", type="string", example=""),
      *              @OA\Property(property="file", type="string", format="string", example=""),
@@ -65,7 +73,7 @@ class KidController extends Controller
      */
     public function index()
     {
-        $kids = Kids::with('applicant')->with('concubine')->with('tutors')->paginate(10);
+        $kids = Kids::with('applicant')->with('concubine')->with('authorized_persons')->with('pediatrician')->paginate(10);
 
         foreach ($kids as $kid) {
             $qrUrl = "https://api.qrserver.com/v1/create-qr-code/?data=" . $kid->code . "&size=200x200";
@@ -78,18 +86,47 @@ class KidController extends Controller
     /**
      * @OA\Get (
      *     path="/api/kids/totales",
-     *     operationId="all_kids_total",
+     *     operationId="kids_totals",
      *     tags={"Kids"},
-     *     summary="All total of kids",
-     *     description="All total of kids",
+     *     summary="Totals of kids by gender, age, course and sector",
+     *     description="Return totals grouped by gender (masculino/femenino), age (in years), course (classroom) and sector (neighborhood)",
      *     @OA\Response(
      *         response=200,
      *         description="OK",
      *         @OA\JsonContent(
-     *              @OA\Property(property="total_kids_gender", type="string", example=""),
-     *              @OA\Property(property="total_kids_province", type="string", example=""),
-     *              @OA\Property(property="total_kids_sector", type="string", example=""),
-     *              @OA\Property(property="total_kids_classroom", type="string", example=""),
+     *              @OA\Property(
+     *                  property="gender",
+     *                  type="object",
+     *                  @OA\Property(property="masculino", type="integer", example=10),
+     *                  @OA\Property(property="femenino", type="integer", example=12)
+     *              ),
+     *              @OA\Property(
+     *                  property="age",
+     *                  type="array",
+     *                  @OA\Items(
+     *                      type="object",
+     *                      @OA\Property(property="age", type="integer", example=4),
+     *                      @OA\Property(property="total", type="integer", example=7)
+     *                  )
+     *              ),
+     *              @OA\Property(
+     *                  property="course",
+     *                  type="array",
+     *                  @OA\Items(
+     *                      type="object",
+     *                      @OA\Property(property="course", type="string", example="2do año"),
+     *                      @OA\Property(property="total", type="integer", example=8)
+     *                  )
+     *              ),
+     *              @OA\Property(
+     *                  property="sector",
+     *                  type="array",
+     *                  @OA\Items(
+     *                      type="object",
+     *                      @OA\Property(property="sector", type="string", example="Ensanche La Fe"),
+     *                      @OA\Property(property="total", type="integer", example=5)
+     *                  )
+     *              )
      *         )
      *     ),
      *      @OA\Response(
@@ -103,17 +140,63 @@ class KidController extends Controller
      */
     public function totales()
     {
-        $totales = [];
+        // Gender totals (explicit masculine/feminine keys)
+        $genderCounts = Kids::select('gender', DB::raw('count(*) as total'))
+            ->groupBy('gender')
+            ->pluck('total', 'gender');
+        $genderTotals = [
+            'masculino' => (int)($genderCounts['Masculino'] ?? 0),
+            'femenino' => (int)($genderCounts['Femenino'] ?? 0),
+        ];
 
-        $totales["total_kids_gender"] = Kids::select('gender', DB::raw('count(*) as total'))->groupBy('gender')->get();
+        // Age totals in years (compute from born_date)
+        $ageCounts = Kids::whereNotNull('born_date')
+            ->get()
+            ->groupBy(function ($kid) {
+                return Carbon::parse($kid->born_date)->age;
+            })
+            ->map(function ($group) {
+                return $group->count();
+            })
+            ->sortKeys();
+        $ageTotals = [];
+        foreach ($ageCounts as $age => $count) {
+            $ageTotals[] = [
+                'age' => (int)$age,
+                'total' => (int)$count,
+            ];
+        }
 
-        $totales["total_kids_province"] = Kids::select('province', DB::raw('count(*) as total'))->groupBy('province')->get();
+        // Course totals (classroom)
+        $courseTotals = Kids::select('classroom', DB::raw('count(*) as total'))
+            ->groupBy('classroom')
+            ->get()
+            ->map(function ($row) {
+                return [
+                    'course' => $row->classroom,
+                    'total' => (int)$row->total,
+                ];
+            });
 
-        $totales["total_kids_sector"] = Kids::select('sector', DB::raw('count(*) as total'))->groupBy('sector')->get();
+        // Sector totals (use neighborhood as sector)
+        $sectorTotals = Kids::select('neighborhood', DB::raw('count(*) as total'))
+            ->groupBy('neighborhood')
+            ->get()
+            ->map(function ($row) {
+                return [
+                    'sector' => $row->neighborhood,
+                    'total' => (int)$row->total,
+                ];
+            });
 
-        $totales["total_kids_classroom"] = Kids::select('classroom', DB::raw('count(*) as total'))->groupBy('classroom')->get();
-
-        return response()->json(["data"=>$totales],200);
+        return response()->json([
+            'data' => [
+                'gender' => $genderTotals,
+                'age' => $ageTotals,
+                'course' => $courseTotals,
+                'sector' => $sectorTotals,
+            ]
+        ], 200);
     }
 
     /**
@@ -152,8 +235,15 @@ class KidController extends Controller
      *              @OA\Property(property="allergies", type="string", example=""),
      *              @OA\Property(property="medical_conditions", type="string", example=""),
      *              @OA\Property(property="medications", type="string", example=""),
-     *              @OA\Property(property="pediatrician", type="string", example=""),
-     *              @OA\Property(property="pediatrician_phone", type="string", example=""),
+     *              @OA\Property(
+     *                  property="pediatrician",
+     *                  type="object",
+     *                  nullable=true,
+     *                  @OA\Property(property="id", type="integer", example=1),
+     *                  @OA\Property(property="range", type="string", example="Pediatra General"),
+     *                  @OA\Property(property="name", type="string", example="Dr. María González"),
+     *                  @OA\Property(property="phone", type="string", example="+1234567890")
+     *              ),
      *              @OA\Property(property="applicant", type="string", example=""),
      *              @OA\Property(property="concubine", type="string", example=""),
      *              @OA\Property(property="file", type="string", format="string", example=""),
@@ -175,7 +265,7 @@ class KidController extends Controller
 
     public function watch($id){
         try{
-            $kids = Kids::with('applicant')->with('concubine')->with('authorizations')->find($id);
+            $kids = Kids::with('applicant')->with('concubine')->with('authorized_persons')->with('pediatrician')->find($id);
             $qrUrl = "https://api.qrserver.com/v1/create-qr-code/?data=" . $kids->code . "&size=200x200";
             $kids->qr_code = $qrUrl;
             return response()->json(["data"=>$kids],200);
@@ -217,8 +307,7 @@ class KidController extends Controller
      *                 @OA\Property(property="allergies", type="string", example="Ninguna"),
      *                 @OA\Property(property="medical_conditions", type="string", example="Santo Domingo"),
      *                 @OA\Property(property="medications", type="string", example="Santo Domingo"),
-     *                 @OA\Property(property="pediatrician", type="string", example="Manuel Acosta"),
-     *                 @OA\Property(property="pediatrician_phone", type="string", example="8095583443"),
+     *                 @OA\Property(property="pediatrician_id", type="number", example=1),
      *                 @OA\Property(
      *                     property="file",
      *                     type="string",
@@ -259,6 +348,10 @@ class KidController extends Controller
 
         if (!Concubines::find($request->input('concubine_id'))) {
             return response()->json(['error' => 'El concubino proporcionado no existe.'], 404);
+        }
+
+        if ($request->filled('pediatrician_id') && !Pediatrician::find($request->input('pediatrician_id'))) {
+            return response()->json(['error' => 'El pediatra proporcionado no existe.'], 404);
         }
 
         $kids = new Kids($request->except('file'));
@@ -315,6 +408,10 @@ class KidController extends Controller
     
             if (!Concubines::find($kidData['concubine_id'] ?? null)) {
                 return response()->json(['error' => 'El concubino proporcionado no existe.'], 404);
+            }
+
+            if (!empty($kidData['pediatrician_id']) && !Pediatrician::find($kidData['pediatrician_id'])) {
+                return response()->json(['error' => 'El pediatra proporcionado no existe.'], 404);
             }
     
             // Crear nuevo niño
@@ -400,8 +497,7 @@ class KidController extends Controller
      *                 @OA\Property(property="allergies", type="string", example="Ninguna"),
      *                 @OA\Property(property="medical_conditions", type="string", example="Santo Domingo"),
      *                 @OA\Property(property="medications", type="string", example="Santo Domingo"),
-     *                 @OA\Property(property="pediatrician", type="string", example="Manuel Acosta"),
-     *                 @OA\Property(property="pediatrician_phone", type="string", example="8095583443"),
+     *                 @OA\Property(property="pediatrician_id", type="number", example=1),
      *                 @OA\Property(
      *                     property="file",
      *                     type="string",
