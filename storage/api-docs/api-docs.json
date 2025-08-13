@@ -2200,6 +2200,17 @@
                 "summary": "All kids",
                 "description": "All kids",
                 "operationId": "all_kids",
+                "parameters": [
+                    {
+                        "name": "X-Maintenance-Token",
+                        "in": "header",
+                        "description": "Si se envía y coincide con MAINTENANCE_TOKEN, se ejecuta route:clear",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "OK",
