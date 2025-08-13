@@ -92,7 +92,7 @@ class AuthorizedPersonsController extends Controller
 
     public function watch($id){
         try{
-            $authorizedPerson = AuthorizedPersons::with('kids')->find($id);
+            $authorizedPerson = AuthorizedPersons::with('applicant')->find($id);
             return response()->json(["data"=>$authorizedPerson],200);
         }catch (Exception $e) {
             return response()->json(["data"=>"none"],200);
