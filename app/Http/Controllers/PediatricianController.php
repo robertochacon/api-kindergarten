@@ -317,7 +317,7 @@ class PediatricianController extends Controller
      */
     public function destroy(string $id): JsonResponse
     {
-        $pediatrician = Pediatrician::find($id);
+        $pediatrician = Pediatrician::where('id',$id)->first();
 
         if (!$pediatrician) {
             return response()->json([

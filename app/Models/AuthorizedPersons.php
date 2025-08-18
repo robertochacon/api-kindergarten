@@ -12,7 +12,7 @@ class AuthorizedPersons extends Model
     protected $table = 'authorized_persons';
 
     protected $fillable = [
-        'id','applicant_id','name','last_name','identification','parent','phone','residence_phone','address','military','file'
+        'id','applicant_id','name','last_name','identification','parent','phone','residence_phone','address','military','file','other'
     ];
 
     public function applicant(){

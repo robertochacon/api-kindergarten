@@ -29,6 +29,7 @@ class AuthorizedPersonsController extends Controller
      *              @OA\Property(property="address", type="string", example=""),
      *              @OA\Property(property="military", type="integer", example=1),
      *              @OA\Property(property="file", type="string", format="string", example=""),
+     *              @OA\Property(property="other", type="string", example="Observaciones adicionales"),
      *              @OA\Property(property="created_at", type="string", example="2023-02-23T00:09:16.000000Z"),
      *              @OA\Property(property="updated_at", type="string", example="2023-02-23T12:33:45.000000Z")
      *         )
@@ -76,6 +77,7 @@ class AuthorizedPersonsController extends Controller
      *              @OA\Property(property="address", type="string", example=""),
      *              @OA\Property(property="military", type="integer", example=1),
      *              @OA\Property(property="file", type="string", format="string", example=""),
+     *              @OA\Property(property="other", type="string", example="Observaciones adicionales"),
      *              @OA\Property(property="created_at", type="string", example="2023-02-23T00:09:16.000000Z"),
      *              @OA\Property(property="updated_at", type="string", example="2023-02-23T12:33:45.000000Z")
      *         )
@@ -119,6 +121,7 @@ class AuthorizedPersonsController extends Controller
      *            @OA\Property(property="address", type="string", format="string", example="Santo Domingo"),
      *            @OA\Property(property="military", type="integer", example=1),
      *            @OA\Property(property="kid_id", type="number", format="number", example="1"),
+     *            @OA\Property(property="other", type="string", format="string", example="Observaciones adicionales"),
      *            @OA\Property(
      *                property="file",
      *                type="string",
@@ -170,6 +173,7 @@ class AuthorizedPersonsController extends Controller
      *            @OA\Property(property="address", type="string", format="string", example=""),
      *            @OA\Property(property="military", type="integer", example=1),
      *            @OA\Property(property="kid_id", type="number", format="number", example="1"),
+     *            @OA\Property(property="other", type="string", format="string", example="Observaciones adicionales"),
      *            @OA\Property(
      *                property="file",
      *                type="string",
