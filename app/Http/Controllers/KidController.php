@@ -21,6 +21,34 @@ class KidController extends Controller
      *     tags={"Kids"},
      *     summary="All kids",
      *     description="All kids",
+     *     @OA\Parameter(
+     *         in="query",
+     *         name="name",
+     *         required=false,
+     *         @OA\Schema(type="string"),
+     *         description="Filter by kid's name"
+     *     ),
+     *     @OA\Parameter(
+     *         in="query",
+     *         name="last_name",
+     *         required=false,
+     *         @OA\Schema(type="string"),
+     *         description="Filter by kid's last name"
+     *     ),
+     *     @OA\Parameter(
+     *         in="query",
+     *         name="page",
+     *         required=false,
+     *         @OA\Schema(type="integer", default=1),
+     *         description="Page number for pagination"
+     *     ),
+     *     @OA\Parameter(
+     *         in="query",
+     *         name="per_page",
+     *         required=false,
+     *         @OA\Schema(type="integer", default=10),
+     *         description="Number of items per page"
+     *     ),
      *     @OA\Response(
      *         response=200,
      *         description="OK",
@@ -71,9 +99,21 @@ class KidController extends Controller
      *      )
      * )
      */
-    public function index()
+    public function index(Request $request)
     {
-        $kids = Kids::with('applicant')->with('concubine')->with('authorized_persons')->with('pediatrician')->paginate(10);
+        $query = Kids::with('applicant')->with('concubine')->with('authorized_persons')->with('pediatrician');
+
+        if ($request->has('name')) {
+            $query->where('name', 'like', '%' . $request->input('name') . '%');
+        }
+
+        if ($request->has('last_name')) {
+            $query->where('last_name', 'like', '%' . $request->input('last_name') . '%');
+        }
+
+        $perPage = $request->input('per_page', 10); // Default to 10 items per page
+
+        $kids = $query->paginate($perPage);
 
         foreach ($kids as $kid) {
             $qrUrl = "https://api.qrserver.com/v1/create-qr-code/?data=" . $kid->code . "&size=200x200";

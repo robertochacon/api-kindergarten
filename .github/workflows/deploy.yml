@@ -24,7 +24,7 @@ jobs:
           port: ${{ secrets.FTP_PORT }}
           protocol: ftp          # Cambia a ftp o ftps si tu hosting no usa SFTP
           local-dir: ./           # Carpeta local a subir
-          server-dir: /public_html/apikindergarden/   # Ruta remota en tu hosting
+          server-dir: ./   # Ruta remota en tu hosting
           exclude: |              # Archivos/carpetas a ignorar
             **/.git*
             **/.github*
