@@ -9,6 +9,7 @@ use App\Http\Controllers\AuthorizedPersonsController;
 use App\Http\Controllers\PediatricianController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MaintenanceController;
+use App\Http\Controllers\MedicalRecordController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -95,5 +96,13 @@ Route::group(['middleware' => 'api'], function () {
 
     // maintenance (protected by X-Maintenance-Token)
     Route::post('/maintenance/run', [MaintenanceController::class, 'run']);
+
+    //medical-records
+    Route::get('/medical-records/', [MedicalRecordController::class, 'index']);
+    Route::get('/medical-records/{id}/', [MedicalRecordController::class, 'show']);
+    Route::post('/medical-records/', [MedicalRecordController::class, 'store']);
+    Route::put('/medical-records/{id}/', [MedicalRecordController::class, 'update']);
+    Route::delete('/medical-records/{id}/', [MedicalRecordController::class, 'destroy']);
+    Route::get('/kids/{kid_id}/medical-record/', [MedicalRecordController::class, 'getByKidId']);
 
 // });

@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Kids extends Model
 {
@@ -30,6 +31,10 @@ class Kids extends Model
 
     public function pediatrician(){
         return $this->belongsTo(Pediatrician::class, 'pediatrician_id', 'id');
+    }
+
+    public function medicalRecord(){
+        return $this->hasOne(MedicalRecord::class, 'kid_id', 'id');
     }
 
 }
