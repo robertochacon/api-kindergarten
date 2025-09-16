@@ -3196,12 +3196,12 @@
                                         "type": "integer",
                                         "example": 1
                                     },
-                                    "bajo_riesgo": {
+                                    "low_risk": {
                                         "description": "Low risk pregnancy",
                                         "type": "boolean",
                                         "example": true
                                     },
-                                    "alto_riesgo": {
+                                    "high_risk": {
                                         "description": "High risk pregnancy",
                                         "type": "boolean",
                                         "example": false
@@ -3211,52 +3211,52 @@
                                         "type": "boolean",
                                         "example": false
                                     },
-                                    "sangrados": {
+                                    "bleeding": {
                                         "description": "Bleeding during pregnancy",
                                         "type": "boolean",
                                         "example": false
                                     },
-                                    "infecciones": {
+                                    "infections": {
                                         "description": "Infections during pregnancy",
                                         "type": "boolean",
                                         "example": false
                                     },
-                                    "madre_adolescente": {
+                                    "teenage_mother": {
                                         "description": "Teenage mother",
                                         "type": "boolean",
                                         "example": false
                                     },
-                                    "rn_a_termino": {
+                                    "full_term_newborn": {
                                         "description": "Full-term newborn",
                                         "type": "boolean",
                                         "example": true
                                     },
-                                    "rn_prematuro": {
+                                    "premature_newborn": {
                                         "description": "Premature newborn",
                                         "type": "boolean",
                                         "example": false
                                     },
-                                    "semanas_al_nacer": {
+                                    "weeks_at_birth": {
                                         "description": "Weeks at birth",
                                         "type": "string",
                                         "example": "40"
                                     },
-                                    "parto": {
+                                    "vaginal_delivery": {
                                         "description": "Vaginal delivery",
                                         "type": "boolean",
                                         "example": true
                                     },
-                                    "cesarea": {
+                                    "cesarean_delivery": {
                                         "description": "Cesarean delivery",
                                         "type": "boolean",
                                         "example": false
                                     },
-                                    "lloro_al_nacer": {
+                                    "cried_at_birth": {
                                         "description": "Cried at birth",
                                         "type": "boolean",
                                         "example": true
                                     },
-                                    "peso_al_nacer": {
+                                    "birth_weight": {
                                         "description": "Birth weight",
                                         "type": "string",
                                         "example": "3.2 kg"
@@ -3266,147 +3266,147 @@
                                         "type": "string",
                                         "example": "50 cm"
                                     },
-                                    "perimetro_cefalico": {
+                                    "head_circumference": {
                                         "description": "Head circumference",
                                         "type": "string",
                                         "example": "35 cm"
                                     },
-                                    "complicacion_al_nacer": {
+                                    "birth_complications": {
                                         "description": "Complications at birth",
                                         "type": "boolean",
                                         "example": false
                                     },
-                                    "descripcion_complicacion": {
+                                    "complications_description": {
                                         "description": "Description of complications",
                                         "type": "string",
                                         "example": ""
                                     },
-                                    "tiempo_hospitalizado": {
+                                    "hospitalization_time": {
                                         "description": "Hospitalization time",
                                         "type": "string",
-                                        "example": "2 días"
+                                        "example": "2 days"
                                     },
-                                    "incubadora": {
+                                    "incubator": {
                                         "description": "Incubator use",
                                         "type": "boolean",
                                         "example": false
                                     },
-                                    "oxigeno": {
+                                    "oxygen_therapy": {
                                         "description": "Oxygen therapy",
                                         "type": "boolean",
                                         "example": false
                                     },
-                                    "ventilacion_mecanica": {
+                                    "mechanical_ventilation": {
                                         "description": "Mechanical ventilation",
                                         "type": "boolean",
                                         "example": false
                                     },
-                                    "lactancia_materna_al_nacer": {
+                                    "breastfeeding_at_birth": {
                                         "description": "Breastfeeding at birth",
                                         "type": "boolean",
                                         "example": true
                                     },
-                                    "duracion_lactancia": {
+                                    "breastfeeding_duration": {
                                         "description": "Breastfeeding duration",
                                         "type": "string",
-                                        "example": "6 meses"
+                                        "example": "6 months"
                                     },
-                                    "inicio_alimentacion_complementaria": {
+                                    "complementary_feeding_start": {
                                         "description": "Complementary feeding start",
                                         "type": "string",
-                                        "example": "6 meses"
+                                        "example": "6 months"
                                     },
-                                    "suplemento_hierro": {
+                                    "iron_supplement": {
                                         "description": "Iron supplement",
                                         "type": "boolean",
                                         "example": true
                                     },
-                                    "suplemento_vitamina_a": {
+                                    "vitamin_a_supplement": {
                                         "description": "Vitamin A supplement",
                                         "type": "boolean",
                                         "example": false
                                     },
-                                    "suplemento_multivitaminas": {
+                                    "multivitamin_supplement": {
                                         "description": "Multivitamin supplement",
                                         "type": "boolean",
                                         "example": false
                                     },
-                                    "estimulantes_apetito": {
+                                    "appetite_stimulants": {
                                         "description": "Appetite stimulants",
                                         "type": "boolean",
                                         "example": false
                                     },
-                                    "come_solo": {
+                                    "eats_independently": {
                                         "description": "Eats independently",
                                         "type": "boolean",
                                         "example": true
                                     },
-                                    "cantidad_veces_come": {
+                                    "eating_frequency": {
                                         "description": "Eating frequency",
                                         "type": "string",
-                                        "example": "3 veces al día"
+                                        "example": "3 times a day"
                                     },
-                                    "buen_apetito": {
+                                    "good_appetite": {
                                         "description": "Good appetite",
                                         "type": "boolean",
                                         "example": true
                                     },
-                                    "alergia_alimento": {
+                                    "food_allergy": {
                                         "description": "Food allergy",
                                         "type": "boolean",
                                         "example": false
                                     },
-                                    "controla_esfinteres": {
+                                    "controls_sphincters": {
                                         "description": "Controls sphincters",
                                         "type": "boolean",
                                         "example": true
                                     },
-                                    "utiliza_panal": {
+                                    "uses_diapers": {
                                         "description": "Uses diapers",
                                         "type": "boolean",
                                         "example": false
                                     },
-                                    "discapacidad_diagnosticada": {
+                                    "diagnosed_disability": {
                                         "description": "Diagnosed disability",
                                         "type": "boolean",
                                         "example": false
                                     },
-                                    "descripcion_discapacidad": {
+                                    "disability_description": {
                                         "description": "Disability description",
                                         "type": "string",
                                         "example": ""
                                     },
-                                    "antecedentes_patologicos": {
+                                    "pathological_history": {
                                         "description": "Pathological history",
                                         "type": "string",
-                                        "example": "Ninguno"
+                                        "example": "None"
                                     },
-                                    "alergico_medicamento": {
+                                    "medication_allergy": {
                                         "description": "Medication allergy",
                                         "type": "boolean",
                                         "example": false
                                     },
-                                    "medicamento_permanente": {
+                                    "permanent_medication": {
                                         "description": "Permanent medication",
                                         "type": "string",
                                         "example": ""
                                     },
-                                    "enfermedades_previas": {
+                                    "previous_diseases": {
                                         "description": "Previous diseases",
                                         "type": "boolean",
                                         "example": false
                                     },
-                                    "tipo_enfermedad": {
+                                    "disease_type": {
                                         "description": "Type of disease",
                                         "type": "string",
                                         "example": ""
                                     },
-                                    "estado_ingresado": {
+                                    "hospitalized": {
                                         "description": "Hospitalized",
                                         "type": "boolean",
                                         "example": false
                                     },
-                                    "veces_ingresado": {
+                                    "times_hospitalized": {
                                         "description": "Times hospitalized",
                                         "type": "string",
                                         "example": ""
@@ -3421,27 +3421,27 @@
                                         "type": "boolean",
                                         "example": false
                                     },
-                                    "infecciones_previas": {
+                                    "infections_previas": {
                                         "description": "Previous infections",
                                         "type": "boolean",
                                         "example": false
                                     },
-                                    "deshidratacion": {
+                                    "dehydration": {
                                         "description": "Dehydration",
                                         "type": "boolean",
                                         "example": false
                                     },
-                                    "luce_desnutrido": {
+                                    "appears_malnourished": {
                                         "description": "Appears malnourished",
                                         "type": "boolean",
                                         "example": false
                                     },
-                                    "accidentes": {
+                                    "accidents": {
                                         "description": "Accidents",
                                         "type": "boolean",
                                         "example": false
                                     },
-                                    "cirugias": {
+                                    "surgeries": {
                                         "description": "Surgeries",
                                         "type": "boolean",
                                         "example": false
@@ -3454,14 +3454,14 @@
                                     "fontanelas": {
                                         "description": "Fontanelles",
                                         "type": "string",
-                                        "example": "Cerradas"
+                                        "example": "Closed"
                                     },
                                     "cara": {
                                         "description": "Face examination",
                                         "type": "string",
                                         "example": "Normal"
                                     },
-                                    "ojos_oidos_nariz": {
+                                    "eyes_ears_nose": {
                                         "description": "Eyes, ears, nose examination",
                                         "type": "string",
                                         "example": "Normal"
@@ -3486,12 +3486,12 @@
                                         "type": "string",
                                         "example": "Normal"
                                     },
-                                    "extremidades_superiores_inferiores": {
+                                    "upper_lower_extremities": {
                                         "description": "Upper and lower extremities examination",
                                         "type": "string",
                                         "example": "Normal"
                                     },
-                                    "genitourinario": {
+                                    "genitourinary": {
                                         "description": "Genitourinary examination",
                                         "type": "string",
                                         "example": "Normal"
@@ -3501,17 +3501,17 @@
                                         "type": "string",
                                         "example": "Normal"
                                     },
-                                    "peso_lbs": {
+                                    "current_weight_lbs": {
                                         "description": "Current weight in pounds",
                                         "type": "string",
                                         "example": "25 lbs"
                                     },
-                                    "talla_cms": {
+                                    "current_height_cms": {
                                         "description": "Current height in centimeters",
                                         "type": "string",
                                         "example": "100 cm"
                                     },
-                                    "pliegue_brazo": {
+                                    "arm_fold_measurement": {
                                         "description": "Arm fold measurement",
                                         "type": "string",
                                         "example": "Normal"
@@ -3521,17 +3521,17 @@
                                         "type": "string",
                                         "example": "15.5"
                                     },
-                                    "estado_nutricional": {
+                                    "nutritional_status": {
                                         "description": "Nutritional status",
                                         "type": "string",
                                         "example": "Normal"
                                     },
-                                    "firma_medico": {
+                                    "doctor_signature": {
                                         "description": "Doctor's signature",
                                         "type": "string",
                                         "example": "Dr. María González"
                                     },
-                                    "exequatur": {
+                                    "medical_license": {
                                         "description": "Medical license number",
                                         "type": "string",
                                         "example": "12345"
@@ -3541,10 +3541,10 @@
                                         "type": "string",
                                         "example": "CMD-001"
                                     },
-                                    "tabla_crecimiento_desarrollo": {
+                                    "growth_development_chart": {
                                         "description": "Growth and development chart",
                                         "type": "string",
-                                        "example": "Según tabla OMS"
+                                        "example": "According to WHO chart"
                                     }
                                 },
                                 "type": "object"
@@ -3661,11 +3661,11 @@
                                             },
                                             "type": "object"
                                         },
-                                        "bajo_riesgo": {
+                                        "low_risk": {
                                             "type": "boolean",
                                             "example": true
                                         },
-                                        "alto_riesgo": {
+                                        "high_risk": {
                                             "type": "boolean",
                                             "example": false
                                         },
@@ -3673,163 +3673,163 @@
                                             "type": "boolean",
                                             "example": false
                                         },
-                                        "sangrados": {
+                                        "bleeding": {
                                             "type": "boolean",
                                             "example": false
                                         },
-                                        "infecciones": {
+                                        "infections": {
                                             "type": "boolean",
                                             "example": false
                                         },
-                                        "madre_adolescente": {
+                                        "teenage_mother": {
                                             "type": "boolean",
                                             "example": false
                                         },
-                                        "rn_a_termino": {
+                                        "full_term_newborn": {
                                             "type": "boolean",
                                             "example": true
                                         },
-                                        "rn_prematuro": {
+                                        "premature_newborn": {
                                             "type": "boolean",
                                             "example": false
                                         },
-                                        "semanas_al_nacer": {
+                                        "weeks_at_birth": {
                                             "type": "string",
                                             "example": "40"
                                         },
-                                        "parto": {
+                                        "vaginal_delivery": {
                                             "type": "boolean",
                                             "example": true
                                         },
-                                        "cesarea": {
+                                        "cesarean_deliveryn_delivery": {
                                             "type": "boolean",
                                             "example": false
                                         },
-                                        "lloro_al_nacer": {
+                                        "cried_at_birth": {
                                             "type": "boolean",
                                             "example": true
                                         },
-                                        "peso_al_nacer": {
+                                        "birth_weight": {
                                             "type": "string",
                                             "example": "3.2 kg"
                                         },
-                                        "talla": {
+                                        "birth_length": {
                                             "type": "string",
                                             "example": "50 cm"
                                         },
-                                        "perimetro_cefalico": {
+                                        "head_circumference": {
                                             "type": "string",
                                             "example": "35 cm"
                                         },
-                                        "complicacion_al_nacer": {
+                                        "birth_complications": {
                                             "type": "boolean",
                                             "example": false
                                         },
-                                        "descripcion_complicacion": {
+                                        "complications_description": {
                                             "type": "string",
                                             "example": ""
                                         },
-                                        "tiempo_hospitalizado": {
+                                        "hospitalization_time": {
                                             "type": "string",
-                                            "example": "2 días"
+                                            "example": "2 days"
                                         },
-                                        "incubadora": {
+                                        "incubator": {
                                             "type": "boolean",
                                             "example": false
                                         },
-                                        "oxigeno": {
+                                        "oxygen_therapy": {
                                             "type": "boolean",
                                             "example": false
                                         },
-                                        "ventilacion_mecanica": {
+                                        "mechanical_ventilation": {
                                             "type": "boolean",
                                             "example": false
                                         },
-                                        "lactancia_materna_al_nacer": {
+                                        "breastfeeding_at_birth": {
                                             "type": "boolean",
                                             "example": true
                                         },
-                                        "duracion_lactancia": {
+                                        "breastfeeding_duration": {
                                             "type": "string",
-                                            "example": "6 meses"
+                                            "example": "6 months"
                                         },
-                                        "inicio_alimentacion_complementaria": {
+                                        "complementary_feeding_start": {
                                             "type": "string",
-                                            "example": "6 meses"
+                                            "example": "6 months"
                                         },
-                                        "suplemento_hierro": {
+                                        "iron_supplement": {
                                             "type": "boolean",
                                             "example": true
                                         },
-                                        "suplemento_vitamina_a": {
+                                        "vitamin_a_supplement": {
                                             "type": "boolean",
                                             "example": false
                                         },
-                                        "suplemento_multivitaminas": {
+                                        "multivitamin_supplement": {
                                             "type": "boolean",
                                             "example": false
                                         },
-                                        "estimulantes_apetito": {
+                                        "appetite_stimulants": {
                                             "type": "boolean",
                                             "example": false
                                         },
-                                        "come_solo": {
+                                        "eats_independently": {
                                             "type": "boolean",
                                             "example": true
                                         },
-                                        "cantidad_veces_come": {
+                                        "eating_frequency": {
                                             "type": "string",
-                                            "example": "3 veces al día"
+                                            "example": "3 times a day"
                                         },
-                                        "buen_apetito": {
+                                        "good_appetite": {
                                             "type": "boolean",
                                             "example": true
                                         },
-                                        "alergia_alimento": {
+                                        "food_allergy": {
                                             "type": "boolean",
                                             "example": false
                                         },
-                                        "controla_esfinteres": {
+                                        "controls_sphincters": {
                                             "type": "boolean",
                                             "example": true
                                         },
-                                        "utiliza_panal": {
+                                        "uses_diapers": {
                                             "type": "boolean",
                                             "example": false
                                         },
-                                        "discapacidad_diagnosticada": {
+                                        "diagnosed_disability": {
                                             "type": "boolean",
                                             "example": false
                                         },
-                                        "descripcion_discapacidad": {
+                                        "disability_description": {
                                             "type": "string",
                                             "example": ""
                                         },
-                                        "antecedentes_patologicos": {
+                                        "pathological_history": {
                                             "type": "string",
-                                            "example": "Ninguno"
+                                            "example": "None"
                                         },
-                                        "alergico_medicamento": {
+                                        "medication_allergy": {
                                             "type": "boolean",
                                             "example": false
                                         },
-                                        "medicamento_permanente": {
-                                            "type": "string",
-                                            "example": ""
-                                        },
-                                        "enfermedades_previas": {
-                                            "type": "boolean",
-                                            "example": false
-                                        },
-                                        "tipo_enfermedad": {
+                                        "permanent_medication": {
                                             "type": "string",
                                             "example": ""
                                         },
-                                        "estado_ingresado": {
+                                        "previous_diseases": {
                                             "type": "boolean",
                                             "example": false
                                         },
-                                        "veces_ingresado": {
+                                        "disease_type": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "hospitalized": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "times_hospitalized": {
                                             "type": "string",
                                             "example": ""
                                         },
@@ -3837,55 +3837,55 @@
                                             "type": "boolean",
                                             "example": false
                                         },
-                                        "fiebre": {
+                                        "fever": {
                                             "type": "boolean",
                                             "example": false
                                         },
-                                        "infecciones_previas": {
+                                        "previous_infections": {
                                             "type": "boolean",
                                             "example": false
                                         },
-                                        "deshidratacion": {
+                                        "dehydration": {
                                             "type": "boolean",
                                             "example": false
                                         },
-                                        "luce_desnutrido": {
+                                        "appears_malnourished": {
                                             "type": "boolean",
                                             "example": false
                                         },
-                                        "accidentes": {
+                                        "accidents": {
                                             "type": "boolean",
                                             "example": false
                                         },
-                                        "cirugias": {
+                                        "surgeries": {
                                             "type": "boolean",
                                             "example": false
                                         },
-                                        "cabeza": {
+                                        "head": {
                                             "type": "string",
                                             "example": "Normal"
                                         },
-                                        "fontanelas": {
+                                        "fontanelles": {
                                             "type": "string",
-                                            "example": "Cerradas"
+                                            "example": "Closed"
                                         },
-                                        "cara": {
-                                            "type": "string",
-                                            "example": "Normal"
-                                        },
-                                        "ojos_oidos_nariz": {
+                                        "face": {
                                             "type": "string",
                                             "example": "Normal"
                                         },
-                                        "boca": {
+                                        "eyes_ears_nose": {
                                             "type": "string",
                                             "example": "Normal"
                                         },
-                                        "cuello": {
+                                        "mouth": {
                                             "type": "string",
                                             "example": "Normal"
                                         },
-                                        "torax": {
+                                        "neck": {
+                                            "type": "string",
+                                            "example": "Normal"
+                                        },
+                                        "chest": {
                                             "type": "string",
                                             "example": "Normal"
                                         },
@@ -3893,53 +3893,53 @@
                                             "type": "string",
                                             "example": "Normal"
                                         },
-                                        "extremidades_superiores_inferiores": {
+                                        "upper_lower_extremities": {
                                             "type": "string",
                                             "example": "Normal"
                                         },
-                                        "genitourinario": {
+                                        "genitourinary": {
                                             "type": "string",
                                             "example": "Normal"
                                         },
-                                        "piel": {
+                                        "skin": {
                                             "type": "string",
                                             "example": "Normal"
                                         },
-                                        "peso_lbs": {
+                                        "current_weight_lbs": {
                                             "type": "string",
                                             "example": "25 lbs"
                                         },
-                                        "talla_cms": {
+                                        "current_height_cms": {
                                             "type": "string",
                                             "example": "100 cm"
                                         },
-                                        "pliegue_brazo": {
+                                        "arm_fold_measurement": {
                                             "type": "string",
                                             "example": "Normal"
                                         },
-                                        "imc": {
+                                        "bmi": {
                                             "type": "string",
                                             "example": "15.5"
                                         },
-                                        "estado_nutricional": {
+                                        "nutritional_status": {
                                             "type": "string",
                                             "example": "Normal"
                                         },
-                                        "firma_medico": {
+                                        "doctor_signature": {
                                             "type": "string",
                                             "example": "Dr. María González"
                                         },
-                                        "exequatur": {
+                                        "medical_license": {
                                             "type": "string",
                                             "example": "12345"
                                         },
-                                        "cmd": {
+                                        "medical_college_registration": {
                                             "type": "string",
                                             "example": "CMD-001"
                                         },
-                                        "tabla_crecimiento_desarrollo": {
+                                        "growth_development_chart": {
                                             "type": "string",
-                                            "example": "Según tabla OMS"
+                                            "example": "According to WHO chart"
                                         },
                                         "created_at": {
                                             "type": "string",
@@ -3997,12 +3997,12 @@
                         "application/json": {
                             "schema": {
                                 "properties": {
-                                    "bajo_riesgo": {
+                                    "low_risk": {
                                         "description": "Low risk pregnancy",
                                         "type": "boolean",
                                         "example": true
                                     },
-                                    "alto_riesgo": {
+                                    "high_risk": {
                                         "description": "High risk pregnancy",
                                         "type": "boolean",
                                         "example": false
@@ -4012,52 +4012,52 @@
                                         "type": "boolean",
                                         "example": false
                                     },
-                                    "sangrados": {
+                                    "bleeding": {
                                         "description": "Bleeding during pregnancy",
                                         "type": "boolean",
                                         "example": false
                                     },
-                                    "infecciones": {
+                                    "infections": {
                                         "description": "Infections during pregnancy",
                                         "type": "boolean",
                                         "example": false
                                     },
-                                    "madre_adolescente": {
+                                    "teenage_mother": {
                                         "description": "Teenage mother",
                                         "type": "boolean",
                                         "example": false
                                     },
-                                    "rn_a_termino": {
+                                    "full_term_newborn": {
                                         "description": "Full-term newborn",
                                         "type": "boolean",
                                         "example": true
                                     },
-                                    "rn_prematuro": {
+                                    "premature_newborn": {
                                         "description": "Premature newborn",
                                         "type": "boolean",
                                         "example": false
                                     },
-                                    "semanas_al_nacer": {
+                                    "weeks_at_birth": {
                                         "description": "Weeks at birth",
                                         "type": "string",
                                         "example": "40"
                                     },
-                                    "parto": {
+                                    "vaginal_delivery": {
                                         "description": "Vaginal delivery",
                                         "type": "boolean",
                                         "example": true
                                     },
-                                    "cesarea": {
+                                    "cesarean_delivery": {
                                         "description": "Cesarean delivery",
                                         "type": "boolean",
                                         "example": false
                                     },
-                                    "lloro_al_nacer": {
+                                    "cried_at_birth": {
                                         "description": "Cried at birth",
                                         "type": "boolean",
                                         "example": true
                                     },
-                                    "peso_al_nacer": {
+                                    "birth_weight": {
                                         "description": "Birth weight",
                                         "type": "string",
                                         "example": "3.2 kg"
@@ -4067,147 +4067,147 @@
                                         "type": "string",
                                         "example": "50 cm"
                                     },
-                                    "perimetro_cefalico": {
+                                    "head_circumference": {
                                         "description": "Head circumference",
                                         "type": "string",
                                         "example": "35 cm"
                                     },
-                                    "complicacion_al_nacer": {
+                                    "birth_complications": {
                                         "description": "Complications at birth",
                                         "type": "boolean",
                                         "example": false
                                     },
-                                    "descripcion_complicacion": {
+                                    "complications_description": {
                                         "description": "Description of complications",
                                         "type": "string",
                                         "example": ""
                                     },
-                                    "tiempo_hospitalizado": {
+                                    "hospitalization_time": {
                                         "description": "Hospitalization time",
                                         "type": "string",
-                                        "example": "2 días"
+                                        "example": "2 days"
                                     },
-                                    "incubadora": {
+                                    "incubator": {
                                         "description": "Incubator use",
                                         "type": "boolean",
                                         "example": false
                                     },
-                                    "oxigeno": {
+                                    "oxygen_therapy": {
                                         "description": "Oxygen therapy",
                                         "type": "boolean",
                                         "example": false
                                     },
-                                    "ventilacion_mecanica": {
+                                    "mechanical_ventilation": {
                                         "description": "Mechanical ventilation",
                                         "type": "boolean",
                                         "example": false
                                     },
-                                    "lactancia_materna_al_nacer": {
+                                    "breastfeeding_at_birth": {
                                         "description": "Breastfeeding at birth",
                                         "type": "boolean",
                                         "example": true
                                     },
-                                    "duracion_lactancia": {
+                                    "breastfeeding_duration": {
                                         "description": "Breastfeeding duration",
                                         "type": "string",
-                                        "example": "6 meses"
+                                        "example": "6 months"
                                     },
-                                    "inicio_alimentacion_complementaria": {
+                                    "complementary_feeding_start": {
                                         "description": "Complementary feeding start",
                                         "type": "string",
-                                        "example": "6 meses"
+                                        "example": "6 months"
                                     },
-                                    "suplemento_hierro": {
+                                    "iron_supplement": {
                                         "description": "Iron supplement",
                                         "type": "boolean",
                                         "example": true
                                     },
-                                    "suplemento_vitamina_a": {
+                                    "vitamin_a_supplement": {
                                         "description": "Vitamin A supplement",
                                         "type": "boolean",
                                         "example": false
                                     },
-                                    "suplemento_multivitaminas": {
+                                    "multivitamin_supplement": {
                                         "description": "Multivitamin supplement",
                                         "type": "boolean",
                                         "example": false
                                     },
-                                    "estimulantes_apetito": {
+                                    "appetite_stimulants": {
                                         "description": "Appetite stimulants",
                                         "type": "boolean",
                                         "example": false
                                     },
-                                    "come_solo": {
+                                    "eats_independently": {
                                         "description": "Eats independently",
                                         "type": "boolean",
                                         "example": true
                                     },
-                                    "cantidad_veces_come": {
+                                    "eating_frequency": {
                                         "description": "Eating frequency",
                                         "type": "string",
-                                        "example": "3 veces al día"
+                                        "example": "3 times a day"
                                     },
-                                    "buen_apetito": {
+                                    "good_appetite": {
                                         "description": "Good appetite",
                                         "type": "boolean",
                                         "example": true
                                     },
-                                    "alergia_alimento": {
+                                    "food_allergy": {
                                         "description": "Food allergy",
                                         "type": "boolean",
                                         "example": false
                                     },
-                                    "controla_esfinteres": {
+                                    "controls_sphincters": {
                                         "description": "Controls sphincters",
                                         "type": "boolean",
                                         "example": true
                                     },
-                                    "utiliza_panal": {
+                                    "uses_diapers": {
                                         "description": "Uses diapers",
                                         "type": "boolean",
                                         "example": false
                                     },
-                                    "discapacidad_diagnosticada": {
+                                    "diagnosed_disability": {
                                         "description": "Diagnosed disability",
                                         "type": "boolean",
                                         "example": false
                                     },
-                                    "descripcion_discapacidad": {
+                                    "disability_description": {
                                         "description": "Disability description",
                                         "type": "string",
                                         "example": ""
                                     },
-                                    "antecedentes_patologicos": {
+                                    "pathological_history": {
                                         "description": "Pathological history",
                                         "type": "string",
-                                        "example": "Ninguno"
+                                        "example": "None"
                                     },
-                                    "alergico_medicamento": {
+                                    "medication_allergy": {
                                         "description": "Medication allergy",
                                         "type": "boolean",
                                         "example": false
                                     },
-                                    "medicamento_permanente": {
+                                    "permanent_medication": {
                                         "description": "Permanent medication",
                                         "type": "string",
                                         "example": ""
                                     },
-                                    "enfermedades_previas": {
+                                    "previous_diseases": {
                                         "description": "Previous diseases",
                                         "type": "boolean",
                                         "example": false
                                     },
-                                    "tipo_enfermedad": {
+                                    "disease_type": {
                                         "description": "Type of disease",
                                         "type": "string",
                                         "example": ""
                                     },
-                                    "estado_ingresado": {
+                                    "hospitalized": {
                                         "description": "Hospitalized",
                                         "type": "boolean",
                                         "example": false
                                     },
-                                    "veces_ingresado": {
+                                    "times_hospitalized": {
                                         "description": "Times hospitalized",
                                         "type": "string",
                                         "example": ""
@@ -4222,27 +4222,27 @@
                                         "type": "boolean",
                                         "example": false
                                     },
-                                    "infecciones_previas": {
+                                    "infections_previas": {
                                         "description": "Previous infections",
                                         "type": "boolean",
                                         "example": false
                                     },
-                                    "deshidratacion": {
+                                    "dehydration": {
                                         "description": "Dehydration",
                                         "type": "boolean",
                                         "example": false
                                     },
-                                    "luce_desnutrido": {
+                                    "appears_malnourished": {
                                         "description": "Appears malnourished",
                                         "type": "boolean",
                                         "example": false
                                     },
-                                    "accidentes": {
+                                    "accidents": {
                                         "description": "Accidents",
                                         "type": "boolean",
                                         "example": false
                                     },
-                                    "cirugias": {
+                                    "surgeries": {
                                         "description": "Surgeries",
                                         "type": "boolean",
                                         "example": false
@@ -4255,14 +4255,14 @@
                                     "fontanelas": {
                                         "description": "Fontanelles",
                                         "type": "string",
-                                        "example": "Cerradas"
+                                        "example": "Closed"
                                     },
                                     "cara": {
                                         "description": "Face examination",
                                         "type": "string",
                                         "example": "Normal"
                                     },
-                                    "ojos_oidos_nariz": {
+                                    "eyes_ears_nose": {
                                         "description": "Eyes, ears, nose examination",
                                         "type": "string",
                                         "example": "Normal"
@@ -4287,12 +4287,12 @@
                                         "type": "string",
                                         "example": "Normal"
                                     },
-                                    "extremidades_superiores_inferiores": {
+                                    "upper_lower_extremities": {
                                         "description": "Upper and lower extremities examination",
                                         "type": "string",
                                         "example": "Normal"
                                     },
-                                    "genitourinario": {
+                                    "genitourinary": {
                                         "description": "Genitourinary examination",
                                         "type": "string",
                                         "example": "Normal"
@@ -4302,17 +4302,17 @@
                                         "type": "string",
                                         "example": "Normal"
                                     },
-                                    "peso_lbs": {
+                                    "current_weight_lbs": {
                                         "description": "Current weight in pounds",
                                         "type": "string",
                                         "example": "25 lbs"
                                     },
-                                    "talla_cms": {
+                                    "current_height_cms": {
                                         "description": "Current height in centimeters",
                                         "type": "string",
                                         "example": "100 cm"
                                     },
-                                    "pliegue_brazo": {
+                                    "arm_fold_measurement": {
                                         "description": "Arm fold measurement",
                                         "type": "string",
                                         "example": "Normal"
@@ -4322,17 +4322,17 @@
                                         "type": "string",
                                         "example": "15.5"
                                     },
-                                    "estado_nutricional": {
+                                    "nutritional_status": {
                                         "description": "Nutritional status",
                                         "type": "string",
                                         "example": "Normal"
                                     },
-                                    "firma_medico": {
+                                    "doctor_signature": {
                                         "description": "Doctor's signature",
                                         "type": "string",
                                         "example": "Dr. María González"
                                     },
-                                    "exequatur": {
+                                    "medical_license": {
                                         "description": "Medical license number",
                                         "type": "string",
                                         "example": "12345"
@@ -4342,10 +4342,10 @@
                                         "type": "string",
                                         "example": "CMD-001"
                                     },
-                                    "tabla_crecimiento_desarrollo": {
+                                    "growth_development_chart": {
                                         "description": "Growth and development chart",
                                         "type": "string",
-                                        "example": "Según tabla OMS"
+                                        "example": "According to WHO chart"
                                     }
                                 },
                                 "type": "object"
