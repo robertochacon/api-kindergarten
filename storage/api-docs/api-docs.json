@@ -3261,7 +3261,7 @@
                                         "type": "string",
                                         "example": "3.2 kg"
                                     },
-                                    "talla": {
+                                    "birth_length": {
                                         "description": "Birth length",
                                         "type": "string",
                                         "example": "50 cm"
@@ -3416,12 +3416,12 @@
                                         "type": "boolean",
                                         "example": false
                                     },
-                                    "fiebre": {
+                                    "fever": {
                                         "description": "Fever",
                                         "type": "boolean",
                                         "example": false
                                     },
-                                    "infections_previas": {
+                                    "previous_infections": {
                                         "description": "Previous infections",
                                         "type": "boolean",
                                         "example": false
@@ -3446,17 +3446,17 @@
                                         "type": "boolean",
                                         "example": false
                                     },
-                                    "cabeza": {
+                                    "head": {
                                         "description": "Head examination",
                                         "type": "string",
                                         "example": "Normal"
                                     },
-                                    "fontanelas": {
+                                    "fontanelles": {
                                         "description": "Fontanelles",
                                         "type": "string",
                                         "example": "Closed"
                                     },
-                                    "cara": {
+                                    "face": {
                                         "description": "Face examination",
                                         "type": "string",
                                         "example": "Normal"
@@ -3466,17 +3466,17 @@
                                         "type": "string",
                                         "example": "Normal"
                                     },
-                                    "boca": {
+                                    "mouth": {
                                         "description": "Mouth examination",
                                         "type": "string",
                                         "example": "Normal"
                                     },
-                                    "cuello": {
+                                    "neck": {
                                         "description": "Neck examination",
                                         "type": "string",
                                         "example": "Normal"
                                     },
-                                    "torax": {
+                                    "chest": {
                                         "description": "Chest examination",
                                         "type": "string",
                                         "example": "Normal"
@@ -3496,7 +3496,7 @@
                                         "type": "string",
                                         "example": "Normal"
                                     },
-                                    "piel": {
+                                    "skin": {
                                         "description": "Skin examination",
                                         "type": "string",
                                         "example": "Normal"
@@ -3516,7 +3516,7 @@
                                         "type": "string",
                                         "example": "Normal"
                                     },
-                                    "imc": {
+                                    "bmi": {
                                         "description": "Body Mass Index",
                                         "type": "string",
                                         "example": "15.5"
@@ -4062,7 +4062,7 @@
                                         "type": "string",
                                         "example": "3.2 kg"
                                     },
-                                    "talla": {
+                                    "birth_length": {
                                         "description": "Birth length",
                                         "type": "string",
                                         "example": "50 cm"
@@ -4217,12 +4217,12 @@
                                         "type": "boolean",
                                         "example": false
                                     },
-                                    "fiebre": {
+                                    "fever": {
                                         "description": "Fever",
                                         "type": "boolean",
                                         "example": false
                                     },
-                                    "infections_previas": {
+                                    "previous_infections": {
                                         "description": "Previous infections",
                                         "type": "boolean",
                                         "example": false
@@ -4247,17 +4247,17 @@
                                         "type": "boolean",
                                         "example": false
                                     },
-                                    "cabeza": {
+                                    "head": {
                                         "description": "Head examination",
                                         "type": "string",
                                         "example": "Normal"
                                     },
-                                    "fontanelas": {
+                                    "fontanelles": {
                                         "description": "Fontanelles",
                                         "type": "string",
                                         "example": "Closed"
                                     },
-                                    "cara": {
+                                    "face": {
                                         "description": "Face examination",
                                         "type": "string",
                                         "example": "Normal"
@@ -4267,17 +4267,17 @@
                                         "type": "string",
                                         "example": "Normal"
                                     },
-                                    "boca": {
+                                    "mouth": {
                                         "description": "Mouth examination",
                                         "type": "string",
                                         "example": "Normal"
                                     },
-                                    "cuello": {
+                                    "neck": {
                                         "description": "Neck examination",
                                         "type": "string",
                                         "example": "Normal"
                                     },
-                                    "torax": {
+                                    "chest": {
                                         "description": "Chest examination",
                                         "type": "string",
                                         "example": "Normal"
@@ -4297,7 +4297,7 @@
                                         "type": "string",
                                         "example": "Normal"
                                     },
-                                    "piel": {
+                                    "skin": {
                                         "description": "Skin examination",
                                         "type": "string",
                                         "example": "Normal"
@@ -4317,7 +4317,7 @@
                                         "type": "string",
                                         "example": "Normal"
                                     },
-                                    "imc": {
+                                    "bmi": {
                                         "description": "Body Mass Index",
                                         "type": "string",
                                         "example": "15.5"
